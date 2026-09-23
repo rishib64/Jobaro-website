@@ -1,0 +1,1310 @@
+<!doctype html>
+<!--
+  JOBARO WEBSITE: HOW TO EDIT
+  ---------------------------
+  1. Email address and web address: search for "SITE CONFIG" and change the values.
+  2. Wording: search (Ctrl+F) for the sentence you want to change and edit only the words.
+     All page text is below the line that says "PAGES".
+  3. Brand orange: search for "--or:#F2651C" and change the colour code.
+  4. Demo form: paste your free Formspree address into formEndpoint in SITE CONFIG.
+  Tip: only change words between quotes or between > and <. Leave the symbols around them alone.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>jobaro</title>
+<meta name="description" content="Jobaro gives your customers an instant, guided way to request an estimate, while you receive a complete, qualified enquiry.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M11 45 L3 52 L15 50 Z' fill='%2316181D'/%3E%3Cpath d='M33 9 C48 9 56 21 56 35 C56 49 46 58 32 58 C18 58 9 49 9 36 C9 21 18 9 33 9Z' fill='%23F2651C'/%3E%3Cellipse cx='37' cy='45' rx='13' ry='9.5' fill='%23FFD9C0'/%3E%3Cpath d='M15 33 C17 45 25 49 34 47 C26 44 22 38 21 30 Z' fill='%23C9480A'/%3E%3Cpath d='M27 11 C27 5 31 2 36 3 C33 5 32 7 32.5 9.5 Z' fill='%2316181D'/%3E%3Ccircle cx='39' cy='26' r='7.5' fill='%23fff'/%3E%3Ccircle cx='41' cy='26.5' r='3.8' fill='%2316181D'/%3E%3Cpath d='M30.5 23.6 Q39 19.2 46.5 22.8 L46.5 16 L30.5 16 Z' fill='%23F2651C'/%3E%3Cpath d='M31 23.6 Q39 19.6 46.5 22.8' stroke='%2316181D' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M54.5 27 L62 31 L54.5 35 Z' fill='%2316181D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  color-scheme:light;
+  --bg:#FBFAF7; --paper:#FFFFFF; --sand:#F4F2EE; --sand2:#EFECE6;
+  --ink:#16181D; --ink2:#3B3F48; --mute:#6D7079; --faint:#A0A2A8;
+  --line:#E7E4DE; --line2:#F1EEE9;
+  --or:#F2651C; --ord:#D4510C; --or50:#FFF5EE; --or100:#FFE4D2; --or200:#FFC9A6;
+  --ok:#1E8F58; --ok50:#E7F5EC;
+  --fd:"Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fb:"Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fm:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --shadow-lg:0 40px 80px -30px rgba(22,24,29,.28), 0 12px 30px -12px rgba(22,24,29,.12);
+  --shadow-md:0 18px 40px -18px rgba(22,24,29,.25), 0 0 0 1px rgba(22,24,29,.05);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:700;letter-spacing:-.03em;line-height:1.02;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.dot{color:var(--or)}
+:focus-visible{outline:2.5px solid var(--or);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ============ TYPE ============ */
+.eyebrow{font-family:var(--fm);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--or);transform:rotate(45deg)}
+.h1{font-size:clamp(44px,7.2vw,86px);letter-spacing:-.045em;line-height:.98}
+.h2{font-size:clamp(34px,4.6vw,56px);letter-spacing:-.04em}
+.h3{font-size:clamp(26px,3vw,34px);letter-spacing:-.03em;line-height:1.08}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:36em;line-height:1.5}
+.body{color:var(--mute);max-width:34em}
+.label{font-family:var(--fm);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font:600 15px/1 var(--fb);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s,border-color .2s;white-space:nowrap}
+.btn em{font-style:normal;transition:transform .2s}
+.btn:hover em{transform:translateX(3px)}
+.btn-or{background:var(--or);color:#fff;box-shadow:0 6px 18px -8px rgba(242,101,28,.7)}
+.btn-or:hover{background:var(--ord);transform:translateY(-1px)}
+.btn-ghost{background:var(--paper);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn-sm{height:40px;padding:0 18px;font-size:14px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(251,250,247,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-color:var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font:700 25px/1 var(--fd);letter-spacing:-.045em}
+.logo .bird{margin-top:-2px}
+.logo:hover .bird{animation:hop .5s ease}
+.nav-links{display:flex;gap:4px;margin-left:12px}
+.nav-links a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink2);padding:8px 14px;border-radius:999px;transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--sand);color:var(--ink)}
+.nav-links a.on{color:var(--ink);background:var(--sand)}
+.nav-cta{margin-left:auto}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:var(--paper);border-radius:12px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .2s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+.nav.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mnav{display:none}
+@media (max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .mnav{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;border-top:1px solid transparent}
+  .nav.open .mnav{grid-template-rows:1fr;border-color:var(--line)}
+  .mnav>div{overflow:hidden}
+  .mnav nav{display:flex;flex-direction:column;padding-block:12px 20px}
+  .mnav a.ml{font:600 22px/1 var(--fd);letter-spacing:-.03em;text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line2)}
+  .mnav a.ml.on{color:var(--or)}
+  .mnav .btn{margin-top:18px;justify-content:center}
+}
+
+/* ============ SECTIONS ============ */
+.sec{padding-block:120px}
+.sec-tight{padding-block:80px}
+.sec-sand{background:var(--sand)}
+.sec-head{display:grid;gap:18px;margin-bottom:56px;max-width:760px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media (max-width:900px){.sec{padding-block:80px}.split{grid-template-columns:1fr;gap:40px}.sec-head{margin-bottom:40px}}
+
+/* ============ HERO ============ */
+.hero{padding-block:72px 40px;overflow:hidden}
+.hero-top{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end}
+.hero-top .h1{margin-top:22px}
+.hero-side{display:grid;gap:28px;padding-bottom:10px}
+.hero-stage{position:relative;margin-top:64px;margin-bottom:30px}
+@media (max-width:900px){.hero{padding-block:44px 24px}.hero-top{grid-template-columns:1fr;gap:24px}.hero-stage{margin-top:44px}}
+
+/* ============ BROWSER FRAME ============ */
+.bf{background:var(--paper);border-radius:16px;box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid rgba(22,24,29,.07);max-width:100%}
+.bf-bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#F6F5F2;border-bottom:1px solid var(--line)}
+.bf-bar i{width:10px;height:10px;border-radius:50%;background:#DEDBD5;flex:none}
+.bf-url{margin:0 auto;display:flex;align-items:center;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:8px;height:26px;padding:0 14px;font-size:12px;color:var(--mute);max-width:60%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bf-url svg{flex:none}
+.bf-body{position:relative;height:var(--h,520px);overflow:hidden;container-type:inline-size}
+
+/* ============ FICTIONAL BUSINESS SITES ============ */
+.site{height:100%;display:flex;flex-direction:column}
+.s-nav{display:flex;align-items:center;gap:22px;padding:18px 28px;font-size:13px}
+.s-logo{display:flex;align-items:center;gap:8px;font-size:15px;white-space:nowrap}
+.s-mark{width:22px;height:22px;border-radius:6px;display:inline-block;flex:none}
+.s-links{display:flex;gap:20px;margin-left:auto;opacity:.75}
+.s-links i{font-style:normal}
+.s-book{padding:8px 14px;border-radius:8px;font-weight:600;font-size:12px;white-space:nowrap}
+.s-hero{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:30px 28px 28px;align-items:center}
+.s-copy small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;font-weight:600}
+.s-copy h3{font-size:clamp(24px,3.4cqi,40px);line-height:1.08;margin:12px 0 12px;letter-spacing:-.02em}
+.s-copy p{font-size:14px;opacity:.75;max-width:30em;margin-bottom:22px}
+.s-trust{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:22px;font-size:12px;opacity:.7}
+.s-trust span::before{content:"✓ ";font-weight:700}
+.s-img{height:100%;min-height:200px;border-radius:14px;overflow:hidden}
+.s-img svg{width:100%;height:100%;display:block}
+.s-clean{background:#F2F7F6;color:#0E3B3E;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.s-clean h3{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700}
+.s-clean .s-mark{background:#0F5257}
+.s-clean .s-book{background:#0F5257;color:#fff}
+.s-land{background:#F4F1E8;color:#23372A;font-family:Georgia,"Times New Roman",serif}
+.s-land h3{font-family:Georgia,serif;font-weight:400;font-style:italic}
+.s-land .s-mark{background:#2F5D3A;border-radius:50% 50% 50% 4px}
+.s-land .s-book{background:#2F5D3A;color:#F4F1E8;font-family:ui-sans-serif,system-ui,sans-serif}
+.s-land .s-nav,.s-land p,.s-land .s-trust{font-family:ui-sans-serif,system-ui,sans-serif}
+.s-drive{background:#23272E;color:#F3F1EC;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
+.s-drive h3{font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.s-drive .s-mark{background:#E8C547;border-radius:3px}
+.s-drive .s-book{background:#E8C547;color:#23272E}
+.s-win{background:#fff;color:#1D2B4A;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
+.s-win h3{font-weight:600}
+.s-win .s-mark{background:#1D3A6E;border-radius:4px;box-shadow:inset 0 0 0 5px #1D3A6E,inset 0 0 0 7px #fff}
+.s-win .s-book{background:#1D3A6E;color:#fff}
+.s-plain{background:#fff;color:#333;font-family:Arial,Helvetica,sans-serif}
+@container (max-width:700px){
+  .s-links{display:none}
+  .s-book{margin-left:auto}
+  .s-hero{grid-template-columns:1fr;align-content:start;padding:18px 20px}
+  .s-img{display:none}
+  .s-nav{padding:14px 20px}
+}
+
+/* Jobaro launcher button (sits on customer sites) */
+.jb-launch{display:inline-flex;align-items:center;gap:10px;background:var(--or);color:#fff;font:600 14.5px/1 var(--fb);padding:13px 18px 13px 13px;border-radius:12px;box-shadow:0 10px 24px -10px rgba(242,101,28,.8);position:relative;white-space:nowrap}
+.jb-launch .bird-chip{width:26px;height:26px;border-radius:8px;background:#fff;display:grid;place-items:center}
+.jb-launch em{font-style:normal}
+.jb-launch.press::after{content:"";position:absolute;inset:-6px;border-radius:16px;border:2px solid var(--or);opacity:0;animation:ring 1.6s .6s ease-out 2}
+
+/* ============ WIDGET ============ */
+.wg{width:min(348px,100%);background:#fff;border-radius:18px;box-shadow:0 34px 70px -24px rgba(22,24,29,.42),0 0 0 1px rgba(22,24,29,.07);overflow:hidden;font-family:var(--fb);color:var(--ink);text-align:left}
+.wg.flat{box-shadow:none;border-radius:0;width:100%}
+.wg-top{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line2)}
+.wg-av{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:#fff;font:700 12px/1 var(--fb);flex:none}
+.wg-biz{display:grid;line-height:1.25;min-width:0}
+.wg-biz b{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wg-biz small{font-size:11.5px;color:var(--mute);display:flex;align-items:center;gap:5px}
+.wg-biz small::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.wg-x{margin-left:auto;color:var(--faint);display:grid}
+.wg-prog{height:3px;background:var(--line2)}
+.wg-prog span{display:block;height:100%;background:var(--or);border-radius:0 3px 3px 0}
+.wg-body{padding:18px 18px 6px}
+.wg-step{font-family:var(--fm);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--or);margin-bottom:8px}
+.wg-title{font:700 19px/1.15 var(--fd);letter-spacing:-.025em;margin-bottom:6px}
+.wg-q{font-size:14px;color:var(--ink2);margin-bottom:14px}
+.wg-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 14px}
+.wg-back{font-size:13px;color:var(--mute);font-weight:500}
+.wg-next{background:var(--or);color:#fff;font-weight:600;font-size:13.5px;padding:10px 16px;border-radius:10px}
+.wg-next em{font-style:normal}
+.wg-pow{display:flex;align-items:center;justify-content:center;gap:5px;font-size:10.5px;color:var(--faint);padding:0 0 12px}
+.wg-pow b{color:var(--ink2);font-family:var(--fd);letter-spacing:-.03em;font-size:11.5px}
+.opts{display:grid;gap:7px}
+.opt{display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;font-size:13.5px;font-weight:500;background:#fff;transition:border-color .2s,background .2s}
+.opt .rd{width:16px;height:16px;border-radius:50%;border:1.5px solid #CFCBC4;flex:none;display:grid;place-items:center}
+.opt small{margin-left:auto;color:var(--mute);font-size:12px;font-weight:400}
+.opt.sel{border-color:var(--or);background:var(--or50);box-shadow:0 0 0 3px rgba(242,101,28,.1)}
+.opt.sel .rd{border-color:var(--or);background:var(--or)}
+.opt.sel .rd::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12.5px;font-weight:600;display:grid;gap:8px}
+.tile .sw{height:40px;border-radius:7px}
+.tile.sel{border-color:var(--or);background:var(--or50);box-shadow:0 0 0 3px rgba(242,101,28,.1)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:500;background:#fff}
+.chip.sel{border-color:var(--or);background:var(--or50);color:var(--ord)}
+.chip.sel::before{content:"✓ ";font-weight:700}
+.ctr{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line2);font-size:13.5px;font-weight:500}
+.ctr-c{display:flex;align-items:center;gap:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.ctr-c span{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink2);font-weight:500}
+.ctr-c span.p{border-color:var(--or);color:var(--or)}
+.fld{font-size:12px;color:var(--mute);margin:14px 0 7px;font-weight:500}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.photos .pt{aspect-ratio:1;border-radius:9px;overflow:hidden;max-width:100%}
+.photos .pt svg{width:100%;height:100%;display:block}
+.photos .add{border:1.5px dashed #D6D2CB;display:grid;place-items:center;color:var(--mute);font-size:20px}
+.slider{height:6px;border-radius:6px;background:var(--line2);position:relative;margin:18px 0 6px}
+.slider span{position:absolute;left:0;top:0;bottom:0;width:48%;background:var(--or);border-radius:6px}
+.slider i{position:absolute;left:48%;top:50%;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--or);transform:translate(-50%,-50%)}
+.slider-v{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
+.est{background:linear-gradient(180deg,var(--or50),#fff);border:1px solid var(--or100);border-radius:14px;padding:18px;text-align:center}
+.est-lbl{font-size:12.5px;color:var(--ink2);font-weight:500}
+.est-price{font:800 38px/1.05 var(--fd);letter-spacing:-.04em;color:var(--ink);margin:6px 0 6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.est-note{font-size:11.5px;color:var(--mute)}
+.est-lines{display:grid;gap:6px;margin:14px 0 2px;padding:0;list-style:none;font-size:12.5px;color:var(--ink2)}
+.est-lines li{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding-top:6px}
+.est-lines li span:last-child{color:var(--mute)}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.slot{border:1px solid var(--line);border-radius:10px;padding:9px 6px;text-align:center;font-size:12px;line-height:1.3}
+.slot b{display:block;font-size:13px}
+.slot.sel{border-color:var(--or);background:var(--or50)}
+
+/* chat style */
+.chat{display:grid;gap:10px}
+.bub{max-width:84%;padding:10px 13px;border-radius:14px;font-size:13.5px;line-height:1.4}
+.bub.j{background:var(--sand);border-bottom-left-radius:4px;justify-self:start}
+.bub.u{background:var(--or);color:#fff;border-bottom-right-radius:4px;justify-self:end}
+.bub-row{display:flex;gap:8px;align-items:flex-end}
+.bub-row .bird{flex:none;margin-bottom:2px}
+
+/* overlay placement inside frames */
+.over{position:absolute;right:24px;bottom:22px}
+.bf-body:has(.over) .s-img{opacity:0}
+@container (max-width:700px){ .over{right:12px;left:12px;top:auto;bottom:12px;width:auto} .over .wg{width:100%} }
+
+/* ============ PHONE ============ */
+.phone{width:290px;max-width:100%;background:#16181D;border-radius:44px;padding:10px;box-shadow:var(--shadow-lg);flex:none}
+.phone-scr{border-radius:35px;background:#fff;overflow:hidden;height:var(--ph,590px);display:flex;flex-direction:column;position:relative}
+.phone-sb{display:flex;justify-content:space-between;align-items:center;padding:14px 26px 6px;font:600 13px/1 var(--fb)}
+.phone-sb i{width:84px;height:24px;background:#16181D;border-radius:14px;position:absolute;left:50%;top:9px;transform:translateX(-50%)}
+.phone-site{padding:6px 16px 10px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;border-bottom:1px solid var(--line2)}
+
+/* ============ DASHBOARD ============ */
+.dash-wrap{container-type:inline-size;max-width:100%}
+.dash{display:grid;grid-template-columns:196px 290px 1fr;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(22,24,29,.07);font-size:13px;min-height:560px;text-align:left}
+.d-side{background:#FAF9F6;border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:3px}
+.d-side .logo{font-size:20px;padding:0 8px 18px}
+.d-nav{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:var(--ink2);font-weight:500}
+.d-nav svg{flex:none;color:var(--mute)}
+.d-nav.on{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06),0 0 0 1px var(--line);color:var(--ink)}
+.d-nav.on svg{color:var(--or)}
+.d-nav b{margin-left:auto;background:var(--or);color:#fff;font-size:10.5px;padding:2px 7px;border-radius:999px}
+.d-biz{margin-top:auto;display:flex;align-items:center;gap:9px;padding:10px;border-top:1px solid var(--line);font-size:12px;color:var(--ink2)}
+.d-list{border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.d-lh{padding:18px 16px 12px;display:grid;gap:12px}
+.d-lh h5{margin:0;font:700 17px/1 var(--fd);letter-spacing:-.02em}
+.d-tabs{display:flex;gap:6px}
+.d-tabs span{font-size:11.5px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.d-tabs span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.d-item{padding:13px 16px;border-top:1px solid var(--line2);display:grid;gap:4px;position:relative}
+.d-item.on{background:var(--or50)}
+.d-item.on::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 3px 3px 0;background:var(--or)}
+.d-row{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.d-row b{font-size:13.5px}
+.d-row small{color:var(--mute);font-size:11.5px;white-space:nowrap}
+.d-sub{color:var(--mute);font-size:12px;display:flex;justify-content:space-between;gap:8px}
+.d-sub .pr{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 10.5px/1 var(--fm);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:6px;white-space:nowrap}
+.pill.new{background:var(--or100);color:var(--ord)}
+.pill.new::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--or);animation:pulse 2s infinite}
+.pill.q{background:#EEF0F4;color:#4A5160}
+.pill.b{background:var(--ok50);color:var(--ok)}
+.d-det{padding:22px 26px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.d-dh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.d-dh h4{font-size:24px;margin:10px 0 4px}
+.d-dh p{color:var(--mute);font-size:12.5px}
+.d-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.d-grid div{background:#fff;padding:11px 13px;display:grid;gap:3px;min-width:0}
+.d-grid span{font-size:11px;color:var(--mute)}
+.d-grid b{font-size:13px;font-weight:600}
+.d-photos{display:flex;gap:8px}
+.d-photos .pt{width:74px;height:58px;border-radius:9px;overflow:hidden;flex:none}
+.d-photos .pt svg{width:100%;height:100%;display:block}
+.d-foot{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.d-box{border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:grid;gap:4px}
+.d-box.o{border-color:var(--or100);background:var(--or50)}
+.d-box .big{font:800 24px/1 var(--fd);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.d-box span{font-size:11.5px;color:var(--mute)}
+.d-act{display:flex;gap:8px;flex-wrap:wrap}
+.d-btn{padding:9px 14px;border-radius:9px;border:1px solid var(--line);font-weight:600;font-size:12.5px}
+.d-btn.o{background:var(--or);border-color:var(--or);color:#fff}
+@container (max-width:1000px){ .dash{grid-template-columns:260px 1fr} .d-side{display:none} }
+@container (max-width:680px){ .dash{grid-template-columns:1fr} .d-list{display:none} .d-grid{grid-template-columns:1fr 1fr} .d-det{padding:18px} .d-foot{grid-template-columns:1fr} }
+
+/* standalone enquiry card */
+.enq{background:#fff;border-radius:18px;box-shadow:var(--shadow-md);overflow:hidden;max-width:440px;width:100%}
+.enq-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line2)}
+.enq-h small{color:var(--mute);font-size:12px}
+.enq-b{padding:20px;display:grid;gap:16px}
+.enq-name{display:flex;align-items:center;gap:12px}
+.enq-name .av{width:40px;height:40px;border-radius:50%;background:var(--sand2);display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--ink2)}
+.enq-name b{font:700 20px/1.1 var(--fd);letter-spacing:-.02em;display:block}
+.enq-name span{font-size:13px;color:var(--mute)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:9px 18px;font-size:14px;margin:0}
+.kv dt{color:var(--mute)}
+.kv dd{margin:0;font-weight:600;text-align:right}
+.enq-est{display:flex;justify-content:space-between;align-items:center;background:var(--or50);border:1px solid var(--or100);border-radius:12px;padding:14px 16px}
+.enq-est b{font:800 26px/1 var(--fd);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+/* toast */
+.toast{position:absolute;left:-18px;bottom:-26px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px 16px 12px 12px;box-shadow:var(--shadow-md);min-width:300px;z-index:3}
+.toast .ic{width:40px;height:40px;border-radius:12px;background:var(--or50);display:grid;place-items:center;flex:none}
+.toast b{display:block;font-size:13.5px}
+.toast span{font-size:12.5px;color:var(--mute)}
+.toast em{font-style:normal;font-size:11px;color:var(--faint);margin-left:auto;align-self:flex-start}
+@media (max-width:900px){ .toast{position:relative;left:auto;bottom:auto;margin:-28px auto 0;width:min(360px,calc(100% - 24px));min-width:0} }
+
+/* ============ HOME: PROBLEM ============ */
+.old-flow{display:grid;gap:0;margin-top:36px;max-width:420px}
+.old-flow li{list-style:none;display:flex;align-items:center;gap:14px;font-weight:500;color:var(--ink2)}
+.old-flow li.s{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.old-flow li.s span{font-family:var(--fm);font-size:11px;color:var(--faint)}
+.old-flow li.a{justify-content:flex-start;padding:4px 0 4px 26px;color:var(--faint);font-size:14px;gap:8px}
+.old-flow li.wait{color:var(--mute);border-style:dashed}
+.old-flow{padding:0;margin-bottom:0}
+.oldform{padding:28px 30px;font-family:Arial,Helvetica,sans-serif;color:#444;background:#fff;height:100%}
+.oldform h6{font:700 18px Arial,sans-serif;margin:0 0 16px;color:#222}
+.oldform label{display:block;font-size:12px;margin:10px 0 4px;color:#555}
+.oldform .in{height:30px;border:1px solid #ccc;background:#fafafa}
+.oldform .in.ta{height:70px}
+.oldform .sub{display:inline-block;margin-top:14px;background:#888;color:#fff;font-size:13px;padding:8px 16px;border-radius:2px}
+.thanks{margin-top:16px;display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
+.thanks p{font-size:14px;color:var(--ink2)}
+.thanks small{display:block;color:var(--faint);font-size:12px;margin-top:3px}
+.clock{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);position:relative;flex:none}
+.clock::before,.clock::after{content:"";position:absolute;left:50%;top:50%;width:2px;background:var(--faint);transform-origin:50% 0;border-radius:2px}
+.clock::before{height:10px;animation:spin 6s linear infinite}
+.clock::after{height:7px;transform:rotate(120deg)}
+
+/* ============ HOME: DIFFERENCE ============ */
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.st{display:flex;flex-direction:column;gap:14px}
+.st-n{font:800 64px/1 var(--fd);letter-spacing:-.05em;color:var(--ink);display:flex;align-items:flex-start;gap:6px}
+.st-n::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--or);margin-top:8px}
+.st h3{font-size:21px;letter-spacing:-.02em;line-height:1.15}
+.st-mock{margin-top:auto;background:var(--sand);border-radius:16px;padding:18px;height:220px;display:grid;place-items:center;overflow:hidden}
+.mini-site{width:100%;background:#F2F7F6;border-radius:10px;padding:14px;display:grid;gap:8px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.mini-site .ln{height:7px;border-radius:4px;background:#0F5257;opacity:.2}
+.mini-site .ln.h{height:12px;opacity:.75;width:80%}
+.mini-q{width:100%;background:#fff;border-radius:12px;padding:14px;box-shadow:var(--shadow-md);display:grid;gap:6px}
+.mini-q .opt{padding:7px 9px;font-size:12px}
+.mini-q .q{font-size:13px;font-weight:600;margin-bottom:2px}
+.mini-p{width:100%;background:#fff;border-radius:12px;padding:16px;box-shadow:var(--shadow-md);text-align:center}
+.mini-p .est-price{font-size:30px}
+.mini-n{width:100%;display:grid;gap:8px}
+.mini-n .toast{position:static;min-width:0;padding:10px 12px 10px 10px}
+.mini-n .toast .ic{width:30px;height:30px;border-radius:9px}.mini-n .toast b{font-size:12px}.mini-n .toast span{font-size:11px}.mini-n .toast em{display:none}
+.mini-n .toast.ghost{opacity:.5;transform:scale(.94)}
+@media (max-width:1000px){.steps4{grid-template-columns:1fr 1fr;gap:40px 20px}}
+@media (max-width:560px){.steps4{grid-template-columns:1fr}}
+
+/* ============ PRODUCT VISUAL (home) ============ */
+.pv{position:relative;display:grid;grid-template-columns:1fr auto;gap:0;align-items:end}
+.pv .bf{margin-right:-90px}
+.pv .phone{position:relative;z-index:2;margin-bottom:-30px}
+@media (max-width:1000px){.pv{grid-template-columns:1fr;justify-items:center}.pv .bf{margin-right:0;width:100%}.pv .phone{margin:-60px 0 0}}
+
+/* ============ BETTER LEADS ============ */
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center}
+.vs-arrow{width:56px;height:56px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;color:var(--or);font-size:22px}
+.inbox{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;opacity:.9}
+.inbox-h{padding:12px 16px;border-bottom:1px solid var(--line2);font-size:12px;color:var(--mute);display:flex;justify-content:space-between}
+.inbox-m{padding:18px;display:grid;gap:12px;font-size:14px}
+.inbox-m .from{display:flex;gap:10px;align-items:center}
+.inbox-m .from i{width:32px;height:32px;border-radius:50%;background:#E4E4E4;flex:none}
+.inbox-m .from span{font-size:12px;color:var(--mute);display:block}
+.inbox-m blockquote{margin:0;padding:14px 16px;background:#F6F6F6;border-radius:10px;font-family:Arial,sans-serif;color:#444;font-size:15px}
+.inbox-q{display:flex;flex-wrap:wrap;gap:6px}
+.inbox-q span{font-size:12px;color:var(--mute);border:1px dashed #D5D5D5;border-radius:999px;padding:4px 10px}
+@media (max-width:900px){.vs{grid-template-columns:1fr;justify-items:stretch}.vs-arrow{transform:rotate(90deg);justify-self:center}.enq{max-width:none}}
+
+/* ============ EXISTING WEBSITE EQUATION ============ */
+.eq{display:grid;grid-template-columns:1fr auto .62fr auto 1fr;gap:16px;align-items:center;margin-top:56px}
+.eq-op{font:600 32px/1 var(--fd);color:var(--faint);text-align:center}
+.eq-card{display:grid;gap:12px}
+.eq-card .label{text-align:center}
+.eq-box{background:#fff;border-radius:14px;box-shadow:var(--shadow-md);height:240px;overflow:hidden;position:relative}
+.eq-box .s-nav{padding:10px 14px}
+.eq-site{height:100%;background:#F2F7F6;color:#0E3B3E;padding:16px;font-family:ui-sans-serif,system-ui,sans-serif}
+.eq-site .t{font-weight:700;font-size:13px;display:flex;gap:6px;align-items:center}
+.eq-site .t i{width:14px;height:14px;border-radius:4px;background:#0F5257}
+.eq-site h6{font-size:17px;margin:18px 0 8px;line-height:1.15;max-width:12em}
+.eq-site .ln{height:6px;border-radius:3px;background:#0F5257;opacity:.15;margin-top:6px;width:70%}
+.eq-site .ln:nth-of-type(2){width:55%}
+.eq-site .fake-btn{display:inline-block;margin-top:14px;background:#0F5257;color:#fff;font-size:11px;padding:7px 10px;border-radius:6px}
+.eq-jb{height:240px;display:grid;place-items:center;background:var(--or);border-radius:14px;box-shadow:var(--shadow-md)}
+.eq-jb div{display:grid;justify-items:center;gap:10px;color:#fff;font:700 24px/1 var(--fd);letter-spacing:-.04em}
+.eq-jb .bchip{width:74px;height:74px;border-radius:22px;background:#fff;display:grid;place-items:center}
+.eq-pop{position:absolute;right:12px;bottom:12px;width:62%;background:#fff;border-radius:12px;box-shadow:0 18px 40px -12px rgba(22,24,29,.4),0 0 0 1px rgba(22,24,29,.06);padding:12px;display:grid;gap:6px;animation:popin 6s ease-in-out infinite;transform-origin:bottom right}
+.eq-pop .q{font-size:11.5px;font-weight:700}
+.eq-pop .opt{padding:6px 8px;font-size:10.5px;border-radius:7px}
+.eq-pop .opt .rd{width:11px;height:11px}
+.eq-pop .opt.sel .rd::after{width:4px;height:4px}
+.eq-launch{position:absolute;left:16px;top:118px;font-size:10.5px;background:var(--or);color:#fff;border-radius:7px;padding:7px 10px;font-weight:600}
+@media (max-width:900px){.eq{grid-template-columns:1fr;max-width:420px;margin-inline:auto}.eq-op{padding:4px 0}.eq-jb{height:150px}}
+
+/* ============ INDUSTRIES ============ */
+.inds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ind{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:14px;align-content:start;transition:border-color .25s,transform .25s,box-shadow .25s}
+.ind:hover{border-color:var(--or200);transform:translateY(-3px);box-shadow:0 20px 40px -24px rgba(242,101,28,.45)}
+.ind-ic{width:52px;height:52px;border-radius:14px;background:var(--or50);display:grid;place-items:center;color:var(--or)}
+.ind h3{font-size:22px;letter-spacing:-.02em}
+.ind p{font-size:14.5px;color:var(--mute)}
+.ind .tag{font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:7px;margin-top:4px}
+.ind .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--or)}
+.ind .tag.alt::before{background:transparent;border:1.5px solid var(--ink2)}
+@media (max-width:900px){.inds{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.inds{grid-template-columns:1fr}}
+
+/* ============ MASCOT MOMENT ============ */
+.mascot{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;max-width:920px}
+.mascot-b{position:relative;width:200px;height:200px;display:grid;place-items:center}
+.mascot-b::after{content:"";position:absolute;bottom:4px;width:120px;height:14px;border-radius:50%;background:rgba(22,24,29,.08);animation:shadow 4s ease-in-out infinite}
+.mascot-b svg{animation:bob 4s ease-in-out infinite}
+.mascot .h2{font-size:clamp(40px,6vw,72px)}
+@media (max-width:700px){.mascot{grid-template-columns:1fr;gap:24px}.mascot-b{width:140px;height:150px}.mascot-b svg{width:120px;height:120px}}
+
+/* ============ CTA ============ */
+.cta{background:var(--or);color:#fff;border-radius:28px;padding:80px 64px;display:grid;grid-template-columns:1.3fr auto;gap:40px;align-items:end;position:relative;overflow:hidden}
+.cta .h2{color:#fff;max-width:12em}
+.cta p{font-size:19px;opacity:.9;margin-top:18px}
+.cta .btn-w{background:#fff;color:var(--ink)}
+.cta .btn-w:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
+.cta .btn-o{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
+.cta .btn-o:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.cta-bird{position:absolute;right:-40px;top:-50px;opacity:.12;transform:rotate(-8deg);pointer-events:none}
+@media (max-width:900px){.cta{grid-template-columns:1fr;padding:52px 28px;border-radius:22px}}
+
+/* ============ PAGE HEADERS ============ */
+.ph{padding-block:88px 24px}
+.ph .h1{font-size:clamp(42px,6.4vw,78px);margin-top:20px;max-width:14em}
+.ph .lead{margin-top:24px}
+@media (max-width:900px){.ph{padding-block:52px 8px}}
+
+/* ============ HOW IT WORKS ROWS ============ */
+.hw{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center;padding-block:72px;border-top:1px solid var(--line)}
+.hw:first-child{border-top:0}
+.hw.flip{grid-template-columns:1.2fr .8fr}
+.hw.flip .hw-t{order:2}
+.hw-n{font:800 clamp(72px,9vw,120px)/.9 var(--fd);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--ink);margin-bottom:18px}
+.hw-n span{color:var(--or);-webkit-text-stroke:0}
+.hw-t .h3{margin-bottom:14px}
+.hw-v{display:grid;place-items:center;background:var(--sand);border-radius:24px;padding:44px;min-height:420px;overflow:hidden}
+.hw-v.bare{background:none;padding:0}
+@media (max-width:900px){.hw,.hw.flip{grid-template-columns:1fr;gap:28px;padding-block:52px}.hw.flip .hw-t{order:0}.hw-v{padding:24px 16px;min-height:0;border-radius:18px}}
+
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.path{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:18px;align-content:start}
+.path-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.path-h h3{font-size:22px;letter-spacing:-.02em}
+.path .mini-flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--mute)}
+.path .mini-flow span{background:var(--sand);padding:5px 10px;border-radius:999px;color:var(--ink2)}
+.path .mini-flow span.o{background:var(--or100);color:var(--ord);font-weight:600}
+.path .wg{margin:6px auto 0;box-shadow:var(--shadow-md)}
+@media (max-width:900px){.paths{grid-template-columns:1fr}}
+.cred{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.cred .body{font-size:17px;color:var(--ink2);display:grid;gap:16px}
+@media (max-width:900px){.cred{grid-template-columns:1fr;gap:24px}}
+
+/* ============ FOR BUSINESSES ============ */
+.fb{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center;padding-block:64px}
+.fb.flip .fb-t{order:2}
+.fb-t{display:grid;gap:16px}
+.fb-t .label{color:var(--or)}
+.fb-v{background:var(--sand);border-radius:24px;padding:40px;display:grid;place-items:center;min-height:440px;position:relative;overflow:hidden}
+@media (max-width:900px){.fb{grid-template-columns:1fr;gap:28px;padding-block:44px}.fb.flip .fb-t{order:0}.fb-v{padding:24px 14px;min-height:0;border-radius:18px}}
+.duo{display:grid;grid-template-columns:.9fr 1fr;gap:18px;align-items:center;width:100%}
+.duo .oldcard{background:#fff;border-radius:12px;padding:18px;font-family:Arial,sans-serif;color:#555;box-shadow:0 1px 3px rgba(0,0,0,.08);transform:rotate(-1.5deg)}
+.duo .oldcard h6{margin:0 0 8px;font:700 13px Arial;color:#333}
+.duo .oldcard label{font-size:10.5px;display:block;margin:7px 0 3px}
+.duo .oldcard .in{height:20px;border:1px solid #d6d6d6;background:#fafafa}
+.duo .oldcard .in.ta{height:44px}
+.duo .oldcard .sub{display:inline-block;margin-top:10px;background:#999;color:#fff;font-size:10.5px;padding:5px 10px}
+.duo .cap{font-family:var(--fm);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);margin-bottom:10px;text-align:center}
+@media (max-width:640px){.duo{grid-template-columns:1fr}.duo .oldcard{transform:none}}
+.time-chip{position:absolute;top:22px;left:22px;background:var(--ink);color:#fff;border-radius:999px;padding:8px 14px 8px 10px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;z-index:2}
+.time-chip i{width:18px;height:18px;border-radius:50%;background:#2A2E36;display:grid;place-items:center}
+.float-n{position:absolute;right:22px;bottom:32px;z-index:3}
+.float-n .toast{position:static;min-width:0}
+@media (max-width:640px){.time-chip{position:static;margin-bottom:14px;justify-self:center}.float-n{position:static;margin-top:-20px}.fb-v.night{display:flex;flex-direction:column}}
+
+.ba{display:grid;grid-template-columns:1fr 1fr;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:var(--paper)}
+.ba-l,.ba-r{padding:40px;display:grid;gap:20px;align-content:start}
+.ba-l{background:#F3F3F2}
+.ba-r{background:var(--paper);border-left:1px solid var(--line)}
+.ba-tag{font-family:var(--fm);font-size:12px;letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.ba-l .ba-tag{color:#8A8A8A}
+.ba-r .ba-tag{color:var(--or)}
+.ba-r .ba-tag::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--or);transform:rotate(45deg)}
+.sms{display:grid;gap:8px;font-family:Arial,Helvetica,sans-serif}
+.sms .m{max-width:78%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.35}
+.sms .c{background:#E3E3E3;color:#333;justify-self:start;border-bottom-left-radius:4px}
+.sms .b{background:#9C9C9C;color:#fff;justify-self:end;border-bottom-right-radius:4px}
+.sms .t{font-size:11px;color:#9A9A9A;text-align:center;margin:6px 0 0}
+.sms .dots{justify-self:start;background:#E3E3E3;border-radius:16px;padding:12px 14px;display:flex;gap:4px}
+.sms .dots i{width:6px;height:6px;border-radius:50%;background:#9a9a9a;animation:blink 1.4s infinite}
+.sms .dots i:nth-child(2){animation-delay:.2s}.sms .dots i:nth-child(3){animation-delay:.4s}
+.ba-note{font-size:14px;color:#8A8A8A;border-top:1px dashed #D5D5D5;padding-top:16px}
+.ba-r .ba-note{color:var(--ink2);border-color:var(--line)}
+.answers{display:grid;gap:6px}
+.answers div{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:10px;background:var(--sand);font-size:13.5px}
+.answers div span{color:var(--mute)}
+.answers div b{font-weight:600;text-align:right}
+.answers div.chk b::after{content:" ✓";color:var(--or)}
+.ba-arrow{justify-self:center;color:var(--or);font-size:22px;line-height:1}
+@media (max-width:900px){.ba{grid-template-columns:1fr}.ba-r{border-left:0;border-top:1px solid var(--line)}.ba-l,.ba-r{padding:26px 20px}}
+
+/* ============ PRODUCT PAGE ============ */
+.pp-hero{padding-block:96px 0;text-align:center;overflow:hidden}
+.pp-hero .h1{font-size:clamp(56px,11vw,150px);letter-spacing:-.06em}
+.pp-hero .lead{margin:22px auto 0}
+.pp-hero .btns{justify-content:center;margin-top:32px}
+.pp-stage{position:relative;margin-top:72px;display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:end;gap:0;max-width:1180px;margin-inline:auto}
+.pp-stage>.l,.pp-stage>.r{transform:scale(.86);opacity:.95;z-index:1}
+.pp-stage>.l{transform-origin:right bottom;margin-right:-60px}
+.pp-stage>.r{transform-origin:left bottom;margin-left:-60px}
+.pp-stage>.c{z-index:2;display:grid;justify-items:center}
+.pp-stage .wg{margin-inline:auto}
+@media (max-width:900px){.pp-stage{grid-template-columns:1fr}.pp-stage>.l,.pp-stage>.r{display:none}}
+.big-center{text-align:center;display:grid;justify-items:center;gap:18px;margin-bottom:56px}
+.big-center .body{text-align:center}
+.vers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.ver{display:grid;gap:16px}
+.ver-h{display:flex;align-items:center;justify-content:space-between;padding:0 4px}
+.ver-h h3{font-size:22px;letter-spacing:-.02em}
+.ver .wg{width:100%;box-shadow:var(--shadow-md)}
+.flow{list-style:none;margin:0;padding:16px 18px;display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:16px}
+.flow li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mute)}
+.flow li i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;font-style:normal}
+.flow li.d{color:var(--ink2)}
+.flow li.d i{background:var(--ink);border-color:var(--ink);color:#fff}
+.flow li.a{color:var(--ink);font-weight:600}
+.flow li.a i{border-color:var(--or);box-shadow:0 0 0 3px var(--or100)}
+.flow li.a i::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--or)}
+@media (max-width:1000px){.vers{grid-template-columns:1fr;max-width:420px;margin-inline:auto}}
+.rules{background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;width:100%;max-width:520px;border:1px solid rgba(22,24,29,.07)}
+.rules-h{padding:16px 20px;border-bottom:1px solid var(--line2);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rules-h b{font:700 16px/1 var(--fd);letter-spacing:-.02em}
+.rules-h small{font-size:12px;color:var(--mute)}
+.rules table{width:100%;border-collapse:collapse;font-size:13.5px}
+.rules td{padding:11px 20px;border-bottom:1px solid var(--line2)}
+.rules td:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.rules tr.grp td{font-family:var(--fm);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:#FAF9F6;padding-block:8px}
+.tg{display:inline-block;width:34px;height:20px;border-radius:20px;background:var(--or);position:relative;vertical-align:middle}
+.tg::after{content:"";position:absolute;right:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff}
+.tg.off{background:#D8D5CF}.tg.off::after{right:auto;left:3px}
+.rules-f{padding:14px 20px;background:var(--or50);font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.rules-f b{font-variant-numeric:tabular-nums}
+.est-stage{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;justify-items:center}
+@media (max-width:900px){.est-stage{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gallery .cap{margin-top:12px;font-size:14px;color:var(--mute);display:flex;justify-content:space-between}
+.gallery .cap b{color:var(--ink)}
+@media (max-width:1000px){.gallery{grid-template-columns:1fr;max-width:560px;margin-inline:auto}}
+
+/* ============ PRICING ============ */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:22px;transition:transform .25s,box-shadow .25s}
+.plan:hover{transform:translateY(-3px);box-shadow:0 24px 50px -30px rgba(22,24,29,.35)}
+.plan.pro{border:2px solid var(--or);box-shadow:0 24px 50px -28px rgba(242,101,28,.5)}
+.plan-n{font-family:var(--fm);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.plan.pro .plan-n{color:var(--or)}
+.plan-p{display:flex;align-items:baseline;gap:6px}
+.plan-p b{font:800 56px/1 var(--fd);letter-spacing:-.05em}
+.plan-p span{color:var(--mute)}
+.plan-d{font-size:14.5px;color:var(--mute);min-height:44px}
+.plan ul{list-style:none;padding:22px 0 0;margin:0;display:grid;gap:12px;border-top:1px solid var(--line2);font-size:15px}
+.plan li{display:flex;gap:10px;align-items:flex-start}
+.plan li svg{flex:none;margin-top:4px;color:var(--ink2)}
+.plan.pro li svg{color:var(--or)}
+.plan .btn{margin-top:auto;justify-content:center}
+.plan-note{margin-top:28px;display:flex;align-items:center;gap:10px;color:var(--mute);font-size:14.5px}
+.plan-note::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--or);flex:none}
+@media (max-width:960px){.plans{grid-template-columns:1fr;max-width:480px}}
+.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
+.faq h3{font-size:19px;letter-spacing:-.02em;margin-bottom:8px}
+.faq p{color:var(--mute);font-size:15px}
+@media (max-width:760px){.faq{grid-template-columns:1fr;gap:28px}}
+
+/* ============ DEMO FORM ============ */
+.demo{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start;padding-block:80px 120px}
+.demo-l{display:grid;gap:26px;position:sticky;top:110px}
+.demo-l .h1{font-size:clamp(40px,5.2vw,64px)}
+.next{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:14px}
+.next li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--ink2)}
+.next li b{font:700 13px/1 var(--fm);color:var(--or);min-width:22px;padding-top:4px}
+.mail{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 20px;border-radius:16px;background:var(--paper);border:1px solid var(--line)}
+.mail span{font-size:14px;color:var(--mute);width:100%}
+.mail a{font:700 20px/1.2 var(--fd);letter-spacing:-.02em;text-decoration:none;user-select:all}
+.mail a:hover{color:var(--or)}
+.copy{margin-left:auto;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 14px;font:600 13px var(--fb);cursor:pointer}
+.copy:hover{border-color:var(--ink)}
+.form{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px;box-shadow:0 30px 60px -40px rgba(22,24,29,.3)}
+.form .full{grid-column:1/-1}
+.f{display:grid;gap:7px}
+.f label{font-size:14px;font-weight:600}
+.f label small{font-weight:400;color:var(--mute)}
+.f input,.f select,.f textarea{font:16px/1.4 var(--fb);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;transition:border-color .2s,box-shadow .2s,background .2s}
+.f textarea{min-height:120px;resize:vertical}
+.f input:hover,.f select:hover,.f textarea:hover{border-color:#D3CFC7}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--or);background:#fff;box-shadow:0 0 0 4px rgba(242,101,28,.14)}
+.f .err{font-size:12.5px;color:#B3261E;min-height:0}
+.f.bad input{border-color:#D9534F}
+.form .btn{justify-content:center;height:54px;font-size:16px}
+.form-fine{font-size:13px;color:var(--mute);text-align:center}
+.done{grid-column:1/-1;display:grid;gap:14px;justify-items:start;padding:10px 0}
+.done h3{font-size:28px}
+.done p{color:var(--ink2)}
+.done pre{white-space:pre-wrap;background:var(--sand);border-radius:12px;padding:16px;font:13px/1.5 var(--fm);width:100%;margin:0;max-height:220px;overflow:auto}
+@media (max-width:900px){.demo{grid-template-columns:1fr;gap:40px;padding-block:52px 80px}.demo-l{position:static}.form{grid-template-columns:1fr;padding:22px}}
+
+/* ============ FOOTER ============ */
+.foot{border-top:1px solid var(--line);padding-block:64px 40px;margin-top:40px}
+.foot-g{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
+.foot p{color:var(--mute);font-size:14.5px;margin-top:14px;max-width:26em}
+.foot h4{font:600 12px/1 var(--fm);letter-spacing:.09em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15px}
+.foot ul a{text-decoration:none;color:var(--ink2)}
+.foot ul a:hover{color:var(--or)}
+.foot-b{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line2);font-size:13px;color:var(--faint)}
+@media (max-width:760px){.foot-g{grid-template-columns:1fr 1fr}.foot-g>div:first-child{grid-column:1/-1}}
+
+/* ============ MOTION ============ */
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-4px) rotate(-6deg)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-2deg)}}
+@keyframes shadow{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.82);opacity:.6}}
+@keyframes ring{0%{opacity:.8;transform:scale(.96)}100%{opacity:0;transform:scale(1.18)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(242,101,28,.5)}50%{box-shadow:0 0 0 4px rgba(242,101,28,0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes wgIn{from{opacity:0;transform:translateY(22px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes popin{0%,12%{opacity:0;transform:scale(.85) translateY(10px)}22%,88%{opacity:1;transform:none}100%{opacity:0;transform:scale(.95) translateY(6px)}}
+.hero-stage .bf{animation:rise .9s cubic-bezier(.2,.7,.2,1) .15s both}
+.hero-stage .over{animation:wgIn .7s cubic-bezier(.2,.8,.2,1) 1.2s both}
+.hero-stage .toast{animation:rise .7s cubic-bezier(.2,.8,.2,1) 2.1s both}
+.rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{opacity:0;transform:translateY(28px)}
+.rv-s.pre{opacity:0;transform:translateY(20px) scale(.97)}
+.page{animation:fade .35s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv.pre,.rv-s.pre{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ MASCOT (single source of truth) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="jb-bird" viewBox="0 0 64 64">
+    <path d="M11 45 L3 52 L15 50 Z" fill="#16181D"/>
+    <path d="M33 9 C48 9 56 21 56 35 C56 49 46 58 32 58 C18 58 9 49 9 36 C9 21 18 9 33 9Z" fill="#F2651C"/>
+    <ellipse cx="37" cy="45" rx="13" ry="9.5" fill="#FFD9C0"/>
+    <path d="M15 33 C17 45 25 49 34 47 C26 44 22 38 21 30 Z" fill="#C9480A"/>
+    <path d="M27 11 C27 5 31 2 36 3 C33 5 32 7 32.5 9.5 Z" fill="#16181D"/>
+    <circle cx="39" cy="26" r="7.5" fill="#fff"/>
+    <circle cx="41" cy="26.5" r="3.8" fill="#16181D"/>
+    <circle cx="42.3" cy="25.2" r="1.1" fill="#fff"/>
+    <path d="M30.5 23.6 Q39 19.2 46.5 22.8 L46.5 16 L30.5 16 Z" fill="#F2651C"/>
+    <path d="M31 23.6 Q39 19.6 46.5 22.8" stroke="#16181D" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M54.5 27 L62 31 L54.5 35 Z" fill="#16181D"/>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#home" aria-label="jobaro home"><svg class="bird" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg><span>jobaro</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#product" data-r="product">Product</a>
+      <a href="#how-it-works" data-r="how-it-works">How it works</a>
+      <a href="#for-businesses" data-r="for-businesses">For businesses</a>
+      <a href="#pricing" data-r="pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-or btn-sm nav-cta" href="#book-a-demo">Book a demo <em>→</em></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mnav" id="mnav"><div><nav class="wrap" aria-label="Mobile">
+    <a class="ml" href="#product" data-r="product">Product</a>
+    <a class="ml" href="#how-it-works" data-r="how-it-works">How it works</a>
+    <a class="ml" href="#for-businesses" data-r="for-businesses">For businesses</a>
+    <a class="ml" href="#pricing" data-r="pricing">Pricing</a>
+    <a class="btn btn-or" href="#book-a-demo">Book a demo <em>→</em></a>
+  </nav></div></div>
+</header>
+
+<main id="app"></main>
+
+<footer class="foot" id="foot"></footer>
+
+<script>
+/* =========================================================
+   SITE CONFIG — change contact details here
+   ========================================================= */
+const CONFIG = {
+  // The email address shown on the site. Change it to an inbox you actually check.
+  email: "hello.jobaro@gmail.com",
+  // The web address shown in the footer.
+  domain: "jobaro.netlify.app",
+  // Optional: paste a form endpoint (e.g. Formspree) to receive demo requests directly.
+  // Leave empty and the form prepares an email to CONFIG.email instead.
+  formEndpoint: "https://formspree.io/f/mzezgkrr"
+};
+
+/* ---------- small helpers ---------- */
+const B = (s = 24, c = "") => `<svg class="bird ${c}" width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg>`;
+const CHECK = `<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const X = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+const LOCK = `<svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" rx="1.5" fill="#A0A2A8"/><path d="M3 5V3.5a2 2 0 014 0V5" stroke="#A0A2A8" stroke-width="1.3" fill="none"/></svg>`;
+const ARROW = `<em>→</em>`;
+
+/* ---------- scene illustrations (used as "photos" on fictional sites) ---------- */
+const Scene = {
+  clean: () => `<svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice"><rect width="320" height="240" fill="#DDEBE8"/><rect y="172" width="320" height="68" fill="#D8CBB9"/><rect y="168" width="320" height="6" fill="#C9BBA7"/><rect x="36" y="34" width="100" height="108" rx="3" fill="#fff"/><rect x="42" y="40" width="42" height="46" fill="#C9E3EE"/><rect x="88" y="40" width="42" height="46" fill="#C9E3EE"/><rect x="42" y="90" width="42" height="46" fill="#BFDCE8"/><rect x="88" y="90" width="42" height="46" fill="#BFDCE8"/><rect x="168" y="118" width="124" height="54" rx="12" fill="#0F5257"/><rect x="160" y="134" width="140" height="40" rx="12" fill="#177077"/><rect x="176" y="172" width="6" height="14" fill="#0B3F43"/><rect x="278" y="172" width="6" height="14" fill="#0B3F43"/><rect x="146" y="148" width="18" height="24" rx="3" fill="#E7DCCB"/><ellipse cx="150" cy="138" rx="7" ry="14" fill="#5E9C6B"/><ellipse cx="160" cy="140" rx="6" ry="12" fill="#4C8A5A"/><path d="M230 52l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#fff"/><path d="M258 80l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff"/><path d="M204 86l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff"/></svg>`,
+  garden: () => `<svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice"><rect width="320" height="240" fill="#E6ECDA"/><ellipse cx="40" cy="96" rx="60" ry="40" fill="#3E6B45"/><ellipse cx="140" cy="88" rx="70" ry="42" fill="#4A7A50"/><ellipse cx="270" cy="92" rx="80" ry="44" fill="#3E6B45"/><rect y="104" width="320" height="136" fill="#86B26A"/><rect y="124" width="320" height="18" fill="#7AA85F"/><rect y="160" width="320" height="22" fill="#7AA85F"/><rect y="202" width="320" height="26" fill="#7AA85F"/><path d="M150 104 L176 104 L214 240 L118 240 Z" fill="#D8CDBA"/><path d="M146 130h36M140 156h46M132 184h58M124 214h72" stroke="#BFB29C" stroke-width="2"/><circle cx="60" cy="176" r="22" fill="#5B8F52"/><circle cx="84" cy="182" r="16" fill="#6FA35F"/><circle cx="262" cy="170" r="26" fill="#5B8F52"/><circle cx="240" cy="184" r="14" fill="#C77B8B"/></svg>`,
+  drive: () => `<svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice"><rect width="320" height="240" fill="#DCE3EA"/><rect x="40" y="40" width="240" height="110" fill="#E9DFD2"/><path d="M28 44 L160 0 L292 44 Z" fill="#5A4B45"/><rect x="138" y="86" width="44" height="64" fill="#2F343C"/><rect x="62" y="64" width="50" height="40" fill="#fff"/><rect x="66" y="68" width="42" height="32" fill="#B7CCDB"/><rect x="208" y="64" width="50" height="40" fill="#fff"/><rect x="212" y="68" width="42" height="32" fill="#B7CCDB"/><path d="M110 150 L210 150 L300 240 L20 240 Z" fill="#B69C82"/><g stroke="#9C8269" stroke-width="1.6"><path d="M104 162h112M92 176h136M78 192h164M62 208h196M46 224h228"/><path d="M140 150l-6 12M180 150l6 12M126 162l-8 14M160 162v14M194 162l8 14M110 176l-10 16M145 176l-4 16M175 176l4 16M210 176l10 16M94 192l-12 16M130 192l-5 16M160 192v16M190 192l5 16M226 192l12 16"/></g><rect x="0" y="150" width="110" height="90" fill="#8DB474"/><rect x="210" y="150" width="110" height="90" fill="#8DB474"/><path d="M110 150 L20 240 L0 240 L0 238 L106 150Z" fill="#8DB474"/></svg>`,
+  windows: () => `<svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice"><rect width="320" height="240" fill="#EEE8DF"/><rect y="200" width="320" height="40" fill="#D8CFC2"/><g fill="#fff" stroke="#1D3A6E" stroke-width="5"><rect x="40" y="34" width="96" height="70"/><rect x="184" y="34" width="96" height="70"/><rect x="40" y="124" width="96" height="70"/></g><g fill="#C7D8EA"><rect x="45" y="39" width="41" height="60"/><rect x="90" y="39" width="41" height="60"/><rect x="189" y="39" width="41" height="60"/><rect x="234" y="39" width="41" height="60"/><rect x="45" y="129" width="86" height="60"/></g><rect x="184" y="118" width="96" height="82" fill="#1D3A6E"/><rect x="194" y="128" width="76" height="30" fill="#C7D8EA"/><circle cx="262" cy="176" r="3" fill="#E8C547"/></svg>`,
+  room: (a = "#E3DDD4", b = "#C8BDAE") => `<svg viewBox="0 0 80 64" preserveAspectRatio="xMidYMid slice"><rect width="80" height="64" fill="${a}"/><rect y="42" width="80" height="22" fill="${b}"/><rect x="10" y="12" width="22" height="22" fill="#fff" opacity=".85"/><rect x="44" y="28" width="28" height="16" rx="3" fill="#9FB2B6"/></svg>`,
+  oven: () => `<svg viewBox="0 0 80 64" preserveAspectRatio="xMidYMid slice"><rect width="80" height="64" fill="#D9D6D0"/><rect x="14" y="8" width="52" height="50" rx="4" fill="#3A3E47"/><rect x="20" y="20" width="40" height="30" rx="3" fill="#6B5A4A"/><circle cx="24" cy="14" r="2" fill="#bbb"/><circle cx="32" cy="14" r="2" fill="#bbb"/></svg>`,
+  win: () => `<svg viewBox="0 0 80 64" preserveAspectRatio="xMidYMid slice"><rect width="80" height="64" fill="#E7E1D8"/><rect x="16" y="8" width="48" height="48" fill="#fff"/><rect x="20" y="12" width="18" height="40" fill="#B9D2E2"/><rect x="42" y="12" width="18" height="40" fill="#B9D2E2"/></svg>`,
+  patch: (c1, c2) => `<svg viewBox="0 0 80 80" preserveAspectRatio="xMidYMid slice"><rect width="80" height="80" fill="${c1}"/><path d="M0 60 Q40 40 80 58 V80 H0Z" fill="${c2}"/></svg>`
+};
+
+/* ---------- product components ---------- */
+function BrowserFrame({ url, body, h = "520px", cls = "", label = "" }) {
+  return `<div class="bf ${cls}" role="img" aria-label="${label}"><div class="bf-bar"><i></i><i></i><i></i><div class="bf-url">${LOCK}<span>${url}</span></div></div><div class="bf-body" style="--h:${h}">${body}</div></div>`;
+}
+function Launcher(text = "Get my instant estimate", press = false) {
+  return `<span class="jb-launch ${press ? "press" : ""}"><span class="bird-chip">${B(20)}</span><span>${text}</span>${ARROW}</span>`;
+}
+const BIZ = {
+  clean: { biz: "Tidewell Cleaning Co.", ini: "TC", col: "#0F5257" },
+  land: { biz: "Fernmoor Gardens", ini: "FG", col: "#2F5D3A" },
+  drive: { biz: "Stonebeck Driveways", ini: "SD", col: "#2B3038" },
+  win: { biz: "Paneworth Windows & Doors", ini: "PW", col: "#1D3A6E" }
+};
+function Site(kind, { launcher = true, press = false, cta } = {}) {
+  const d = {
+    clean: { cls: "s-clean", name: "Tidewell Cleaning Co.", links: ["Services", "Areas", "About", "Contact"], book: "Book a clean", eyebrow: "Cambridge · Domestic &amp; end of tenancy", h: "Spotless homes across Cambridge.", p: "Local, insured cleaners for regular, deep and end of tenancy cleans in Cambridge and nearby villages.", cta: "Get my instant estimate", trust: ["Fully insured", "Eco products", "Weekly or one-off"], img: Scene.clean() },
+    land: { cls: "s-land", name: "Fernmoor Gardens", links: ["Our work", "Services", "About", "Contact"], book: "Call us", eyebrow: "Landscaping · South Cambridgeshire", h: "Gardens built to be lived in.", p: "Patios, turf, fencing and planting, designed and built by a small local team.", cta: "Get a landscaping estimate", trust: ["Free site visits", "Local team", "Design &amp; build"], img: Scene.garden() },
+    drive: { cls: "s-drive", name: "Stonebeck Driveways", links: ["Driveways", "Patios", "Gallery", "Contact"], book: "Get a quote", eyebrow: "Block paving · Resin · Tarmac", h: "Driveways that last.", p: "Block paving, resin bound and tarmac driveways across Cambridgeshire.", cta: "Get an estimate", trust: ["Written guarantee", "Free design advice"], img: Scene.drive() },
+    win: { cls: "s-win", name: "Paneworth Windows", links: ["Windows", "Doors", "Conservatories", "Contact"], book: "Showroom", eyebrow: "Windows &amp; doors · Supply and fit", h: "Warmer, quieter, better-looking homes.", p: "uPVC, aluminium and timber windows and doors, fitted by our own installers.", cta: "Start your estimate", trust: ["FENSA registered", "Own installers"], img: Scene.windows() }
+  }[kind];
+  return `<div class="site ${d.cls}">
+    <div class="s-nav"><b class="s-logo"><span class="s-mark"></span>${d.name}</b><span class="s-links">${d.links.map(l => `<i>${l}</i>`).join("")}</span><span class="s-book">${d.book}</span></div>
+    <div class="s-hero"><div class="s-copy"><small>${d.eyebrow}</small><h3>${d.h}</h3><p>${d.p}</p>${launcher ? Launcher(cta || d.cta, press) : ""}<div class="s-trust">${d.trust.map(t => `<span>${t}</span>`).join("")}</div></div><div class="s-img">${d.img}</div></div>
+  </div>`;
+}
+function Widget(o) {
+  const b = BIZ[o.kind || "clean"];
+  const total = o.total || 5;
+  const pct = o.step ? Math.round((o.step / total) * 100) : 100;
+  return `<div class="wg ${o.cls || ""}">
+    <div class="wg-top"><span class="wg-av" style="background:${b.col}">${b.ini}</span><div class="wg-biz"><b>${b.biz}</b><small>${o.sub || "Online now"}</small></div><span class="wg-x">${X}</span></div>
+    <div class="wg-prog"><span style="width:${pct}%"></span></div>
+    <div class="wg-body">${o.step ? `<div class="wg-step">Step ${o.step} of ${total}</div>` : o.stepLabel ? `<div class="wg-step">${o.stepLabel}</div>` : ""}${o.title ? `<div class="wg-title">${o.title}</div>` : ""}${o.q ? `<div class="wg-q">${o.q}</div>` : ""}${o.body || ""}</div>
+    ${o.noFoot ? "" : `<div class="wg-foot">${o.step === 1 || o.noBack ? "<span></span>" : `<span class="wg-back">Back</span>`}<span class="wg-next">${o.next || "Continue"} ${ARROW}</span></div>`}
+    <div class="wg-pow">Powered by ${B(13)} <b>jobaro</b></div>
+  </div>`;
+}
+const Opts = (list, sel = 0) => `<div class="opts">${list.map((t, i) => { const [l, s] = Array.isArray(t) ? t : [t]; return `<div class="opt ${i === sel ? "sel" : ""}"><span class="rd"></span><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`; }).join("")}</div>`;
+const Chips = (list, sel = []) => `<div class="chips">${list.map((t, i) => `<span class="chip ${sel.includes(i) ? "sel" : ""}">${t}</span>`).join("")}</div>`;
+const Ctr = (l, v) => `<div class="ctr"><span>${l}</span><span class="ctr-c"><span>−</span>${v}<span class="p">+</span></span></div>`;
+const Est = (lines = true) => `<div class="est"><div class="est-lbl">Your estimated price</div><div class="est-price" data-range="165,195">£165–£195</div><div class="est-note">Final price confirmed by the business.</div>${lines ? `<ul class="est-lines"><li><span>End of tenancy · 2 bed house</span><span>included</span></li><li><span>Oven clean</span><span>added</span></li><li><span>Inside windows</span><span>added</span></li></ul>` : ""}</div>`;
+const Photos = (kind = "clean") => {
+  const p = kind === "clean" ? [Scene.room(), Scene.oven(), Scene.win()] : kind === "drive" ? [Scene.patch("#8E8A84", "#6F6B66"), Scene.patch("#A19E97", "#7C7872"), Scene.patch("#7E8A6E", "#8E8A84")] : [Scene.patch("#8DB474", "#7AA85F"), Scene.patch("#A5B68E", "#D8CDBA"), Scene.patch("#6E9A5C", "#5B8F52")];
+  return `<div class="photos">${p.map(s => `<div class="pt">${s}</div>`).join("")}<div class="pt add">+</div></div>`;
+};
+function Dashboard() {
+  const nav = [["Enquiries", `<path d="M2 4h12v8H2z M2 4l6 5 6-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>`, "3"], ["Estimates", `<path d="M3 13V3h10v10zM6 6h4M6 9h4" fill="none" stroke="currentColor" stroke-width="1.5"/>`], ["Services", `<path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z" fill="none" stroke="currentColor" stroke-width="1.5"/>`], ["Pricing rules", `<path d="M8 2v12M11 5H6.5a2 2 0 000 4h3a2 2 0 010 4H5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`], ["Widget", `<path d="M2 3h12v10H2zM2 6h12" fill="none" stroke="currentColor" stroke-width="1.5"/>`], ["Settings", `<circle cx="8" cy="8" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2M3.4 3.4l1.4 1.4M11.2 11.2l1.4 1.4M3.4 12.6l1.4-1.4M11.2 4.8l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`]];
+  const items = [
+    ["Sarah Williams", "2 min", "new", "New", "End of tenancy", "£165–£195", true],
+    ["James Okafor", "48 min", "new", "New", "Regular domestic", "£60–£70"],
+    ["Priya Shah", "Yesterday", "q", "Quoted", "Deep cleaning", "£210–£240"],
+    ["Tom Hughes", "Mon", "b", "Booked", "Carpet cleaning", "£85–£95"],
+    ["Emma Clarke", "Sun", "b", "Booked", "Window cleaning", "£40–£45"]
+  ];
+  return `<div class="dash-wrap" role="img" aria-label="Jobaro dashboard showing a new enquiry from Sarah Williams"><div class="dash">
+    <aside class="d-side"><span class="logo">${B(24)}<span>jobaro</span></span>${nav.map((n, i) => `<div class="d-nav ${i === 0 ? "on" : ""}"><svg width="16" height="16" viewBox="0 0 16 16">${n[1]}</svg>${n[0]}${n[2] ? `<b>${n[2]}</b>` : ""}</div>`).join("")}<div class="d-biz"><span class="wg-av" style="background:#0F5257;width:26px;height:26px;border-radius:8px;font-size:10px">TC</span>Tidewell Cleaning Co.</div></aside>
+    <div class="d-list"><div class="d-lh"><h5>Enquiries</h5><div class="d-tabs"><span class="on">All</span><span>New · 2</span><span>Quoted</span><span>Booked</span></div></div>
+      ${items.map(i => `<div class="d-item ${i[6] ? "on" : ""}"><div class="d-row"><b>${i[0]}</b><small>${i[1]}</small></div><div class="d-sub"><span>${i[4]}</span><span class="pr">${i[5]}</span></div><div><span class="pill ${i[2]}">${i[3]}</span></div></div>`).join("")}
+    </div>
+    <div class="d-det">
+      <div class="d-dh"><div><span class="pill new">New enquiry</span><h4>Sarah Williams</h4><p>Cambridge, CB1 · Received today at 14:32 via tidewellcleaning.co.uk</p></div><div class="d-act"><span class="d-btn">Call</span><span class="d-btn o">Send quote</span></div></div>
+      <div class="d-grid"><div><span>Service</span><b>End of tenancy</b></div><div><span>Property</span><b>House</b></div><div><span>Bedrooms / bathrooms</span><b>2 bed · 1 bath</b></div><div><span>Condition</span><b>Average</b></div><div><span>Extras</span><b>Oven, inside windows</b></div><div><span>Access</span><b>Keys from agent</b></div></div>
+      <div><div class="label" style="margin-bottom:8px">Photos · 3</div><div class="d-photos"><div class="pt">${Scene.room()}</div><div class="pt">${Scene.oven()}</div><div class="pt">${Scene.win()}</div></div></div>
+      <div class="d-foot"><div class="d-box o"><span>Estimate shown to customer</span><div class="big" data-range="165,195">£165–£195</div><span>From your pricing rules</span></div><div class="d-box"><span>Preferred date</span><div class="big">12 Oct</div><span>Sunday · morning</span></div></div>
+      <div class="d-box"><span>Contact</span><b style="font-size:13.5px">sarah.williams@example.com · 07700 900123</b></div>
+    </div>
+  </div></div>`;
+}
+function EnquiryCard() {
+  return `<div class="enq" role="img" aria-label="Structured Jobaro enquiry from Sarah Williams">
+    <div class="enq-h"><span class="pill new">New enquiry</span><small>Today, 14:32</small></div>
+    <div class="enq-b">
+      <div class="enq-name"><span class="av">SW</span><div><b>Sarah Williams</b><span>Cambridge</span></div></div>
+      <dl class="kv"><dt>Service</dt><dd>End of tenancy cleaning</dd><dt>Property</dt><dd>House · 2 bedrooms · 1 bathroom</dd><dt>Condition</dt><dd>Average</dd><dt>Extras</dt><dd>Oven, inside windows</dd><dt>Preferred date</dt><dd>12 October</dd></dl>
+      <div class="enq-est"><span class="label" style="color:var(--ord)">Estimated</span><b data-range="165,195">£165–£195</b></div>
+    </div></div>`;
+}
+function Toast(title = "New enquiry · End of tenancy", sub = "Sarah W. · Cambridge · £165–£195", when = "now", cls = "") {
+  return `<div class="toast ${cls}"><span class="ic">${B(24)}</span><div><b>${title}</b><span>${sub}</span></div><em>${when}</em></div>`;
+}
+function Phone(inner, h) {
+  return `<div class="phone" role="img" aria-label="Jobaro on a phone"><div class="phone-scr" ${h ? `style="--ph:${h}"` : ""}><div class="phone-sb"><span>9:41</span><i></i><span>●●●</span></div>${inner}</div></div>`;
+}
+const CleanOptions = () => Opts(["End of tenancy", "Regular domestic", "Deep cleaning", "Carpet cleaning", "Window cleaning"], 0);
+function Industry(title, text, icon, tag, alt) {
+  return `<article class="ind rv"><span class="ind-ic">${icon}</span><h3>${title}</h3><p>${text}</p><span class="tag ${alt ? "alt" : ""}">${tag}</span></article>`;
+}
+const IC = {
+  clean: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M9 10h7v12a1 1 0 01-1 1h-5a1 1 0 01-1-1z"/><path d="M10 10V6h5l3 2M15 6V4h-4"/><path d="M20 12l2-1M20 15h2.5M20 18l2 1"/></svg>`,
+  land: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21C5 11 11 5 21 5c0 10-6 16-16 16z"/><path d="M5 21L15 11"/></svg>`,
+  drive: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 6h18v14H4z"/><path d="M4 10.7h18M4 15.3h18M10 6v4.7M16 6v4.7M7 10.7v4.6M13 10.7v4.6M19 10.7v4.6M10 15.3V20M16 15.3V20"/></svg>`,
+  win: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h16v18H5z"/><path d="M13 4v18M5 13h16"/></svg>`,
+  gutter: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L13 4l10 8"/><path d="M2 12h22v2.5H2z"/><path d="M21 14.5V21"/><path d="M21 23.5v.01"/><path d="M7 14.5V22h10v-7.5"/></svg>`,
+  home: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 4.5a4.5 4.5 0 00-4.3 5.8L4.5 18a2.1 2.1 0 003 3l7.7-7.7a4.5 4.5 0 005.8-4.3l-2.6 2.6-2.8-.4-.4-2.8z"/></svg>`
+};
+function PricingCard({ name, price, blurb, items, pro }) {
+  return `<article class="plan rv ${pro ? "pro" : ""}"><div class="plan-n">${name}</div><div class="plan-p"><b>£${price}</b><span>/ month</span></div><p class="plan-d">${blurb}</p><ul>${items.map(i => `<li>${CHECK}<span>${i}</span></li>`).join("")}</ul><a class="btn ${pro ? "btn-or" : "btn-ghost"}" href="#book-a-demo">Book a demo ${ARROW}</a></article>`;
+}
+function CTA() {
+  return `<section class="sec-tight"><div class="wrap"><div class="cta rv">
+    <svg class="cta-bird" width="340" height="340" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg>
+    <div><h2 class="h2">Ready to make your website work harder?</h2><p>See how Jobaro could work for your business.</p></div>
+    <div class="btns"><a class="btn btn-w" href="#book-a-demo">Book a demo ${ARROW}</a><a class="btn btn-o" href="#product">Explore the product</a></div>
+  </div></div></section>`;
+}
+function Footer() {
+  return `<div class="wrap"><div class="foot-g">
+    <div><a class="logo" href="#home">${B(28)}<span>jobaro</span></a><p>The AI enquiry tool for service businesses. Instant, guided estimates for your customers. Complete, qualified enquiries for you.</p></div>
+    <div><h4>Product</h4><ul><li><a href="#product">Product</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#for-businesses">For businesses</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+    <div><h4>Get in touch</h4><ul><li><a href="#book-a-demo">Book a demo</a></li><li><a href="mailto:${CONFIG.email}">${CONFIG.email}</a></li></ul></div>
+  </div><div class="foot-b"><span>© ${new Date().getFullYear()} Jobaro</span><span>Businesses shown in product examples are fictional. Jobaro is in early access.</span></div></div>`;
+}
+
+/* =========================================================
+   PAGES
+   ========================================================= */
+const Pages = {};
+
+/* ---------------- HOME ---------------- */
+Pages.home = () => `
+<section class="hero"><div class="wrap">
+  <div class="hero-top">
+    <div><span class="eyebrow">The AI enquiry tool for service businesses</span><h1 class="h1">Turn website enquiries into booked jobs<span class="dot">.</span></h1></div>
+    <div class="hero-side"><p class="lead">Jobaro gives your customers an instant, guided way to request an estimate — while you receive a complete, qualified enquiry.</p><div class="btns"><a class="btn btn-or" href="#book-a-demo">Book a demo ${ARROW}</a><a class="btn btn-ghost" href="#how-it-works">See how it works</a></div></div>
+  </div>
+  <div class="hero-stage">
+    ${BrowserFrame({ url: "tidewellcleaning.co.uk", h: "var(--hh)", label: "A cleaning company website with the Jobaro estimate widget open", body: Site("clean", { press: true }) + `<div class="over">${Widget({ step: 1, title: "Get your cleaning estimate", q: "What type of clean do you need?", body: CleanOptions() })}</div>` })}
+    ${Toast()}
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap split">
+  <div class="rv">
+    <span class="eyebrow">The usual way</span>
+    <h2 class="h2" style="margin-top:18px">Your customers shouldn't have to wait<span class="dot">.</span></h2>
+    <p class="body" style="margin-top:18px">Most enquiry forms ask for a name and a message, then leave the customer guessing. By the time you reply, they may have asked someone else.</p>
+    <ol class="old-flow">
+      <li class="s">Customer finds your website</li><li class="a">↓</li>
+      <li class="s">Fills out a basic contact form</li><li class="a">↓</li>
+      <li class="s wait">Waits for a response</li><li class="a">↓</li>
+      <li class="s">You reply asking for more details</li><li class="a">↓</li>
+      <li class="s">Customer decides whether to continue</li>
+    </ol>
+  </div>
+  <div class="rv-s rv">
+    ${BrowserFrame({ url: "yourbusiness.co.uk/contact", h: "400px", label: "A basic contact form", body: `<div class="oldform"><h6>Contact us</h6><label>Name</label><div class="in"></div><label>Email</label><div class="in"></div><label>Phone</label><div class="in"></div><label>Message</label><div class="in ta"></div><span class="sub">Send enquiry</span></div>` })}
+    <div class="thanks"><span class="clock"></span><div><p>Thanks. We'll get back to you shortly.</p><small>Sent Tuesday 09:14 · no reply yet</small></div></div>
+  </div>
+</div></section>
+
+<section class="sec sec-sand"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">The Jobaro way</span><h2 class="h2">Give customers an answer now<span class="dot">.</span></h2></div>
+  <div class="steps4">
+    <div class="st rv"><div class="st-n">01</div><h3>Customer starts</h3><p class="body">One button on your existing site.</p><div class="st-mock"><div class="mini-site"><div class="ln h"></div><div class="ln"></div><div class="ln" style="width:60%"></div><div style="margin-top:8px">${Launcher("Get my instant estimate")}</div></div></div></div>
+    <div class="st rv"><div class="st-n">02</div><h3>Jobaro asks the right questions</h3><p class="body">Short, specific, tap-to-answer.</p><div class="st-mock"><div class="mini-q"><div class="wg-step" style="margin:0">Step 2 of 5</div><div class="q">How many bedrooms?</div>${Opts(["1 bedroom", "2 bedrooms", "3 bedrooms"], 1)}</div></div></div>
+    <div class="st rv"><div class="st-n">03</div><h3>Customer receives an estimate</h3><p class="body">A price range from your own rules.</p><div class="st-mock"><div class="mini-p"><div class="est-lbl">Your estimated price</div><div class="est-price" data-range="165,195">£165–£195</div><div class="est-note">Final price confirmed by the business.</div></div></div></div>
+    <div class="st rv"><div class="st-n">04</div><h3>You receive a qualified enquiry</h3><p class="body">Every detail, ready to quote.</p><div class="st-mock"><div class="mini-n">${Toast("New enquiry · End of tenancy", "Sarah W. · 2 bed · £165–£195", "now")}${Toast("Booked · Carpet cleaning", "Tom H. · Monday", "2d", "ghost")}</div></div></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">For your customers</span><h2 class="h2">A better experience for your customers<span class="dot">.</span></h2><p class="body">Customers pick their service, answer a few quick questions and see an estimate straight away. No waiting. No phone tag.</p></div>
+  <div class="pv rv-s rv">
+    ${BrowserFrame({ url: "tidewellcleaning.co.uk/end-of-tenancy", h: "620px", label: "Jobaro widget asking what type of clean is needed", body: Site("clean", { launcher: true }) + `<div class="over">${Widget({ step: 1, title: "Get your cleaning estimate", q: "What type of clean do you need?", body: CleanOptions() })}</div>` })}
+    ${Phone(`<div class="phone-site"><span class="s-mark" style="background:#0F5257;width:16px;height:16px;border-radius:5px"></span>Tidewell Cleaning Co.</div>` + Widget({ step: 5, cls: "flat", title: "Here's your estimate", body: Est(), next: "Choose a date" }))}
+  </div>
+</div></section>
+
+<section class="sec sec-sand"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">For you</span><h2 class="h2">Stop receiving enquiries like this<span class="dot">.</span></h2></div>
+  <div class="vs">
+    <div class="rv"><div class="inbox"><div class="inbox-h"><span>Website contact form</span><span>Tue 09:14</span></div><div class="inbox-m"><div class="from"><i></i><div><b>Sarah</b><span>via contact form</span></div></div><blockquote>Hi, how much would it cost to clean my house?</blockquote><div class="inbox-q"><span>What type of clean?</span><span>How big?</span><span>When?</span><span>Where?</span><span>Phone number?</span></div></div></div></div>
+    <div class="vs-arrow" aria-hidden="true">→</div>
+    <div class="rv">${EnquiryCard()}</div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="split" style="align-items:end">
+    <div class="rv"><span class="eyebrow">No rebuild</span><h2 class="h2" style="margin-top:18px">Works with the website you already have<span class="dot">.</span></h2></div>
+    <div class="rv"><p class="lead">You don't need to rebuild your website. Jobaro sits directly on your existing website and gives customers a better way to request an estimate.</p></div>
+  </div>
+  <div class="eq rv">
+    <div class="eq-card"><span class="label">Existing website</span><div class="eq-box"><div class="eq-site"><div class="t"><i></i>Tidewell Cleaning</div><h6>Spotless homes across Cambridge.</h6><div class="ln"></div><div class="ln"></div><span class="fake-btn">Contact us</span></div></div></div>
+    <div class="eq-op">+</div>
+    <div class="eq-card"><span class="label">Jobaro</span><div class="eq-jb"><div><span class="bchip">${B(52)}</span>jobaro</div></div></div>
+    <div class="eq-op">=</div>
+    <div class="eq-card"><span class="label" style="color:var(--or)">Better enquiries</span><div class="eq-box"><div class="eq-site"><div class="t"><i></i>Tidewell Cleaning</div><h6>Spotless homes across Cambridge.</h6><div class="ln"></div><div class="ln"></div></div><span class="eq-launch">Get my instant estimate →</span><div class="eq-pop"><div class="wg-step" style="margin:0;font-size:9px">Step 1 of 5</div><div class="q">What type of clean do you need?</div>${Opts(["End of tenancy", "Regular domestic", "Deep cleaning"], 0)}</div></div></div>
+  </div>
+</div></section>
+
+<section class="sec sec-sand"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">Industries</span><h2 class="h2">Built for businesses that quote for work<span class="dot">.</span></h2><p class="body">Where pricing is predictable, customers see an estimate. Where it isn't, Jobaro collects what you need to quote or visit.</p></div>
+  <div class="inds">
+    ${Industry("Cleaning", "Rooms, condition and extras turn into an instant price range.", IC.clean, "Instant estimates")}
+    ${Industry("Landscaping", "Garden size, materials, access and photos before you visit.", IC.land, "Details for a site visit", true)}
+    ${Industry("Driveways", "Area, surface, existing ground and access captured up front.", IC.drive, "Guide prices or site visit", true)}
+    ${Industry("Windows & doors", "Styles, sizes and quantities, ready for a proper quote.", IC.win, "Details for a quote", true)}
+    ${Industry("Gutter cleaning", "Property type and storeys give a quick, clear price.", IC.gutter, "Instant estimates")}
+    ${Industry("Home services", "Any job you quote for, with the right questions for it.", IC.home, "Set up per service", true)}
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap"><div class="mascot rv">
+  <div class="mascot-b"><svg width="160" height="160" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg></div>
+  <div><h2 class="h2">Less waiting<span class="dot">.</span><br>More jobs<span class="dot">.</span></h2><p class="body" style="margin-top:18px">Customers get an answer while they're still on your site. You get everything you need to quote.</p></div>
+</div></div></section>
+
+${CTA()}
+`;
+
+/* ---------------- HOW IT WORKS ---------------- */
+Pages["how-it-works"] = () => `
+<section class="ph"><div class="wrap">
+  <span class="eyebrow">How it works</span>
+  <h1 class="h1">From website visitor to qualified enquiry<span class="dot">.</span></h1>
+  <p class="lead">Jobaro handles the first part of the conversation so you don't have to.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="hw rv">
+    <div class="hw-t"><div class="hw-n">0<span>1</span></div><h2 class="h3">Customer starts</h2><p class="body">Customers click your Jobaro button directly from your existing website.</p></div>
+    <div class="hw-v bare rv-s rv">${BrowserFrame({ url: "fernmoorgardens.co.uk", h: "440px", label: "Landscaping website with a Get a landscaping estimate button", body: Site("land", { press: true }) })}</div>
+  </div>
+  <div class="hw flip rv">
+    <div class="hw-t"><div class="hw-n">0<span>2</span></div><h2 class="h3">Jobaro asks the right questions</h2><p class="body">The experience adapts to the service your customer needs. A patio gets different questions from a hedge trim.</p></div>
+    <div class="hw-v rv-s rv">${Widget({ kind: "land", step: 1, total: 5, title: "Get a landscaping estimate", q: "What type of work?", body: Opts(["Patio or paving", "New lawn or turfing", "Fencing", "Planting and borders", "Full garden redesign"], 0) })}</div>
+  </div>
+  <div class="hw rv">
+    <div class="hw-t"><div class="hw-n">0<span>3</span></div><h2 class="h3">Customer gets an estimate</h2><p class="body">Where pricing is predictable, Jobaro can provide an immediate estimate. You set the rules. You confirm the final price.</p></div>
+    <div class="hw-v rv-s rv">${Widget({ step: 5, title: "Here's your estimate", body: Est(), next: "Choose a date" })}</div>
+  </div>
+  <div class="hw flip rv" style="grid-template-columns:1fr">
+    <div class="hw-t" style="order:0"><div class="hw-n">0<span>4</span></div><h2 class="h3">You receive the enquiry</h2><p class="body">Name, service, job details, photos, estimate, preferred date and contact details. All in one place, ready to act on.</p></div>
+    <div class="rv-s rv">${Dashboard()}</div>
+  </div>
+</div></section>
+
+<section class="sec sec-sand" style="margin-top:60px"><div class="wrap">
+  <div class="cred">
+    <div class="rv"><span class="eyebrow">Honest by design</span><h2 class="h2" style="margin-top:18px">Not every job needs an instant quote<span class="dot">.</span></h2></div>
+    <div class="body rv"><p>Some services can be estimated from a few simple details. Others need a site visit or a final assessment.</p><p><b style="color:var(--ink)">Jobaro works with both.</b></p><p>For straightforward jobs, it can provide an estimate using pricing rules set by the business.</p><p>For more complicated jobs, it collects the information needed to prepare a quote or arrange an assessment.</p></div>
+  </div>
+  <div class="paths">
+    <div class="path rv"><div class="path-h"><span class="pill b">Straightforward</span><h3>End of tenancy clean</h3></div><div class="mini-flow"><span>Rooms</span>→<span>Condition</span>→<span>Extras</span>→<span class="o">Instant estimate</span></div>${Widget({ step: 5, title: "Here's your estimate", body: Est(false), next: "Choose a date" })}</div>
+    <div class="path rv"><div class="path-h"><span class="pill q">Needs a visit</span><h3>New sandstone patio</h3></div><div class="mini-flow"><span>Area</span>→<span>Material</span>→<span>Access</span>→<span>Photos</span>→<span class="o">Site visit request</span></div>${Widget({ kind: "land", stepLabel: "Almost done", title: "This job needs a site visit", q: "Based on 60 m², sandstone and side access, Fernmoor will measure up before quoting. Pick a time that suits you.", body: `<div class="slots"><div class="slot"><b>Tue 14</b>Morning</div><div class="slot sel"><b>Wed 15</b>Afternoon</div><div class="slot"><b>Fri 17</b>Morning</div></div>`, next: "Request visit" })}</div>
+  </div>
+</div></section>
+
+${CTA()}
+`;
+
+/* ---------------- FOR BUSINESSES ---------------- */
+Pages["for-businesses"] = () => `
+<section class="ph"><div class="wrap">
+  <span class="eyebrow">For businesses</span>
+  <h1 class="h1">Built around the way service businesses actually work<span class="dot">.</span></h1>
+</div></section>
+
+<section><div class="wrap">
+  <div class="fb rv">
+    <div class="fb-t"><span class="label">More than a contact form</span><h2 class="h3">Customers explain the job before you pick up the phone.</h2><p class="body">A contact form gets you a name and a sentence. Jobaro gets you the job.</p></div>
+    <div class="fb-v rv-s rv"><div class="duo">
+      <div><div class="cap">Contact form</div><div class="oldcard"><h6>Get in touch</h6><label>Name</label><div class="in"></div><label>Email</label><div class="in"></div><label>Message</label><div class="in ta"></div><span class="sub">Submit</span></div></div>
+      <div><div class="cap" style="color:var(--or)">Jobaro</div>${Widget({ step: 2, title: "About the property", body: Ctr("Bedrooms", 2) + Ctr("Bathrooms", 1) + `<div class="fld">Condition</div>` + Chips(["Light", "Average", "Heavy"], [1]) })}</div>
+    </div></div>
+  </div>
+
+  <div class="fb flip rv">
+    <div class="fb-t"><span class="label">Available 24/7</span><h2 class="h3">Customers start whenever they're ready.</h2><p class="body">Even when you're on a job, driving, or asleep. The enquiry is waiting for you in the morning, complete.</p></div>
+    <div class="fb-v night rv-s rv" style="background:#1E2128"><span class="time-chip"><i>${B(12)}</i>Sunday, 21:47</span>
+      ${Phone(`<div class="phone-site"><span class="s-mark" style="background:#2B3038;width:16px;height:16px;border-radius:4px"></span>Stonebeck Driveways</div>` + Widget({ kind: "drive", step: 2, cls: "flat", title: "Get an estimate", q: "What surface would you like?", body: `<div class="tiles"><div class="tile sel"><span class="sw" style="background:repeating-linear-gradient(90deg,#9C8269 0 1px,#B69C82 1px 16px),#B69C82"></span>Block paving</div><div class="tile"><span class="sw" style="background:radial-gradient(#C9B89A 1px,#B8A583 1.5px) 0 0/5px 5px"></span>Resin bound</div><div class="tile"><span class="sw" style="background:#3F434A"></span>Tarmac</div><div class="tile"><span class="sw" style="background:radial-gradient(#D8D2C6 2px,#BDB5A6 2.5px) 0 0/8px 8px"></span>Gravel</div></div>` }), "540px")}
+      <div class="float-n">${Toast("New enquiry · Block paving", "Sun 21:52 · 45 m² · photos attached", "9h")}</div>
+    </div>
+  </div>
+
+  <div class="fb rv" style="grid-template-columns:1fr">
+    <div class="fb-t"><span class="label">Better information</span><h2 class="h3">Structured enquiries, not one-line messages.</h2><p class="body">Receive structured enquiries instead of one-line messages. Every answer, photo and preferred date in the same place, every time.</p></div>
+    <div class="rv-s rv">${Dashboard()}</div>
+  </div>
+
+  <div class="fb flip rv">
+    <div class="fb-t"><span class="label">Less repetitive admin</span><h2 class="h3">Let Jobaro handle the first questions.</h2><p class="body">The questions you ask on every call, asked automatically, the same way every time.</p></div>
+    <div class="fb-v rv-s rv">${Widget({ stepLabel: "Deep cleaning", noFoot: true, body: `<div class="chat">
+      <div class="bub-row">${B(22)}<div class="bub j">Hi, I'll get you an estimate from Tidewell Cleaning. What type of clean do you need?</div></div>
+      <div class="bub u">Deep clean</div>
+      <div class="bub-row">${B(22)}<div class="bub j">How many bedrooms and bathrooms?</div></div>
+      <div class="bub u">3 bed, 2 bath</div>
+      <div class="bub-row">${B(22)}<div class="bub j">Any extras?</div></div>
+      ${Chips(["Oven", "Fridge", "Inside windows", "Carpets"], [0, 2])}
+    </div><div style="height:12px"></div>` })}</div>
+  </div>
+
+  <div class="fb rv">
+    <div class="fb-t"><span class="label">Keep your existing website</span><h2 class="h3">Add Jobaro without rebuilding your site.</h2><p class="body">Jobaro opens on top of the site you already have. Same pages, same design, better enquiries.</p></div>
+    <div class="fb-v rv-s rv" style="padding:28px">${BrowserFrame({ url: "stonebeckdriveways.co.uk", h: "540px", label: "Driveway company website with the Jobaro widget open", body: Site("drive") + `<div class="over">${Widget({ kind: "drive", step: 4, title: "Access and photos", q: "Can a mini digger reach the driveway?", body: Chips(["Yes, easily", "Narrow access", "Not sure"], [0]) + `<div class="fld">Add photos (optional)</div>` + Photos("drive") })}</div>` })}</div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">Before and after</span><h2 class="h2">Same customer. Very different week<span class="dot">.</span></h2></div>
+  <div class="ba rv">
+    <div class="ba-l"><span class="ba-tag">Without Jobaro</span>
+      <div class="sms">
+        <span class="t">Monday 19:02</span><span class="m c">Hi, how much for a deep clean?</span>
+        <span class="t">Tuesday 08:40</span><span class="m b">Hi, can you send some more details?</span>
+        <span class="t">Tuesday 12:15</span><span class="m c">2 bedroom house.</span>
+        <span class="t">Tuesday 17:30</span><span class="m b">How many bathrooms?</span>
+        <span class="t">Wednesday 09:05</span><span class="m c">Just one. Is the oven included?</span>
+        <span class="dots"><i></i><i></i><i></i></span>
+      </div>
+      <p class="ba-note">Three days in. Still no price.</p>
+    </div>
+    <div class="ba-r"><span class="ba-tag">With Jobaro</span>
+      <p style="font-size:14px;color:var(--mute)">The customer answers through Jobaro, in one go.</p>
+      <div class="answers"><div class="chk"><span>Service</span><b>Deep cleaning</b></div><div class="chk"><span>Property</span><b>House · 2 bed · 1 bath</b></div><div class="chk"><span>Extras</span><b>Oven</b></div><div class="chk"><span>Preferred date</span><b>Saturday 18 October</b></div></div>
+      <span class="ba-arrow">↓</span>
+      ${Toast("New enquiry · Deep cleaning", "Complete · estimate shown £150–£175", "now")}
+      <p class="ba-note">You receive the complete enquiry.</p>
+    </div>
+  </div>
+</div></section>
+
+${CTA()}
+`;
+
+/* ---------------- PRODUCT ---------------- */
+Pages.product = () => `
+<section class="pp-hero"><div class="wrap">
+  <span class="eyebrow">Product</span>
+  <h1 class="h1" style="margin-top:22px">Meet jobaro<span class="dot">.</span></h1>
+  <p class="lead">A better way to handle website enquiries.</p>
+  <div class="btns"><a class="btn btn-or" href="#book-a-demo">Book a demo ${ARROW}</a><a class="btn btn-ghost" href="#how-it-works">See how it works</a></div>
+  <div class="pp-stage">
+    <div class="l">${Widget({ kind: "land", step: 3, title: "Preferred material?", body: Opts(["Indian sandstone", "Porcelain", "Concrete slabs", "Not sure yet"], 1) })}</div>
+    <div class="c">${Widget({ step: 5, title: "Here's your estimate", body: Est(), next: "Choose a date" })}</div>
+    <div class="r">${Widget({ kind: "drive", step: 1, title: "Get an estimate", q: "Approximate driveway size?", body: `<div class="slider"><span></span><i></i></div><div class="slider-v"><span>10 m²</span><b style="color:var(--ink)">45 m²</b><span>100 m²+</span></div><div class="fld">Not sure? Most single drives are 30–50 m².</div>` })}</div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="big-center rv"><span class="eyebrow">01 · The experience</span><h2 class="h2">An experience customers actually want to use<span class="dot">.</span></h2><p class="body">Clear questions, big tap targets, a progress bar and an answer at the end. It works on a phone as well as it does on a laptop.</p></div>
+  <div class="pv rv-s rv">
+    ${BrowserFrame({ url: "paneworthwindows.co.uk", h: "620px", label: "Windows and doors website with the Jobaro widget", body: Site("win") + `<div class="over">${Widget({ kind: "win", step: 2, title: "Start your estimate", q: "What would you like replaced?", body: Opts([["Windows", "most popular"], "Front door", "Back or patio door", "Windows and doors"], 0) + `<div class="fld">How many windows?</div>` + Ctr("Windows", 6) })}</div>` })}
+    ${Phone(`<div class="phone-site"><span class="s-mark" style="background:#2F5D3A;width:16px;height:16px;border-radius:50% 50% 50% 4px"></span>Fernmoor Gardens</div>` + Widget({ kind: "land", step: 5, cls: "flat", title: "Add some photos", q: "A few photos help Fernmoor prepare your quote.", body: Photos("land"), next: "Review" }))}
+  </div>
+</div></section>
+
+<section class="sec sec-sand"><div class="wrap">
+  <div class="big-center rv"><span class="eyebrow">02 · Adaptive questions</span><h2 class="h2">Questions that adapt to the service<span class="dot">.</span></h2><p class="body">Each service gets its own flow, built around what you need to know before you quote.</p></div>
+  <div class="vers">
+    <div class="ver rv"><div class="ver-h"><h3>Cleaning</h3><span class="pill b">Instant estimate</span></div>
+      ${Widget({ step: 2, total: 4, title: "About the property", body: Ctr("Bedrooms", 2) + Ctr("Bathrooms", 1) + `<div class="fld">Condition</div>` + Chips(["Light", "Average", "Heavy"], [1]) })}
+      <ol class="flow"><li class="d"><i>${CHECK}</i>Bedrooms</li><li class="d"><i>${CHECK}</i>Bathrooms</li><li class="a"><i></i>Condition</li><li><i></i>Extras</li></ol></div>
+    <div class="ver rv"><div class="ver-h"><h3>Landscaping</h3><span class="pill q">Quote or visit</span></div>
+      ${Widget({ kind: "land", step: 2, title: "Approximate garden size?", body: Opts([["Small", "up to 50 m²"], ["Medium", "50–150 m²"], ["Large", "150 m²+"], "Not sure"], 1) })}
+      <ol class="flow"><li class="d"><i>${CHECK}</i>Service type</li><li class="a"><i></i>Garden size</li><li><i></i>Materials</li><li><i></i>Access</li><li><i></i>Photos</li></ol></div>
+    <div class="ver rv"><div class="ver-h"><h3>Driveways</h3><span class="pill q">Guide price</span></div>
+      ${Widget({ kind: "drive", step: 2, title: "Surface type", q: "What would you like?", body: `<div class="tiles"><div class="tile sel"><span class="sw" style="background:repeating-linear-gradient(90deg,#9C8269 0 1px,#B69C82 1px 16px),#B69C82"></span>Block paving</div><div class="tile"><span class="sw" style="background:radial-gradient(#C9B89A 1px,#B8A583 1.5px) 0 0/5px 5px"></span>Resin bound</div><div class="tile"><span class="sw" style="background:#3F434A"></span>Tarmac</div><div class="tile"><span class="sw" style="background:radial-gradient(#D8D2C6 2px,#BDB5A6 2.5px) 0 0/8px 8px"></span>Gravel</div></div>` })}
+      <ol class="flow"><li class="d"><i>${CHECK}</i>Approximate area</li><li class="a"><i></i>Surface type</li><li><i></i>Existing surface</li><li><i></i>Access</li><li><i></i>Photos</li></ol></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="big-center rv"><span class="eyebrow">03 · Estimates</span><h2 class="h2">Instant estimates when they make sense<span class="dot">.</span></h2><p class="body">Pricing is controlled by the business. You set the rules, choose which services show a price, and decide how wide the range is.</p></div>
+  <div class="est-stage">
+    <div class="rv-s rv">${Widget({ step: 5, title: "Here's your estimate", body: Est(), next: "Choose a date" })}</div>
+    <div class="rules rv" role="img" aria-label="Pricing rules editor">
+      <div class="rules-h"><div><b>Pricing rules</b><br><small>End of tenancy cleaning</small></div><span style="font-size:12.5px;display:flex;gap:8px;align-items:center">Show estimate <span class="tg"></span></span></div>
+      <table>
+        <tr class="grp"><td colspan="2">Base price by property</td></tr>
+        <tr><td>1 bedroom</td><td>£105</td></tr>
+        <tr><td>2 bedrooms</td><td>£130</td></tr>
+        <tr><td>3 bedrooms</td><td>£165</td></tr>
+        <tr class="grp"><td colspan="2">Adjustments</td></tr>
+        <tr><td>Each extra bathroom</td><td>+£20</td></tr>
+        <tr><td>Heavy condition</td><td>×1.25</td></tr>
+        <tr><td>Oven clean</td><td>+£25</td></tr>
+        <tr><td>Inside windows</td><td>+£25</td></tr>
+        <tr class="grp"><td colspan="2">Display</td></tr>
+        <tr><td>Show as a range</td><td>±8%</td></tr>
+        <tr><td>Needs site visit above</td><td>£600</td></tr>
+      </table>
+      <div class="rules-f"><span>2 bed · 1 bath · oven · inside windows = £180</span><b>Shown as £165–£195</b></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec sec-sand"><div class="wrap">
+  <div class="big-center rv"><span class="eyebrow">04 · Your dashboard</span><h2 class="h2">Every enquiry arrives organised<span class="dot">.</span></h2><p class="body">See what came in, what's been quoted and what's booked. Open any enquiry to see the whole job.</p></div>
+  <div class="rv-s rv">${Dashboard()}</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="big-center rv"><span class="eyebrow">05 · Fits in</span><h2 class="h2">Designed to fit your website<span class="dot">.</span></h2><p class="body">Jobaro sits on top of the site you already have, whatever it looks like.</p></div>
+  <div class="gallery">
+    <div class="rv">${BrowserFrame({ url: "tidewellcleaning.co.uk", h: "480px", label: "Cleaning website with Jobaro", body: Site("clean") + `<div class="over">${Widget({ step: 3, title: "Any extras?", body: Chips(["Oven", "Fridge", "Inside windows", "Carpets", "Balcony"], [0, 2]) })}</div>` })}<div class="cap"><b>Cleaning</b><span>Instant estimate</span></div></div>
+    <div class="rv">${BrowserFrame({ url: "fernmoorgardens.co.uk", h: "480px", label: "Landscaping website with Jobaro", body: Site("land") + `<div class="over">${Widget({ kind: "land", step: 4, title: "Access", q: "How do we get to the garden?", body: Opts(["Side gate", "Through the house", "Rear lane"], 0) })}</div>` })}<div class="cap"><b>Landscaping</b><span>Site visit request</span></div></div>
+    <div class="rv">${BrowserFrame({ url: "stonebeckdriveways.co.uk", h: "480px", label: "Driveway website with Jobaro", body: Site("drive") + `<div class="over">${Widget({ kind: "drive", step: 3, title: "Existing surface", body: Opts(["Gravel", "Concrete", "Old tarmac", "Lawn or soil"], 1) })}</div>` })}<div class="cap"><b>Driveways</b><span>Guide price</span></div></div>
+  </div>
+</div></section>
+
+${CTA()}
+`;
+
+/* ---------------- PRICING ---------------- */
+Pages.pricing = () => `
+<section class="ph"><div class="wrap">
+  <span class="eyebrow">Pricing</span>
+  <h1 class="h1">Simple pricing<span class="dot">.</span></h1>
+  <p class="lead">One monthly price. No per-enquiry fees.</p>
+</div></section>
+<section class="sec" style="padding-top:48px"><div class="wrap">
+  <div class="plans">
+    ${PricingCard({ name: "Starter", price: 49, blurb: "For one service and one website.", items: ["Website widget", "Customer enquiry flow", "Basic estimates", "Lead notifications"] })}
+    ${PricingCard({ name: "Pro", price: 99, blurb: "For businesses offering several services.", items: ["Everything in Starter", "Custom pricing rules", "Multiple services", "Qualified lead dashboard", "Follow-ups"], pro: true })}
+    ${PricingCard({ name: "Business", price: 199, blurb: "For larger teams and multiple sites.", items: ["Everything in Pro", "Multiple websites", "Advanced workflows", "Higher usage", "Priority support"] })}
+  </div>
+  <p class="plan-note">Pricing is indicative while Jobaro is in early access.</p>
+</div></section>
+<section class="sec sec-sand"><div class="wrap">
+  <div class="sec-head rv"><h2 class="h2">Common questions<span class="dot">.</span></h2></div>
+  <div class="faq">
+    <div class="rv"><h3>Do I need a new website?</h3><p>No. Jobaro sits on the website you already have.</p></div>
+    <div class="rv"><h3>Who sets the prices?</h3><p>You do. Jobaro only shows an estimate using the rules you set, and you can turn estimates off for any service.</p></div>
+    <div class="rv"><h3>What if a job can't be priced online?</h3><p>Jobaro collects the details and photos, and the customer requests a quote or a site visit instead.</p></div>
+    <div class="rv"><h3>What does early access mean?</h3><p>Jobaro is new. Pricing and features may change as we work with our first businesses.</p></div>
+  </div>
+</div></section>
+${CTA()}
+`;
+
+/* ---------------- BOOK A DEMO ---------------- */
+Pages["book-a-demo"] = () => `
+<section><div class="wrap demo">
+  <div class="demo-l">
+    <span class="eyebrow">Book a demo</span>
+    <h1 class="h1">Let's see if Jobaro fits your business<span class="dot">.</span></h1>
+    <p class="lead">Tell us a little about your business and we'll show you how Jobaro could work on your website.</p>
+    <ol class="next"><li><b>01</b>We look at your website and the services you offer.</li><li><b>02</b>We show you Jobaro set up for one of your services.</li><li><b>03</b>You decide if it's right for you.</li></ol>
+    <div class="mail"><span>Or email us directly</span><a href="mailto:${CONFIG.email}" id="mail-link">${CONFIG.email}</a><button class="copy" type="button" id="copy-mail">Copy</button></div>
+  </div>
+  <form class="form" id="demo-form" novalidate>
+    <div class="f"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required><span class="err"></span></div>
+    <div class="f"><label for="f-biz">Business name</label><input id="f-biz" name="business" autocomplete="organization" required><span class="err"></span></div>
+    <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+    <div class="f"><label for="f-web">Website <small>(optional)</small></label><input id="f-web" name="website" placeholder="yourbusiness.co.uk" autocomplete="url"><span class="err"></span></div>
+    <div class="f full"><label for="f-type">Business type</label><select id="f-type" name="type"><option>Cleaning</option><option>Landscaping</option><option>Driveways</option><option>Windows &amp; doors</option><option>Gutter cleaning</option><option>Other home service</option></select></div>
+    <div class="f full"><label for="f-msg">Message <small>(optional)</small></label><textarea id="f-msg" name="message" placeholder="What services do you offer? How do enquiries come in today?"></textarea></div>
+    <div class="full" style="display:grid;gap:12px"><button class="btn btn-or" type="submit" id="f-submit">Request a demo ${ARROW}</button><p class="form-fine">We'll only use your details to arrange your demo.</p></div>
+  </form>
+</div></section>
+`;
+
+/* =========================================================
+   ROUTER + BEHAVIOUR
+   ========================================================= */
+const app = document.getElementById("app");
+const nav = document.getElementById("nav");
+const TITLES = { home: "jobaro · Turn website enquiries into booked jobs", product: "Product · jobaro", "how-it-works": "How it works · jobaro", "for-businesses": "For businesses · jobaro", pricing: "Pricing · jobaro", "book-a-demo": "Book a demo · jobaro" };
+
+function route() {
+  let r = (location.hash || "#home").slice(1);
+  if (!Pages[r]) r = "home";
+  app.innerHTML = `<div class="page">${Pages[r]()}</div>`;
+  document.title = TITLES[r];
+  document.documentElement.style.setProperty("--hh", window.innerWidth < 720 ? "780px" : "640px");
+  document.querySelectorAll("[data-r]").forEach(a => a.classList.toggle("on", a.dataset.r === r));
+  nav.classList.remove("open");
+  document.getElementById("burger").setAttribute("aria-expanded", "false");
+  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  initReveal();
+  initCount();
+  if (r === "book-a-demo") initForm();
+}
+
+/* reveal on scroll: only elements below the fold start hidden */
+let io;
+function initReveal() {
+  if (io) io.disconnect();
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  const vh = window.innerHeight;
+  document.querySelectorAll(".rv").forEach(el => {
+    if (el.getBoundingClientRect().top > vh * 0.92) { el.classList.add("pre"); io.observe(el); }
+  });
+}
+
+/* subtle count-up on price ranges */
+let cio;
+function initCount() {
+  if (cio) cio.disconnect();
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    cio.unobserve(e.target);
+    const [lo, hi] = e.target.dataset.range.split(",").map(Number);
+    const t0 = performance.now(), dur = 900;
+    const step = t => {
+      const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3);
+      e.target.textContent = `£${Math.round(lo * (0.7 + 0.3 * k))}–£${Math.round(hi * (0.7 + 0.3 * k))}`;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }), { threshold: 0.6 });
+  document.querySelectorAll("[data-range]").forEach(el => cio.observe(el));
+}
+
+/* demo form */
+function initForm() {
+  const form = document.getElementById("demo-form");
+  const copyBtn = document.getElementById("copy-mail");
+  copyBtn.addEventListener("click", () => copyText(CONFIG.email, copyBtn));
+  form.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    let ok = true;
+    const need = [["f-name", "Add your name."], ["f-biz", "Add your business name."], ["f-email", "Add an email we can reply to."]];
+    need.forEach(([id, msg]) => {
+      const el = document.getElementById(id), wrap = el.closest(".f"), err = wrap.querySelector(".err");
+      let bad = !el.value.trim();
+      if (id === "f-email" && !bad && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) { bad = true; msg = "Check the email address. It should look like name@business.co.uk."; }
+      wrap.classList.toggle("bad", bad); err.textContent = bad ? msg : ""; if (bad && ok) { el.focus(); ok = false; }
+    });
+    if (!ok) return;
+    const data = Object.fromEntries(new FormData(form).entries());
+    const btn = document.getElementById("f-submit");
+    btn.innerHTML = `${B(20, "")} Sending`; btn.disabled = true; btn.querySelector("svg").style.animation = "hop .6s ease infinite";
+    const text = `Demo request\n\nName: ${data.name}\nBusiness: ${data.business}\nEmail: ${data.email}\nWebsite: ${data.website || "-"}\nBusiness type: ${data.type}\n\n${data.message || ""}`;
+    if (CONFIG.formEndpoint) {
+      try {
+        const res = await fetch(CONFIG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error();
+        form.innerHTML = `<div class="done">${B(48)}<h3>Thanks, ${esc(data.name.split(" ")[0])}.</h3><p>Your request is in. We'll reply to ${esc(data.email)} to arrange a time.</p></div>`;
+        return;
+      } catch (e) { /* fall through to email */ }
+    }
+    const mailto = `mailto:${CONFIG.email}?subject=${encodeURIComponent("Demo request: " + data.business)}&body=${encodeURIComponent(text)}`;
+    form.innerHTML = `<div class="done">${B(48)}<h3>One last step, ${esc(data.name.split(" ")[0])}.</h3><p>Send these details to <b>${CONFIG.email}</b> and we'll reply to arrange your demo.</p><pre id="req-text">${esc(text)}</pre><div class="btns"><a class="btn btn-or" href="${mailto}">Open in email ${ARROW}</a><button class="btn btn-ghost" type="button" id="copy-req">Copy details</button></div></div>`;
+    document.getElementById("copy-req").addEventListener("click", e => copyText(text, e.currentTarget));
+  });
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function copyText(t, btn) {
+  const done = () => { const o = btn.textContent; btn.textContent = "Copied"; setTimeout(() => (btn.textContent = o), 1600); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, () => sel(t, done)); else sel(t, done);
+}
+function sel(t, done) {
+  const el = document.getElementById("req-text") || document.getElementById("mail-link");
+  const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); done();
+}
+
+/* nav behaviour */
+document.getElementById("burger").addEventListener("click", e => {
+  const open = nav.classList.toggle("open");
+  e.currentTarget.setAttribute("aria-expanded", String(open));
+  e.currentTarget.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+});
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
+addEventListener("hashchange", route);
+document.getElementById("foot").innerHTML = Footer();
+route();
+</script>
+</body>
+</html>
