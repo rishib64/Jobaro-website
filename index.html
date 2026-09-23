@@ -14,7 +14,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>jobaro</title>
-<meta name="description" content="Jobaro adds an instant quote button to your website. Customers get a price straight away, day or night, and you get the full job details by email.">
+<meta name="description" content="Jobaro gives your customers an instant, guided way to request an estimate, while you receive a complete, qualified enquiry. Works with the website you already have.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M11 45 L3 52 L15 50 Z' fill='%2316181D'/%3E%3Cpath d='M33 9 C48 9 56 21 56 35 C56 49 46 58 32 58 C18 58 9 49 9 36 C9 21 18 9 33 9Z' fill='%23F2651C'/%3E%3Cellipse cx='37' cy='45' rx='13' ry='9.5' fill='%23FFD9C0'/%3E%3Cpath d='M15 33 C17 45 25 49 34 47 C26 44 22 38 21 30 Z' fill='%23C9480A'/%3E%3Cpath d='M27 11 C27 5 31 2 36 3 C33 5 32 7 32.5 9.5 Z' fill='%2316181D'/%3E%3Ccircle cx='39' cy='26' r='7.5' fill='%23fff'/%3E%3Ccircle cx='41' cy='26.5' r='3.8' fill='%2316181D'/%3E%3Cpath d='M30.5 23.6 Q39 19.2 46.5 22.8 L46.5 16 L30.5 16 Z' fill='%23F2651C'/%3E%3Cpath d='M31 23.6 Q39 19.6 46.5 22.8' stroke='%2316181D' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M54.5 27 L62 31 L54.5 35 Z' fill='%2316181D'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -562,7 +562,7 @@ p{margin:0}
 .f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--or);background:#fff;box-shadow:0 0 0 4px rgba(242,101,28,.14)}
 .f .err{font-size:12.5px;color:#B3261E;min-height:0}
 .f.bad input{border-color:#D9534F}
-.form .btn{justify-content:center;height:54px;font-size:16px}
+.form .btn{justify-content:center;height:auto;min-height:54px;padding-block:12px;font-size:16px;white-space:normal;text-align:center}
 .form-fine{font-size:13px;color:var(--mute);text-align:center}
 .done{grid-column:1/-1;display:grid;gap:14px;justify-items:start;padding:10px 0}
 .done h3{font-size:28px}
@@ -749,10 +749,239 @@ p{margin:0}
 .gallery>*,.vers>*,.inds>*,.steps4>*,.costs>*,.hero-g>*,.split>*,.fb>*,.hw>*,.vs>*,.demo>*,.race>*,.cred>*,.paths>*,.foot-g>*,.eq>*,.est-stage>*{min-width:0}
 .ex-art .bf{width:100%}
 .px,.night-art>*{max-width:100%}
-.px .phone{flex:0 1 290px}
+.px .phone{flex:0 1 auto;width:290px;max-width:100%;min-width:0}
 .mail a,.foot ul a{overflow-wrap:anywhere}
 @container (max-width:420px){ .jb-launch{white-space:normal} .s-book{display:none} }
 @media (max-width:420px){.foot-g{grid-template-columns:1fr}}
+
+/* ============ PRODUCT-FIRST UPDATE ============ */
+.h2-sm{font-size:clamp(32px,3.6vw,46px)}
+/* mockups read as real product screenshots: no tilt, no desaturation, just a small "example" label */
+.ex{padding:0;border:0;background:none!important;overflow:visible;border-radius:0}
+.ex-art{transform:none;filter:none}
+.ex-art .bf{box-shadow:var(--shadow-lg)}
+.ex-cap{margin-bottom:12px;background:var(--paper)}
+.ex-night{padding:16px;border-radius:24px}
+@media (max-width:400px){.ex-night{padding:10px}.ex-night .toast{width:100%}}
+.s-need{font-size:12.5px;font-weight:600;opacity:.8;margin:-6px 0 8px}
+.s-drive .s-need,.s-land .s-need{font-family:ui-sans-serif,system-ui,sans-serif}
+
+/* hero */
+.hero-v{position:relative}
+.hero-toast{position:absolute;left:-30px;bottom:-4px;z-index:3;animation:rise .7s cubic-bezier(.2,.8,.2,1) 1.7s both}
+.hero-toast .toast{min-width:0;width:300px}
+.hero .ex-hero .ex-anno{--ap:96px}
+@media (max-width:900px){.hero-toast{position:static;margin-top:14px;display:flex;justify-content:center}.hero-toast .toast{width:min(340px,100%)}}
+
+/* problem comparison */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cmp-col{border-radius:24px;padding:30px;display:grid;gap:22px;align-content:start}
+.cmp-col.off{background:#F1F0EE;border:1px solid var(--line)}
+.cmp-col.on{background:var(--paper);border:2px solid var(--or);box-shadow:0 24px 50px -30px rgba(242,101,28,.45)}
+.cmp-col.off .ba-tag{color:#7D8087}
+.cmp-col.on .ba-tag{color:var(--or)}
+.cbs{display:grid;gap:8px}
+.cb{max-width:88%;padding:11px 14px;border-radius:16px;font-size:14.5px;line-height:1.4}
+.cb small{display:block;font:500 10px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;opacity:.7}
+.cb.c{background:#fff;border:1px solid var(--line);justify-self:start;border-bottom-left-radius:4px}
+.cb.w{background:#E3E2DF;color:#55585F;justify-self:end;border-bottom-right-radius:4px}
+.cb.j{background:var(--or);color:#fff;justify-self:end;border-bottom-right-radius:4px}
+.cb.j b{font:800 22px/1.1 var(--fd);letter-spacing:-.03em;display:block;margin:2px 0 4px}
+.chain{list-style:none;margin:0;padding:0;counter-reset:c}
+.chain li{position:relative;padding:0 0 13px 36px;font-size:15px;font-weight:500;color:var(--ink2);counter-increment:c;line-height:1.45}
+.chain li::before{content:counter(c);position:absolute;left:0;top:-1px;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;font:600 11px/1 var(--fm);background:#fff;border:1.5px solid #CFCBC4;color:var(--mute)}
+.chain li::after{content:"";position:absolute;left:11px;top:24px;bottom:1px;width:2px;background:#DAD7D1}
+.chain li:last-child{padding-bottom:0}
+.chain li:last-child::after{display:none}
+.chain li.rep{color:var(--mute)}
+.chain li.rep::before{border-style:dashed}
+.on .chain li::before{background:var(--or50);border-color:var(--or);color:var(--ord)}
+.on .chain li::after{background:var(--or100)}
+.on .chain li.goal{color:var(--ink);font-weight:700}
+.on .chain li.goal::before{content:"✓";background:var(--or);color:#fff}
+@media (max-width:900px){.cmp{grid-template-columns:1fr}.cmp-col{padding:24px 20px}}
+
+/* animated demo */
+:root{--dh:600px}
+.demo-stage{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;align-items:start}
+.demo-rail{display:grid;gap:6px;position:sticky;top:96px}
+.dr{appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 14px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:10px;align-items:center;transition:border-color .3s,background .3s,box-shadow .3s}
+.dr:hover{border-color:#D3CFC7}
+.dr i{grid-row:span 2;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font:600 11px/1 var(--fm);font-style:normal;color:var(--mute);transition:.3s}
+.dr b{font-size:13.5px;font-weight:600;line-height:1.3}
+.dr{row-gap:1px}
+.dr span{line-height:1.3;font-size:12.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dr span:empty{display:none}
+.dr.on{border-color:var(--or);background:var(--or50);box-shadow:0 0 0 3px rgba(242,101,28,.1)}
+.dr.on i{border-color:var(--or);color:var(--or)}
+.dr.done i{background:var(--ink);border-color:var(--ink);color:#fff}
+.dr.done span{color:var(--ink2)}
+.demo-main{position:relative;min-width:0}
+.ex-demo .over{right:28px;bottom:26px}
+.ex-demo .bf-body:has(.over) .s-img{opacity:1}
+.ex-demo .s-hero{align-items:start;padding-top:48px}
+.ex-demo .s-img{height:380px}
+.ex-demo .wg{width:360px}
+.demo-over{transition:opacity .45s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.demo-over.closed{opacity:0;transform:translateY(22px) scale(.96)}
+.wg-prog span{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.wg-body.swap{animation:swapIn .42s cubic-bezier(.2,.8,.2,1)}
+@keyframes swapIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.wg-next{transition:transform .18s,filter .18s}
+.wg-next.tap{transform:scale(.94);filter:brightness(.9)}
+.chip,.slot,.opt{transition:border-color .3s,background .3s,box-shadow .3s,color .3s}
+.wg-body.pending .sel{border-color:var(--line)!important;background:#fff!important;box-shadow:none!important;color:inherit!important}
+.wg-body.pending .opt.sel .rd{border-color:#CFCBC4;background:transparent}
+.wg-body.pending .opt.sel .rd::after,.wg-body.pending .chip.sel::before{display:none}
+.wg-ready{text-align:center;font-weight:600;font-size:13.5px;margin-top:12px}
+.wg-sent{text-align:center;display:grid;justify-items:center;gap:10px;padding:26px 6px 22px}
+.wg-sent .okc{width:56px;height:56px;border-radius:50%;background:var(--ok50);color:var(--ok);display:grid;place-items:center;animation:wgIn .5s cubic-bezier(.2,.8,.2,1)}
+.wg-sent .okc svg{width:24px;height:24px}
+.wg-sent b{font:700 19px/1.2 var(--fd);letter-spacing:-.02em;max-width:15em}
+.wg-sent p{font-size:13.5px;color:var(--mute);max-width:22em}
+.demo-toast{position:absolute;left:24px;bottom:24px;z-index:4;display:grid;gap:6px;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.demo-toast.show{opacity:1;transform:none}
+.demo-toast .toast{min-width:0;width:310px}
+.demo-side{font:500 10.5px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--or);padding-left:6px;order:-1}
+@media (max-width:900px){
+  .demo-stage{grid-template-columns:1fr;gap:16px}
+  .demo-rail{position:static;display:flex;flex-wrap:wrap;gap:6px}
+  .dr{display:flex;gap:7px;padding:7px 11px 7px 8px;border-radius:999px}
+  .dr i{width:20px;height:20px;font-size:10px}
+  .dr b{font-size:12.5px}
+  .dr span{display:none}
+  .demo-toast{position:static;margin-top:14px;justify-items:center}
+  .demo-toast .toast{width:min(340px,100%)}
+}
+@media (max-width:560px){:root{--dh:560px}}
+@container (max-width:700px){ .ex-demo .over{left:12px;right:12px;bottom:12px} .ex-demo .wg{width:100%} .ex-demo .s-hero{padding-top:18px} }
+@media (max-width:620px){.ix-f li:nth-child(n+4){display:none}.ix-f::after{content:"+ 2 more questions";font-size:12px;color:var(--mute);padding:2px 2px 0}}
+
+/* business side: enquiries view */
+.app-wrap{container-type:inline-size;max-width:100%}
+.app{display:grid;grid-template-columns:290px minmax(0,1fr);background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(22,24,29,.07);text-align:left}
+.app-top{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line);background:#FAF9F6}
+.app-top .logo{font-size:19px}
+.app-crumb{font-size:13px;color:var(--mute);padding-left:14px;border-left:1px solid var(--line)}
+.app-top small{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink2);white-space:nowrap}
+.app-list{border-right:1px solid var(--line);min-width:0}
+.app-lh{padding:16px;display:flex;justify-content:space-between;align-items:center}
+.app-lh b{font:700 17px/1 var(--fd);letter-spacing:-.02em}
+.eq-i{padding:13px 16px;border-top:1px solid var(--line2);display:grid;gap:5px;position:relative}
+.eq-i.on{background:var(--or50)}
+.eq-i.on::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 3px 3px 0;background:var(--or)}
+.eq-ir,.eq-is{display:flex;justify-content:space-between;gap:8px}
+.eq-ir b{font-size:13.5px}
+.eq-ir small{color:var(--mute);font-size:11.5px;white-space:nowrap}
+.eq-is{font-size:12px;color:var(--mute)}
+.eq-is b{color:var(--ink);font-weight:600;white-space:nowrap}
+.app-det{padding:24px;min-width:0;background:#FCFBF9;display:grid;justify-items:center}
+.app-det .qe{box-shadow:0 1px 2px rgba(22,24,29,.05);border:1px solid var(--line);max-width:620px}
+@container (max-width:760px){.app{grid-template-columns:1fr}.app-list{display:none}.app-det{padding:12px}.app-crumb{display:none}}
+.qe{background:#fff;border-radius:18px;box-shadow:var(--shadow-md);overflow:hidden;max-width:520px;width:100%;text-align:left}
+.qe-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line2)}
+.qe-h small{color:var(--mute);font-size:12px}
+.qe-b{padding:20px;display:grid;gap:16px}
+.qe-who{display:flex;gap:12px;align-items:center}
+.qe-who .av{width:44px;height:44px;border-radius:50%;background:var(--sand2);display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--ink2);flex:none}
+.qe-who b{font:700 22px/1.1 var(--fd);letter-spacing:-.02em;display:block}
+.qe-who span{font-size:13.5px;color:var(--mute)}
+.qe-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.qe-g>div{background:#fff;padding:11px 13px;display:grid;gap:4px;min-width:0;align-content:start}
+.qe-g span{font:500 10px/1.2 var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--mute)}
+.qe-g b{font-size:13.5px;font-weight:600}
+.qe-ph{display:flex;gap:5px}
+.qe-ph .pt{width:40px;height:30px;border-radius:6px;overflow:hidden;display:block}
+.qe-ph .pt svg{width:100%;height:100%;display:block}
+.qe-f{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:12px}
+.rules tr.grp td{text-align:left}
+.qe-est{background:var(--or50);border:1px solid var(--or100);border-radius:12px;padding:12px 14px;display:grid;gap:4px}
+.qe-est b{font:800 26px/1.05 var(--fd);letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.qe-est small{font-size:11.5px;color:var(--mute)}
+.qe-con{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;min-width:0;align-content:start}
+.qe-con b{font-size:12.5px;font-weight:600;overflow-wrap:anywhere}
+.qe-act{display:flex;gap:8px;flex-wrap:wrap}
+.d-btn{padding:9px 14px;border-radius:9px;border:1px solid var(--line);font-weight:600;font-size:12.5px;white-space:nowrap}
+.d-btn.o{background:var(--or);border-color:var(--or);color:#fff}
+@media (max-width:520px){.qe-g,.qe-f{grid-template-columns:1fr}.qe-b{padding:16px}}
+
+/* questions Jobaro asks first */
+.asks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:-16px auto 44px;max-width:900px}
+.ask{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:14.5px;color:var(--ink2);box-shadow:0 1px 2px rgba(22,24,29,.04)}
+.ask-then{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border-radius:999px;padding:7px 18px 7px 7px;font:700 16px/1 var(--fd);letter-spacing:-.01em}
+.ask-then .bird-chip{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.ba .sms{gap:7px}
+
+/* existing website pipeline */
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px}
+.pn{display:grid;gap:12px;align-content:start;position:relative;padding:0 14px}
+.pn .label{text-align:center}
+.pn-box{height:220px;border-radius:16px;background:#fff;box-shadow:var(--shadow-md);overflow:hidden;position:relative}
+.pn+.pn::before{content:"→";position:absolute;left:-14px;top:138px;width:28px;height:28px;border-radius:50%;background:var(--paper);border:1px solid var(--line);color:var(--or);display:grid;place-items:center;font-size:14px;z-index:2}
+.pn-btn{display:inline-block;margin-top:14px;background:var(--or);color:#fff;font-size:11px;font-weight:600;padding:8px 11px;border-radius:8px}
+.pn-jb{background:var(--or);display:grid;place-items:center;align-content:center;gap:8px;color:#fff;text-align:center}
+.pn-jb .bchip{width:64px;height:64px;border-radius:20px;background:#fff;display:grid;place-items:center}
+.pn-jb b{font:700 24px/1 var(--fd);letter-spacing:-.04em}
+.pn-jb small{font-size:12px;opacity:.85}
+.pn-q,.pn-biz{padding:16px;display:grid;gap:5px;align-content:start;font-size:12.5px;color:var(--ink2)}
+.pn-q b,.pn-biz b{font:700 17px/1.15 var(--fd);letter-spacing:-.02em;color:var(--ink);margin-top:6px}
+.pn-q .pill,.pn-biz .pill{justify-self:start}
+.pn-q em{font:800 22px/1 var(--fd);font-style:normal;letter-spacing:-.03em;color:var(--ink);margin-top:6px}
+.pn-biz span:not(.pill):not(.wg-av){color:var(--mute)}
+.pn-biz .pill{margin-top:8px}
+.pipe-note{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;align-items:center;margin-top:44px;font-size:15px;color:var(--ink2)}
+.pipe-note b{font:700 19px/1.3 var(--fd);letter-spacing:-.02em;color:var(--ink);flex-basis:100%;text-align:center}
+.pipe-note span::before{content:"✓  ";color:var(--or);font-weight:700}
+@media (max-width:900px){.pipe{grid-template-columns:1fr;max-width:380px;margin-inline:auto}.pn{padding:0}.pn+.pn{padding-top:44px}.pn+.pn::before{content:"↓";left:50%;top:6px;transform:translateX(-50%)}.pn-box{height:auto;min-height:170px}.pn-jb{min-height:150px}}
+
+/* industries */
+.inx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ix{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;gap:14px;align-content:start}
+.ix-h{display:flex;align-items:center;gap:12px}
+.ix-h .ind-ic{width:40px;height:40px;border-radius:12px}
+.ix-h h3{font-size:20px;letter-spacing:-.02em}
+.ix-w{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.ix-t{padding:13px 14px 10px;font:700 15.5px/1.2 var(--fd);letter-spacing:-.02em}
+.ix-f{list-style:none;margin:0;padding:0 14px 14px;display:grid;gap:6px}
+.ix-f li{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink2);padding:7px 10px;border:1px solid var(--line2);border-radius:9px}
+.ix-f li i{width:12px;height:12px;border-radius:50%;border:1.5px solid #CFCBC4;flex:none}
+.ix-f li.d{border-color:var(--or);background:var(--or50)}
+.ix-f li.d i{border-color:var(--or);background:var(--or)}
+.ix-o{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--mute)}
+@media (max-width:1000px){.inx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.inx{grid-template-columns:1fr}}
+
+/* who it's for */
+.who{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:10px}
+.checks li{display:flex;gap:12px;align-items:center;padding:14px 18px;background:var(--paper);border:1px solid var(--line);border-radius:14px;font-weight:500;font-size:16px}
+.ck{width:28px;height:28px;border-radius:8px;background:var(--or50);color:var(--or);display:grid;place-items:center;flex:none}
+.techy{background:var(--ink);color:#fff;border-radius:26px;padding:40px;display:grid;gap:16px;align-content:start}
+.techy-b{width:76px;height:76px;border-radius:22px;background:#23262D;display:grid;place-items:center}
+.techy-b svg{animation:bob 4s ease-in-out infinite}
+.techy h3{font-size:clamp(28px,3.2vw,38px);color:#fff}
+.techy p{color:#C9CBD1;font-size:16px}
+.techy ul{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:10px;font-size:15px}
+.techy li{display:flex;gap:10px;align-items:center}
+.techy li svg{color:var(--or)}
+@media (max-width:900px){.who{grid-template-columns:1fr;gap:32px}.techy{padding:28px 22px}}
+
+/* early access */
+.ea{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:52px}
+.ea .h2{font-size:clamp(30px,3.6vw,46px)}
+.ea-card{background:var(--or50);border:2px solid var(--or);border-radius:22px;padding:28px;display:grid;gap:16px}
+.ea-card .plan-n{color:var(--or)}
+.ea-card .plan-p b{font:800 54px/1 var(--fd);letter-spacing:-.05em}
+@media (max-width:900px){.ea{grid-template-columns:1fr;gap:28px;padding:28px 20px}}
+
+/* final CTA card */
+.cta{align-items:center}
+.cta p{max-width:30em}
+.cta-card{position:relative;z-index:1;background:#fff;color:var(--ink);border-radius:20px;padding:26px 28px;display:grid;gap:14px;min-width:290px;box-shadow:0 30px 60px -30px rgba(80,25,0,.45)}
+.cta-card ul{list-style:none;padding:0;margin:0;display:grid;gap:12px;font-size:15px}
+.cta-card li{display:flex;gap:10px;align-items:center}
+.cta-card li svg{color:var(--or);flex:none}
+@media (max-width:900px){.cta-card{min-width:0}}
 </style>
 </head>
 <body>
@@ -783,7 +1012,7 @@ p{margin:0}
       <a href="#for-businesses" data-r="for-businesses">For businesses</a>
       <a href="#pricing" data-r="pricing">Pricing</a>
     </nav>
-    <a class="btn btn-or btn-sm nav-cta" href="#get-early-access">Get early access <em>→</em></a>
+    <a class="btn btn-or btn-sm nav-cta" href="#book-a-demo">Book a demo <em>→</em></a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
   </div>
   <div class="mnav" id="mnav"><div><nav class="wrap" aria-label="Mobile">
@@ -791,7 +1020,7 @@ p{margin:0}
     <a class="ml" href="#how-it-works" data-r="how-it-works">How it works</a>
     <a class="ml" href="#for-businesses" data-r="for-businesses">For businesses</a>
     <a class="ml" href="#pricing" data-r="pricing">Pricing</a>
-    <a class="btn btn-or" href="#get-early-access">Get early access <em>→</em></a>
+    <a class="btn btn-or" href="#book-a-demo">Book a 15-minute demo <em>→</em></a>
   </nav></div></div>
 </header>
 
@@ -838,14 +1067,14 @@ const Scene = {
 function BrowserFrame({ url, body, h = "520px", cls = "", label = "" }) {
   return `<div class="bf ${cls}" role="img" aria-label="${label}"><div class="bf-bar"><i></i><i></i><i></i><div class="bf-url">${LOCK}<span>${url}</span></div></div><div class="bf-body" style="--h:${h}">${body}</div></div>`;
 }
-/* Example: wraps any mockup so it reads as an illustration, not part of this site */
-function Example(art, { cap = "Example · how Jobaro looks on a customer's website", anno = "This is Jobaro", cls = "" } = {}) {
+/* Example: a small label so fictional businesses are never mistaken for real ones */
+function Example(art, { cap = "Example · a fictional business website with Jobaro added", anno = "This is Jobaro", cls = "" } = {}) {
   return `<figure class="ex ${cls}"><figcaption class="ex-cap">${cap}</figcaption><div class="ex-art">${art}</div>${anno ? `<div class="ex-anno" aria-hidden="true"><span>${anno}</span>${ANNO_ARROW}</div>` : ""}</figure>`;
 }
 function PhoneArt(phone) {
   return `<div class="px"><span class="px-anno" aria-hidden="true">This is Jobaro <span class="r">→</span><span class="d">↓</span></span>${phone}</div>`;
 }
-function Launcher(text = "Get a quote", press = false) {
+function Launcher(text = "Get an instant estimate", press = false) {
   return `<span class="jb-launch ${press ? "press" : ""}"><span class="bird-chip">${B(20)}</span><span>${text}</span>${ARROW}</span>`;
 }
 const BIZ = {
@@ -856,12 +1085,12 @@ const BIZ = {
 };
 function Site(kind, { launcher = true, press = false, cta, anno = false } = {}) {
   const d = {
-    clean: { cls: "s-clean", name: "Tidewell Cleaning Co.", links: ["Services", "Areas", "About", "Contact"], book: "Book a clean", eyebrow: "Cambridge · Domestic &amp; end of tenancy", h: "Spotless homes across Cambridge.", p: "Local, insured cleaners for regular, deep and end of tenancy cleans in Cambridge and nearby villages.", cta: "Get an instant quote", trust: ["Fully insured", "Eco products", "Weekly or one-off"], img: Scene.clean() },
-    land: { cls: "s-land", name: "Fernmoor Gardens", links: ["Our work", "Services", "About", "Contact"], book: "Call us", eyebrow: "Landscaping · South Cambridgeshire", h: "Gardens built to be lived in.", p: "Patios, turf, fencing and planting, designed and built by a small local team.", cta: "Get a landscaping quote", trust: ["Free site visits", "Local team", "Design &amp; build"], img: Scene.garden() },
-    drive: { cls: "s-drive", name: "Stonebeck Driveways", links: ["Driveways", "Patios", "Gallery", "Contact"], book: "Call us", eyebrow: "Block paving · Resin · Tarmac", h: "Driveways that last.", p: "Block paving, resin bound and tarmac driveways across Cambridgeshire.", cta: "Get a quote", trust: ["Written guarantee", "Free design advice"], img: Scene.drive() },
-    win: { cls: "s-win", name: "Paneworth Windows", links: ["Windows", "Doors", "Conservatories", "Contact"], book: "Showroom", eyebrow: "Windows &amp; doors · Supply and fit", h: "Warmer, quieter, better-looking homes.", p: "uPVC, aluminium and timber windows and doors, fitted by our own installers.", cta: "Get a quote", trust: ["FENSA registered", "Own installers"], img: Scene.windows() }
+    clean: { cls: "s-clean", name: "Tidewell Cleaning Co.", links: ["Services", "Areas", "About", "Contact"], book: "Book a clean", eyebrow: "Domestic &amp; end of tenancy cleaning", h: "Professional cleaning services in Cambridge.", p: "Local, insured cleaners for regular, deep and end of tenancy cleans in Cambridge and nearby villages.", cta: "Get an instant estimate", trust: ["Fully insured", "Eco products", "Weekly or one-off"], img: Scene.clean() },
+    land: { cls: "s-land", name: "Fernmoor Gardens", links: ["Our work", "Services", "About", "Contact"], book: "Call us", eyebrow: "Landscaping · South Cambridgeshire", h: "Gardens built to be lived in.", p: "Patios, turf, fencing and planting, designed and built by a small local team.", cta: "Tell us about your garden", trust: ["Free site visits", "Local team", "Design &amp; build"], img: Scene.garden() },
+    drive: { cls: "s-drive", name: "Stonebeck Driveways", links: ["Driveways", "Patios", "Gallery", "Contact"], book: "Call us", eyebrow: "Block paving · Resin · Tarmac", h: "Driveways that last.", p: "Block paving, resin bound and tarmac driveways across Cambridgeshire.", cta: "Get an estimate", trust: ["Written guarantee", "Free design advice"], img: Scene.drive() },
+    win: { cls: "s-win", name: "Paneworth Windows", links: ["Windows", "Doors", "Conservatories", "Contact"], book: "Showroom", eyebrow: "Windows &amp; doors · Supply and fit", h: "Warmer, quieter, better-looking homes.", p: "uPVC, aluminium and timber windows and doors, fitted by our own installers.", cta: "Start your estimate", trust: ["FENSA registered", "Own installers"], img: Scene.windows() }
   }[kind];
-  const btn = launcher ? (anno ? `<span class="lw">${Launcher(cta || d.cta, press)}<span class="anno-in">This is Jobaro</span></span>` : Launcher(cta || d.cta, press)) : "";
+  const btn = launcher ? `<div class="s-need">Need a quote?</div>` + (anno ? `<span class="lw">${Launcher(cta || d.cta, press)}<span class="anno-in">This is Jobaro</span></span>` : Launcher(cta || d.cta, press)) : "";
   return `<div class="site ${d.cls}">
     <div class="s-nav"><b class="s-logo"><span class="s-mark"></span>${d.name}</b><span class="s-links">${d.links.map(l => `<i>${l}</i>`).join("")}</span><span class="s-book">${d.book}</span></div>
     <div class="s-hero"><div class="s-copy"><small>${d.eyebrow}</small><h3>${d.h}</h3><p>${d.p}</p>${btn}<div class="s-trust">${d.trust.map(t => `<span>${t}</span>`).join("")}</div></div><div class="s-img">${d.img}</div></div>
@@ -872,7 +1101,7 @@ function Widget(o) {
   const total = o.total || 5;
   const pct = o.step ? Math.round((o.step / total) * 100) : 100;
   return `<div class="wg ${o.cls || ""}">
-    <div class="wg-top"><span class="wg-av" style="background:${b.col}">${b.ini}</span><div class="wg-biz"><b>${b.biz}</b><small>${o.sub || "Instant quote"}</small></div><span class="wg-x">${X}</span></div>
+    <div class="wg-top"><span class="wg-av" style="background:${b.col}">${b.ini}</span><div class="wg-biz"><b>${b.biz}</b><small>${o.sub || "2 minutes to complete"}</small></div><span class="wg-x">${X}</span></div>
     <div class="wg-prog"><span style="width:${pct}%"></span></div>
     <div class="wg-body">${o.step ? `<div class="wg-step">Step ${o.step} of ${total}</div>` : o.stepLabel ? `<div class="wg-step">${o.stepLabel}</div>` : ""}${o.title ? `<div class="wg-title">${o.title}</div>` : ""}${o.q ? `<div class="wg-q">${o.q}</div>` : ""}${o.body || ""}</div>
     ${o.noFoot ? "" : `<div class="wg-foot">${o.step === 1 || o.noBack ? "<span></span>" : `<span class="wg-back">Back</span>`}<span class="wg-next">${o.next || "Continue"} ${ARROW}</span></div>`}
@@ -882,73 +1111,124 @@ function Widget(o) {
 const Opts = (list, sel = 0) => `<div class="opts">${list.map((t, i) => { const [l, s] = Array.isArray(t) ? t : [t]; return `<div class="opt ${i === sel ? "sel" : ""}"><span class="rd"></span><span>${l}</span>${s ? `<small>${s}</small>` : ""}</div>`; }).join("")}</div>`;
 const Chips = (list, sel = []) => `<div class="chips">${list.map((t, i) => `<span class="chip ${sel.includes(i) ? "sel" : ""}">${t}</span>`).join("")}</div>`;
 const Ctr = (l, v) => `<div class="ctr"><span>${l}</span><span class="ctr-c"><span>−</span>${v}<span class="p">+</span></span></div>`;
-const Est = (lines = true) => `<div class="est"><div class="est-lbl">Your price range</div><div class="est-price" data-range="165,195">£165–£195</div><div class="est-note">From Tidewell's own prices. Final price confirmed by the business.</div>${lines ? `<ul class="est-lines"><li><span>End of tenancy · 2 bed house</span><span>included</span></li><li><span>Oven clean</span><span>added</span></li><li><span>Inside windows</span><span>added</span></li></ul>` : ""}</div>`;
+const Est = (lines = true) => `<div class="est"><div class="est-lbl">Estimated price</div><div class="est-price" data-range="185,215">£185–£215</div><div class="est-note">Your estimate is based on the information provided. Final price confirmed by Tidewell.</div>${lines ? `<ul class="est-lines"><li><span>End of tenancy · 3 bed house</span><span>included</span></li><li><span>Oven cleaning</span><span>added</span></li><li><span>Inside windows</span><span>added</span></li></ul>` : ""}</div>`;
 const Photos = (kind = "clean") => {
   const p = kind === "clean" ? [Scene.room(), Scene.oven(), Scene.win()] : kind === "drive" ? [Scene.patch("#8E8A84", "#6F6B66"), Scene.patch("#A19E97", "#7C7872"), Scene.patch("#7E8A6E", "#8E8A84")] : [Scene.patch("#8DB474", "#7AA85F"), Scene.patch("#A5B68E", "#D8CDBA"), Scene.patch("#6E9A5C", "#5B8F52")];
   return `<div class="photos">${p.map(s => `<div class="pt">${s}</div>`).join("")}<div class="pt add">+</div></div>`;
 };
-/* The email a business receives for each enquiry */
-function MailCard() {
-  return `<div class="mc" role="img" aria-label="Example email from Jobaro with a new quote request from Sarah Williams">
-    <div class="mc-top"><span class="ic">${B(22)}</span><div><b>Jobaro</b><span>to bookings@tidewellcleaning.co.uk</span></div><small>Today, 21:47</small></div>
-    <div class="mc-sub">New quote request: End of tenancy clean</div>
-    <div class="mc-b">
-      <dl class="kv"><dt>Name</dt><dd>Sarah Williams</dd><dt>Phone</dt><dd>07700 900123</dd><dt>Email</dt><dd>sarah.williams@example.com</dd><dt>Job</dt><dd>End of tenancy · 2 bed house · 1 bath</dd><dt>Extras</dt><dd>Oven, inside windows</dd><dt>Preferred date</dt><dd>Sunday 12 October</dd></dl>
-      <div class="mc-ph"><div class="pt">${Scene.room()}</div><div class="pt">${Scene.oven()}</div><div class="pt">${Scene.win()}</div><span>3 photos</span></div>
-      <div class="enq-est"><span class="label" style="color:var(--ord)">Price range shown</span><b data-range="165,195">£165–£195</b></div>
+/* The qualified enquiry the business receives */
+function EnquiryCard() {
+  return `<div class="qe" role="img" aria-label="Example qualified enquiry from Sarah Williams for an end of tenancy clean, estimated at £185 to £215">
+    <div class="qe-h"><span class="pill new">New qualified enquiry</span><small>Today, 21:47 · via tidewellcleaning.co.uk</small></div>
+    <div class="qe-b">
+      <div class="qe-who"><span class="av">SW</span><div><b>Sarah Williams</b><span>Cambridge, CB4</span></div></div>
+      <div class="qe-g">
+        <div><span>Service</span><b>End of tenancy clean</b></div>
+        <div><span>Property</span><b>House · 3 bed · 2 bath</b></div>
+        <div><span>Condition</span><b>Average</b></div>
+        <div><span>Extras</span><b>Oven cleaning, inside windows</b></div>
+        <div><span>Preferred date</span><b>28 September</b></div>
+        <div><span>Photos</span><div class="qe-ph"><i class="pt">${Scene.room()}</i><i class="pt">${Scene.oven()}</i><i class="pt">${Scene.win()}</i></div></div>
+      </div>
+      <div class="qe-f">
+        <div class="qe-est"><span class="label" style="color:var(--ord)">Estimated price</span><b data-range="185,215">£185–£215</b><small>Shown to the customer</small></div>
+        <div class="qe-con"><span class="label">Contact</span><b>sarah.williams@example.com</b><b>07700 900123</b></div>
+      </div>
+      <div class="qe-act"><span class="d-btn o">Call Sarah</span><span class="d-btn">Reply by email</span><span class="d-btn">Mark as booked</span></div>
     </div></div>`;
 }
-function Toast(title = "New enquiry by email", sub = "End of tenancy · Sarah W. · £165–£195", when = "now", cls = "") {
+/* Business-side view: the enquiries list with one enquiry open */
+function Dashboard() {
+  const items = [
+    ["Sarah Williams", "2 min", "new", "New", "End of tenancy clean", "£185–£215", true],
+    ["James Okafor", "48 min", "new", "New", "Regular clean", "£60–£70"],
+    ["Priya Shah", "Yesterday", "q", "Quoted", "Deep clean", "£210–£240"],
+    ["Tom Hughes", "Mon", "b", "Booked", "Carpet cleaning", "£85–£95"],
+    ["Emma Clarke", "Sun", "b", "Booked", "Oven cleaning", "£55–£65"]
+  ];
+  return `<div class="app-wrap"><div class="app" role="img" aria-label="Example Jobaro enquiries view for a fictional cleaning company">
+    <div class="app-top"><span class="logo">${B(22)}<span>jobaro</span></span><span class="app-crumb">Enquiries</span><small><span class="wg-av" style="background:#0F5257;width:24px;height:24px;border-radius:7px;font-size:9.5px">TC</span>Tidewell Cleaning Co.</small></div>
+    <div class="app-list"><div class="app-lh"><b>Enquiries</b><span class="pill new">2 new</span></div>
+      ${items.map(i => `<div class="eq-i ${i[6] ? "on" : ""}"><div class="eq-ir"><b>${i[0]}</b><small>${i[1]}</small></div><div class="eq-is"><span>${i[4]}</span><b>${i[5]}</b></div><div><span class="pill ${i[2]}">${i[3]}</span></div></div>`).join("")}
+    </div>
+    <div class="app-det">${EnquiryCard()}</div>
+  </div></div>`;
+}
+function Toast(title = "New qualified enquiry", sub = "End of tenancy · 3 bed · £185–£215", when = "now", cls = "") {
   return `<div class="toast ${cls}"><span class="ic">${B(24)}</span><div><b>${title}</b><span>${sub}</span></div><em>${when}</em></div>`;
 }
 function Phone(inner, h) {
   return `<div class="phone" role="img" aria-label="Example: Jobaro on a phone"><div class="phone-scr" ${h ? `style="--ph:${h}"` : ""}><div class="phone-sb"><span>9:41</span><i></i><span>●●●</span></div>${inner}</div></div>`;
 }
-const CleanOptions = () => Opts(["End of tenancy", "Regular domestic", "Deep cleaning", "Carpet cleaning", "Window cleaning"], 0);
 const Nudge = (t, cls = "") => `<p class="nudge rv ${cls}"><span class="clock" aria-hidden="true"></span><span>${t}</span></p>`;
-function Industry(title, text, icon, tag, alt) {
-  return `<article class="ind rv"><span class="ind-ic">${icon}</span><h3>${title}</h3><p>${text}</p><span class="tag ${alt ? "alt" : ""}">${tag}</span></article>`;
-}
 const IC = {
-  clean: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M9 10h7v12a1 1 0 01-1 1h-5a1 1 0 01-1-1z"/><path d="M10 10V6h5l3 2M15 6V4h-4"/><path d="M20 12l2-1M20 15h2.5M20 18l2 1"/></svg>`,
-  land: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21C5 11 11 5 21 5c0 10-6 16-16 16z"/><path d="M5 21L15 11"/></svg>`,
-  drive: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 6h18v14H4z"/><path d="M4 10.7h18M4 15.3h18M10 6v4.7M16 6v4.7M7 10.7v4.6M13 10.7v4.6M19 10.7v4.6M10 15.3V20M16 15.3V20"/></svg>`,
-  win: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h16v18H5z"/><path d="M13 4v18M5 13h16"/></svg>`,
-  gutter: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L13 4l10 8"/><path d="M2 12h22v2.5H2z"/><path d="M21 14.5V21"/><path d="M21 23.5v.01"/><path d="M7 14.5V22h10v-7.5"/></svg>`,
-  home: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 4.5a4.5 4.5 0 00-4.3 5.8L4.5 18a2.1 2.1 0 003 3l7.7-7.7a4.5 4.5 0 005.8-4.3l-2.6 2.6-2.8-.4-.4-2.8z"/></svg>`,
+  clean: `<svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M9 10h7v12a1 1 0 01-1 1h-5a1 1 0 01-1-1z"/><path d="M10 10V6h5l3 2M15 6V4h-4"/><path d="M20 12l2-1M20 15h2.5M20 18l2 1"/></svg>`,
+  land: `<svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21C5 11 11 5 21 5c0 10-6 16-16 16z"/><path d="M5 21L15 11"/></svg>`,
+  drive: `<svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 6h18v14H4z"/><path d="M4 10.7h18M4 15.3h18M10 6v4.7M16 6v4.7M7 10.7v4.6M13 10.7v4.6M19 10.7v4.6M10 15.3V20M16 15.3V20"/></svg>`,
+  win: `<svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h16v18H5z"/><path d="M13 4v18M5 13h16"/></svg>`,
+  gutter: `<svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L13 4l10 8"/><path d="M2 12h22v2.5H2z"/><path d="M21 14.5V21"/><path d="M21 23.5v.01"/><path d="M7 14.5V22h10v-7.5"/></svg>`,
+  home: `<svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 4.5a4.5 4.5 0 00-4.3 5.8L4.5 18a2.1 2.1 0 003 3l7.7-7.7a4.5 4.5 0 005.8-4.3l-2.6 2.6-2.8-.4-.4-2.8z"/></svg>`,
   moon: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 15.5A8.5 8.5 0 0110.5 5.5a8.5 8.5 0 1010 10z"/></svg>`,
   cal: `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="18" height="16" rx="2"/><path d="M4 11h18M9 3.5V8M17 3.5V8"/></svg>`
 };
-const PLAN_ITEMS = ["Quote button on your website", "Questions set up for your services", "Instant price ranges from your prices", "Enquiries sent to your email", "Setup done for you"];
+/* Industry example: a miniature of the questions Jobaro would ask */
+function IndustryCard(name, icon, title, fields, instant) {
+  return `<article class="ix rv"><div class="ix-h"><span class="ind-ic">${icon}</span><h3>${name}</h3></div>
+    <div class="ix-w"><div class="wg-prog"><span style="width:20%"></span></div><div class="ix-t">${title}</div><ul class="ix-f">${fields.map((f, i) => `<li class="${i === 0 ? "d" : ""}"><i></i>${f}</li>`).join("")}</ul></div>
+    <div class="ix-o">${instant ? `<span class="pill b">Instant estimate</span><span>From your pricing rules</span>` : `<span class="pill q">Quote or site visit</span><span>Qualified and passed to you</span>`}</div></article>`;
+}
+const PLAN_ITEMS = ["Estimate button on your website", "Guided questions set up for your services", "Instant estimates from your pricing rules", "Complete, qualified enquiries sent to you", "Setup done for you"];
 const LOCK_LINE = "Join now and your £50 price is locked in. It won't go up for as long as you stay subscribed, even when prices rise for new customers.";
 function PlanCard() {
   return `<article class="plan1 rv">
     <div class="plan1-l"><div><div class="plan-n">Early access</div><div class="plan-p" style="margin-top:12px"><b>£50</b><span>/ month</span></div></div>
       <div class="lockbox"><span class="lk">${LOCKW}</span><p>${LOCK_LINE}</p></div>
-      <a class="btn btn-or" href="#get-early-access">Get early access ${ARROW}</a></div>
+      <a class="btn btn-or" href="#book-a-demo">Apply for early access ${ARROW}</a></div>
     <div class="plan1-r"><span class="label">What's included</span><ul>${PLAN_ITEMS.map(i => `<li>${CHECK}<span>${i}</span></li>`).join("")}</ul></div>
   </article>`;
 }
-function PriceStrip() {
-  return `<section class="sec-tight" style="padding-bottom:0"><div class="wrap"><div class="pstrip rv">
-    <div><div class="plan-n">Early access</div><div class="plan-p"><b>£50</b><span>/ month</span></div></div>
-    <p><span class="lk">${LOCKW}</span><span>${LOCK_LINE}</span></p>
-    <a class="btn btn-or" href="#get-early-access">Get early access ${ARROW}</a>
+function EarlyAccess() {
+  return `<section class="sec-tight"><div class="wrap"><div class="ea rv">
+    <div><span class="eyebrow">Early access</span><h2 class="h2" style="margin-top:16px">Jobaro is currently onboarding its first businesses<span class="dot">.</span></h2><p class="body" style="margin-top:16px">Get Jobaro set up on your website and help shape the product before general release. Your feedback helps decide what we build next.</p><div class="btns" style="margin-top:26px"><a class="btn btn-or" href="#book-a-demo">Apply for early access ${ARROW}</a><a class="btn btn-ghost" href="#pricing">See pricing</a></div></div>
+    <div class="ea-card"><div class="plan-n">Early access price</div><div class="plan-p"><b>£50</b><span>/ month</span></div><div class="lockbox"><span class="lk">${LOCKW}</span><p>${LOCK_LINE}</p></div></div>
   </div></div></section>`;
 }
 function CTA(alt = { href: "#how-it-works", text: "See how it works" }) {
   return `<section class="sec-tight"><div class="wrap"><div class="cta rv">
     <svg class="cta-bird" width="340" height="340" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg>
-    <div><h2 class="h2">Answer every enquiry instantly, even at 10pm.</h2><p>Early access is £50 a month, locked in for as long as you stay subscribed.</p></div>
-    <div class="btns"><a class="btn btn-w" href="#get-early-access">Get early access ${ARROW}</a><a class="btn btn-o" href="${alt.href}">${alt.text}</a></div>
+    <div><h2 class="h2">See what Jobaro could look like on your website.</h2><p>We'll show you the customer experience and how enquiries arrive on your side. No hard sell.</p>
+      <div class="btns" style="margin-top:30px"><a class="btn btn-w" href="#book-a-demo">Book a free 15-minute demo ${ARROW}</a><a class="btn btn-o" href="${alt.href}">${alt.text} ${ARROW}</a></div></div>
+    <div class="cta-card"><span class="label">In your 15-minute demo</span><ul>${["Jobaro set up for one of your services", "What your customers see", "How enquiries arrive on your side", "Time for your questions"].map(i => `<li>${CHECK}<span>${i}</span></li>`).join("")}</ul></div>
   </div></div></section>`;
 }
 function Footer() {
   return `<div class="wrap"><div class="foot-g">
-    <div><a class="logo" href="#home">${B(28)}<span>jobaro</span></a><p>Jobaro adds an instant quote form to your website. Customers see a price straight away, and you get the full job details by email.</p></div>
+    <div><a class="logo" href="#home">${B(28)}<span>jobaro</span></a><p>Jobaro gives your customers an instant, guided way to request an estimate, while you receive a complete, qualified enquiry.</p></div>
     <div><h4>Product</h4><ul><li><a href="#product">Product</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#for-businesses">For businesses</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
-    <div><h4>Get in touch</h4><ul><li><a href="#get-early-access">Get early access</a></li><li><a href="mailto:${CONFIG.email}">${CONFIG.email}</a></li></ul></div>
+    <div><h4>Get in touch</h4><ul><li><a href="#book-a-demo">Book a demo</a></li><li><a href="#book-a-demo">Apply for early access</a></li><li><a href="mailto:${CONFIG.email}">${CONFIG.email}</a></li></ul></div>
   </div><div class="foot-b"><span>© ${new Date().getFullYear()} Jobaro</span><span>Businesses shown in product examples are fictional. Jobaro is in early access.</span></div></div>`;
+}
+
+/* ---------- live product demo (home) ---------- */
+const DEMO = [
+  { k: "Service", a: "End of tenancy clean", title: "What do you need?", q: "Choose the service you'd like a price for.", body: () => Opts(["End of tenancy clean", "Regular clean", "Deep clean", "Carpet cleaning"], 0) },
+  { k: "Property", a: "House · 3 bed · 2 bath", title: "About the property", body: () => Chips(["House", "Flat", "Maisonette"], [0]) + `<div style="height:6px"></div>` + Ctr("Bedrooms", 3) + Ctr("Bathrooms", 2) },
+  { k: "Condition", a: "Average", title: "What condition is it in?", body: () => Opts([["Light", "recently cleaned"], ["Average", "normal wear"], ["Heavy", "needs extra time"]], 1) + `<div class="fld">Photos can be added at the end.</div>` },
+  { k: "Extras", a: "Oven, inside windows", title: "Any extras?", q: "Choose as many as you need.", body: () => Chips(["Oven cleaning", "Inside windows", "Fridge", "Carpets", "Balcony"], [0, 1]) },
+  { k: "Date", a: "28 September", title: "Preferred date", body: () => `<div class="slots">${[["Sat", "27 Sep"], ["Sun", "28 Sep"], ["Mon", "29 Sep"]].map((d, i) => `<div class="slot ${i === 1 ? "sel" : ""}"><b>${d[0]}</b>${d[1]}</div>`).join("")}</div><div class="fld">Add photos (optional)</div>${Photos()}` },
+  { k: "Estimate", a: "£185–£215", title: "Here's your estimate", body: () => Est() + `<div class="wg-ready">Ready to book?</div>`, next: "Request booking" },
+  { k: "Sent", a: "Sent to Tidewell", sent: true, body: () => `<div class="wg-sent"><span class="okc">${CHECK}</span><b>Your details have been sent to the business</b><p>Tidewell Cleaning Co. will confirm your booking and final price.</p></div>` }
+];
+function DemoStage() {
+  const b = BIZ.clean;
+  const wg = `<div class="wg" id="dw"><div class="wg-top"><span class="wg-av" style="background:${b.col}">${b.ini}</span><div class="wg-biz"><b>${b.biz}</b><small>2 minutes to complete</small></div><span class="wg-x">${X}</span></div><div class="wg-prog"><span id="dw-prog" style="width:0"></span></div><div class="wg-body" id="dw-body"></div><div class="wg-foot" id="dw-foot"><span class="wg-back" id="dw-back">Back</span><span class="wg-next" id="dw-next">Continue ${ARROW}</span></div><div class="wg-pow">Powered by ${B(13)} <b>jobaro</b></div></div>`;
+  return `<div class="demo-stage" id="demo">
+    <div class="demo-rail" aria-label="Demo steps">${DEMO.map((s, i) => `<button type="button" class="dr" data-i="${i}"><i>${i + 1}</i><b>${s.k}</b><span></span></button>`).join("")}</div>
+    <div class="demo-main">
+      ${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "var(--dh)", label: "Animated example: a customer uses Jobaro on a fictional cleaning company website to get an estimate", body: Site("clean", { press: true }) + `<div class="over demo-over closed" id="dw-over">${wg}</div>` }), { cls: "ex-demo", anno: "" })}
+      <div class="demo-toast" id="dw-toast">${Toast("New qualified enquiry", "Sarah W. · End of tenancy · £185–£215", "now")}<span class="demo-side">Meanwhile, on your side</span></div>
+    </div>
+  </div>`;
 }
 
 /* =========================================================
@@ -960,115 +1240,115 @@ const Pages = {};
 Pages.home = () => `
 <section class="hero"><div class="wrap hero-g">
   <div class="hero-t">
-    <span class="eyebrow">Instant quotes for trade and home service businesses</span>
-    <h1 class="h1">Stop losing customers to slow replies<span class="dot">.</span></h1>
-    <p class="lead">Jobaro adds an instant quote button to your website. Customers get a price in under a minute, day or night, and you get every detail by email, ready to book.</p>
-    <p class="what">${B(20)}<span><b>Jobaro is a quote form for your own website.</b> Not a web agency, and not a cleaning company.</span></p>
-    <div class="btns"><a class="btn btn-or" href="#get-early-access">Get early access ${ARROW}</a><a class="btn btn-ghost" href="#how-it-works">See how it works</a></div>
+    <span class="eyebrow">The website enquiry tool for service businesses</span>
+    <h1 class="h1">Turn website enquiries into booked jobs<span class="dot">.</span></h1>
+    <p class="lead">Jobaro gives your customers an instant, guided way to request an estimate, while you receive a complete, qualified enquiry.</p>
+    <p class="what">${B(20)}<span><b>Works with the website you already have.</b> No rebuild, and no developer needed.</span></p>
+    <div class="btns"><a class="btn btn-or" href="#book-a-demo">Book a 15-minute demo ${ARROW}</a><a class="btn btn-ghost" href="#demo-section">See how it works</a></div>
   </div>
-  <div class="hero-v">${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "var(--hh)", label: "Example: a fictional cleaning company website with the Jobaro quote form showing a price range", body: Site("clean", { cta: "Get a quote", press: true }) + `<div class="over">${Widget({ step: 4, total: 4, title: "Here's your price", body: Est(false), next: "Send my details" })}</div>` }), { cls: "ex-hero" })}</div>
-</div></section>
-
-<section class="sec" style="padding-top:64px"><div class="wrap">
-  <div class="sec-head rv"><span class="eyebrow">Why reply speed matters</span><h2 class="h2">Slow replies lose jobs<span class="dot">.</span></h2><p class="body">People looking for a tradesperson usually ask more than one business. Whoever gives them a price first has the best chance of getting the job.</p></div>
-  <div class="race">
-    <div class="race-col slow rv"><span class="ba-tag">When you reply slowly</span><ol class="tl">
-      <li><time>Tuesday 19:40</time><b>A customer asks for a price</b><span>You're finishing a job, so it waits.</span></li>
-      <li><time>Tuesday 21:15</time><b>They wait, then ask elsewhere</b><span>Two more businesses get the same message.</span></li>
-      <li><time>Wednesday 08:05</time><b>Someone faster sends a quote</b><span>The customer says yes to them.</span></li>
-      <li class="end"><time>Wednesday 12:30</time><b>You reply. The job's gone.</b><span>"Thanks, we've already booked someone."</span></li>
-    </ol><p class="race-out">Job lost.</p></div>
-    <div class="race-col fast rv"><span class="ba-tag">With Jobaro</span><ol class="tl">
-      <li><time>Tuesday 19:40</time><b>A customer asks for a price</b><span>They click "Get a quote" on your website.</span></li>
-      <li><time>Tuesday 19:41</time><b>They see a price straight away</b><span>A range worked out from your own prices.</span></li>
-      <li><time>Tuesday 19:42</time><b>You get the full job details by email</b><span>Name, number, job, photos and preferred date.</span></li>
-      <li class="end"><time>Wednesday 08:05</time><b>You call back and book the job</b><span>They already have a price and they're expecting your call.</span></li>
-    </ol><p class="race-out">Job booked.</p></div>
-  </div>
-  ${Nudge("Every hour you don't reply, a customer is comparing you with someone else.")}
-</div></section>
-
-<section class="sec sec-sand"><div class="wrap split">
-  <div class="rv">
-    <span class="eyebrow">The usual way</span>
-    <h2 class="h2" style="margin-top:18px">Your customers shouldn't have to wait<span class="dot">.</span></h2>
-    <p class="body" style="margin-top:18px">A contact form takes a name and a message, then leaves the customer waiting. While they wait, they ask other businesses too. If someone else sends a price first, that's usually where the job goes.</p>
-    <ol class="old-flow">
-      <li class="s">Customer finds your website</li><li class="a">↓</li>
-      <li class="s">Fills in a basic contact form</li><li class="a">↓</li>
-      <li class="s wait">Waits for you to reply</li><li class="a">↓</li>
-      <li class="s">Asks two other businesses in the meantime</li><li class="a">↓</li>
-      <li class="s lost">Books whoever gave them a price first</li>
-    </ol>
-  </div>
-  <div class="rv-s rv">
-    ${Example(BrowserFrame({ url: "yourbusiness.co.uk/contact", h: "410px", label: "Example: a basic contact form", body: `<div class="oldform"><h6>Contact us</h6><label>Name</label><div class="in"></div><label>Email</label><div class="in"></div><label>Phone</label><div class="in"></div><label>Message</label><div class="in ta"></div><span class="sub">Send enquiry</span></div>` }), { cap: "Example · a typical contact form", anno: "" })}
-    <div class="thanks"><span class="clock"></span><div><p>Thanks. We'll get back to you shortly.</p><small>Sent Tuesday 21:14 · no reply yet · customer still asking around</small></div></div>
+  <div class="hero-v">${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "var(--hh)", label: "Example: a fictional cleaning company website with the Jobaro estimate form showing £185 to £215", body: Site("clean", { press: true, cta: "Get an estimate" }) + `<div class="over">${Widget({ step: 5, total: 5, title: "Here's your estimate", body: Est(false), next: "Request booking" })}</div>` }), { cls: "ex-hero" })}
+    <div class="hero-toast">${Toast("New qualified enquiry", "Sarah W. · End of tenancy · £185–£215", "now")}</div>
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
-  <div class="sec-head rv"><span class="eyebrow">The Jobaro way</span><h2 class="h2">Give customers a price now, not tomorrow<span class="dot">.</span></h2></div>
-  <div class="steps4">
-    <div class="st rv"><div class="st-n">01</div><h3>Customer clicks "Get a quote"</h3><p class="body">One button on your existing website.</p><div class="st-mock"><div class="mini-site"><span class="mini-tag">Example website</span><div class="ln h"></div><div class="ln"></div><div class="ln" style="width:60%"></div><div style="margin-top:8px">${Launcher("Get a quote")}</div></div></div></div>
-    <div class="st rv"><div class="st-n">02</div><h3>They answer a few quick questions</h3><p class="body">Short and specific. Tap to answer.</p><div class="st-mock"><div class="mini-q"><div class="wg-step" style="margin:0">Step 2 of 4</div><div class="q">How many bedrooms?</div>${Opts(["1 bedroom", "2 bedrooms", "3 bedrooms"], 1)}</div></div></div>
-    <div class="st rv"><div class="st-n">03</div><h3>They see a price straight away</h3><p class="body">A range from your own prices.</p><div class="st-mock"><div class="mini-p"><div class="est-lbl">Your price range</div><div class="est-price" data-range="165,195">£165–£195</div><div class="est-note">Final price confirmed by the business.</div></div></div></div>
-    <div class="st rv"><div class="st-n">04</div><h3>You get the job details by email</h3><p class="body">Everything you need to call back and book.</p><div class="st-mock"><div class="mini-n">${Toast("New enquiry by email", "Sarah W. · 2 bed · £165–£195", "now")}${Toast("New enquiry by email", "James O. · Regular clean · £60–£70", "21:47", "ghost")}</div></div></div>
+<section class="sec" style="padding-top:56px"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">The problem</span><h2 class="h2">Your website gets enquiries. But how many turn into quotes<span class="dot">?</span></h2></div>
+  <div class="cmp">
+    <div class="cmp-col off rv"><span class="ba-tag">Without Jobaro</span>
+      <div class="cbs"><div class="cb c"><small>Customer</small>Hi, how much would a 3-bed end-of-tenancy clean cost?</div><div class="cb w"><small>Your website</small>Thanks for your enquiry. We'll get back to you shortly.</div></div>
+      <ol class="chain">
+        <li>Customer submits a generic form</li>
+        <li>You receive an incomplete enquiry</li>
+        <li>You have to reply</li>
+        <li class="rep">You ask several questions</li>
+        <li class="rep">Customer responds</li>
+        <li class="rep">More back-and-forth</li>
+        <li>Eventually, a quote can be prepared</li>
+      </ol>
+    </div>
+    <div class="cmp-col on rv"><span class="ba-tag">With Jobaro</span>
+      <div class="cbs"><div class="cb c"><small>Customer</small>Hi, how much would a 3-bed end-of-tenancy clean cost?</div><div class="cb j"><small>Jobaro, on your website</small>Estimated price <b>£185–£215</b><br>Ready to book?</div></div>
+      <ol class="chain">
+        <li>Customer visits your website</li>
+        <li>Clicks "Get an instant estimate"</li>
+        <li>Answers a few guided questions</li>
+        <li>Receives an estimate</li>
+        <li>Submits their details</li>
+        <li class="goal">You receive a qualified enquiry</li>
+      </ol>
+    </div>
   </div>
 </div></section>
 
-<section class="sec sec-sand"><div class="wrap split">
-  <div class="rv">
-    <span class="eyebrow">For your customers</span>
-    <h2 class="h2" style="margin-top:18px">A price in under a minute<span class="dot">.</span> No phone tag<span class="dot">.</span></h2>
-    <p class="body" style="margin-top:18px">Customers pick their service, answer a few quick questions and see a price range straight away, on their phone or laptop, at any time of day. They don't have to wait for you to be free.</p>
-    ${Nudge("Enquiries don't stop at 5pm. Your replies shouldn't either.", "left")}
-  </div>
-  <div class="rv-s rv">${Example(PhoneArt(Phone(`<div class="phone-site"><span class="s-mark" style="background:#0F5257;width:16px;height:16px;border-radius:5px"></span>Tidewell Cleaning Co.</div>` + Widget({ step: 4, total: 4, cls: "flat", title: "Here's your price", body: Est(), next: "Send my details" }))), { cap: "Example · Jobaro on a customer's phone", anno: "" })}</div>
+<section class="sec sec-sand" id="demo-section"><div class="wrap">
+  <div class="big-center rv"><span class="eyebrow">See it in action</span><h2 class="h2">This is what your customers see<span class="dot">.</span></h2><p class="body">A cleaning company website with Jobaro added. The customer clicks one button, answers a few questions and gets an estimate. You get everything they told you.</p></div>
+  ${DemoStage()}
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="sec-head rv"><span class="eyebrow">For you</span><h2 class="h2">Get the full job details, not just "how much?"<span class="dot">.</span></h2><p class="body">No more back-and-forth to find out what the job is. Every enquiry arrives by email with what you need to call back and book.</p></div>
-  <div class="vs">
-    <div class="rv"><div class="vs-cap">A typical contact form message</div><div class="inbox"><div class="inbox-h"><span>Website contact form</span><span>Tue 21:14</span></div><div class="inbox-m"><div class="from"><i></i><div><b>Sarah</b><span>via contact form</span></div></div><blockquote>Hi, how much would it cost to clean my house?</blockquote><div class="inbox-q"><span>What type of clean?</span><span>How big?</span><span>When?</span><span>Where?</span><span>Phone number?</span></div></div></div></div>
-    <div class="vs-arrow" aria-hidden="true">→</div>
-    <div class="rv"><div class="vs-cap" style="color:var(--or)">Example · the email Jobaro sends you</div>${MailCard()}</div>
+  <div class="split" style="align-items:end;margin-bottom:48px">
+    <div class="rv"><span class="eyebrow">What you receive</span><h2 class="h2 h2-sm" style="margin-top:18px">Your customer gets a guided experience. You get a qualified enquiry<span class="dot">.</span></h2></div>
+    <div class="rv"><p class="lead" style="color:var(--ink);font-weight:600">Stop chasing customers for the information you need to quote.</p><p class="body" style="margin-top:12px">Jobaro collects the important information before the enquiry reaches you, so you spend less time asking the same questions and more time responding to customers who are ready to book.</p></div>
   </div>
+  <div class="rv-s rv">${Dashboard()}</div>
 </div></section>
 
 <section class="sec sec-sand"><div class="wrap">
-  <div class="split" style="align-items:end">
-    <div class="rv"><span class="eyebrow">No rebuild</span><h2 class="h2" style="margin-top:18px">Works with the website you already have<span class="dot">.</span></h2></div>
-    <div class="rv"><p class="lead">You don't need a new website. We add a "Get a quote" button to the one you have, and the quote form opens on top of it.</p></div>
-  </div>
-  <div class="eq-cap rv"><span class="ex-cap">Example · how Jobaro looks on a customer's website</span></div>
-  <div class="eq rv">
-    <div class="eq-card"><span class="label">Your website</span><div class="eq-box"><div class="eq-site"><div class="t"><i></i>Tidewell Cleaning</div><h6>Spotless homes across Cambridge.</h6><div class="ln"></div><div class="ln"></div><span class="fake-btn">Contact us</span></div></div></div>
-    <div class="eq-op">+</div>
-    <div class="eq-card"><span class="label">Jobaro</span><div class="eq-jb"><div><span class="bchip">${B(52)}</span>jobaro</div></div></div>
-    <div class="eq-op">=</div>
-    <div class="eq-card"><span class="label" style="color:var(--or)">Your website, answering instantly</span><div class="eq-box"><div class="eq-site"><div class="t"><i></i>Tidewell Cleaning</div><h6>Spotless homes across Cambridge.</h6><div class="ln"></div><div class="ln"></div></div><span class="eq-launch">Get a quote →</span><span class="eq-anno" aria-hidden="true">This is Jobaro ↓</span><div class="eq-pop"><div class="wg-step" style="margin:0;font-size:9px">Step 1 of 4</div><div class="q">What type of clean do you need?</div>${Opts(["End of tenancy", "Regular domestic", "Deep cleaning"], 0)}</div></div></div>
+  <div class="big-center rv"><span class="eyebrow">Time saved</span><h2 class="h2">Less back-and-forth<span class="dot">.</span> More useful enquiries<span class="dot">.</span></h2><p class="body">The questions you ask on every enquiry, answered before you pick up the phone.</p></div>
+  <div class="asks rv">${["How many bedrooms?", "What condition is it in?", "Where are you located?", "When do you need it?", "Can you send photos?"].map(q => `<span class="ask">${q}</span>`).join("")}<span class="ask-then"><span class="bird-chip">${B(18)}</span>Jobaro asks first.</span></div>
+  <div class="ba rv">
+    <div class="ba-l"><span class="ba-tag">Without Jobaro</span>
+      <div class="sms">
+        <span class="m c">Hi, how much for a clean?</span><span class="m b">How many bedrooms?</span><span class="m c">3</span><span class="m b">How many bathrooms?</span><span class="m c">2</span><span class="m b">What condition is it in?</span><span class="m c">Average</span><span class="m b">When do you need it?</span><span class="m c">Next Saturday</span>
+      </div>
+      <p class="ba-note">Nine messages later, you can start working out a price.</p>
+    </div>
+    <div class="ba-r"><span class="ba-tag">With Jobaro</span>
+      <p style="font-size:15px;color:var(--ink2)">The customer answers everything in one guided form. You receive it all together.</p>
+      <div class="answers"><div class="chk"><span>Service</span><b>End of tenancy clean</b></div><div class="chk"><span>Property</span><b>House · 3 bed · 2 bath</b></div><div class="chk"><span>Condition</span><b>Average</b></div><div class="chk"><span>Location</span><b>Cambridge, CB4</b></div><div class="chk"><span>Preferred date</span><b>Saturday 27 September</b></div><div class="chk"><span>Photos</span><b>3 attached</b></div></div>
+      <span class="ba-arrow">↓</span>
+      ${Toast("New qualified enquiry", "Everything you need to quote, in one place", "now")}
+      <p class="ba-note">Can't be priced online? Jobaro still collects what you need to quote or arrange a visit.</p>
+    </div>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="sec-head rv"><span class="eyebrow">Industries</span><h2 class="h2">Built for businesses that quote for work<span class="dot">.</span></h2><p class="body">Where your prices are predictable, customers see a price range straight away. Where a job needs a visit, they can request one instead.</p></div>
-  <div class="inds">
-    ${Industry("Cleaning", "Rooms, condition and extras turn into an instant price range.", IC.clean, "Instant price")}
-    ${Industry("Landscaping", "Garden size, materials, access and photos before you visit.", IC.land, "Site visit request", true)}
-    ${Industry("Driveways", "Area, surface, existing ground and access captured up front.", IC.drive, "Guide price or site visit", true)}
-    ${Industry("Windows & doors", "Styles, sizes and quantities, ready for a proper quote.", IC.win, "Details for a quote", true)}
-    ${Industry("Gutter cleaning", "Property type and storeys give a quick, clear price.", IC.gutter, "Instant price")}
-    ${Industry("Home services", "Any job you quote for, with the right questions for it.", IC.home, "Set up per service", true)}
+  <div class="split" style="align-items:end">
+    <div class="rv"><span class="eyebrow">No rebuild</span><h2 class="h2" style="margin-top:18px">Keep your website. Upgrade what it does<span class="dot">.</span></h2></div>
+    <div class="rv"><p class="lead">Jobaro works alongside the website you already have. Add a simple button and give customers a faster way to request an estimate.</p></div>
+  </div>
+  <div class="eq-cap rv"><span class="ex-cap">Example · a fictional cleaning company</span></div>
+  <div class="pipe rv">
+    <div class="pn"><span class="label">Your existing website</span><div class="pn-box"><div class="eq-site"><div class="t"><i></i>Tidewell Cleaning</div><h6>Professional cleaning services in Cambridge.</h6><div class="ln"></div><div class="ln"></div><span class="pn-btn">Get an instant estimate →</span></div></div></div>
+    <div class="pn"><span class="label">Jobaro</span><div class="pn-box pn-jb"><span class="bchip">${B(44)}</span><b>jobaro</b><small>Guided questions · Estimate</small></div></div>
+    <div class="pn"><span class="label" style="color:var(--or)">Qualified enquiry</span><div class="pn-box pn-q"><span class="pill new">New qualified enquiry</span><b>Sarah Williams</b><span>End of tenancy · 3 bed · 2 bath</span><span>Average · Oven, inside windows</span><span>Preferred date: 28 September</span><em>£185–£215</em></div></div>
+    <div class="pn"><span class="label">Your business</span><div class="pn-box pn-biz"><span class="wg-av" style="background:#0F5257">TC</span><b>Call Sarah back</b><span>You have everything you need to confirm the price.</span><span class="pill b">Booked · 28 Sep</span></div></div>
+  </div>
+  <div class="pipe-note rv"><b>You already have a website. Jobaro makes it work harder.</b><span>No rebuild</span><span>No developer needed</span><span>We set it up with you</span></div>
+</div></section>
+
+<section class="sec sec-sand"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">Not just cleaning</span><h2 class="h2">Not every job needs an instant quote<span class="dot">.</span></h2><p class="body">Straightforward jobs can be estimated from your pricing rules. More complicated jobs can be qualified and passed to you with the information you need to quote.</p></div>
+  <div class="inx">
+    ${IndustryCard("Cleaning", IC.clean, "Get your cleaning estimate", ["Service", "Bedrooms and bathrooms", "Condition", "Extras", "Preferred date"], true)}
+    ${IndustryCard("Landscaping", IC.land, "Tell us about your garden", ["Garden size", "Service required", "Existing condition", "Preferred date", "Photos"])}
+    ${IndustryCard("Driveways", IC.drive, "Tell us about your driveway", ["Approximate area", "Current surface", "Desired material", "Access", "Photos"])}
+    ${IndustryCard("Window cleaning", IC.win, "Get your window cleaning estimate", ["Property type", "Number of windows", "Frequency", "Location", "Preferred date"], true)}
+    ${IndustryCard("Gutter cleaning", IC.gutter, "Get your gutter cleaning estimate", ["Property type", "Number of storeys", "Access", "Location", "Preferred date"], true)}
+    ${IndustryCard("Home improvement", IC.home, "Tell us about your project", ["Type of work", "Rooms involved", "What's there now", "Photos", "Preferred start date"])}
   </div>
 </div></section>
 
-<section class="sec sec-sand"><div class="wrap"><div class="mascot rv">
-  <div class="mascot-b"><svg width="160" height="160" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg></div>
-  <div><h2 class="h2">Less waiting<span class="dot">.</span><br>More jobs<span class="dot">.</span></h2><p class="body" style="margin-top:18px">Jobaro answers at 10pm, at the weekend and while you're up a ladder. Customers get a price while they're still on your website, and you get everything you need to book.</p></div>
-</div></div></section>
+<section class="sec"><div class="wrap who">
+  <div class="rv"><h2 class="h2">Jobaro works best for businesses that<span class="dot">…</span></h2>
+    <ul class="checks">${["Get enquiries through their website", "Spend time asking customers the same questions", "Give estimates or quotes", "Want more qualified leads", "Don't want to rebuild their website"].map(t => `<li><span class="ck">${CHECK}</span>${t}</li>`).join("")}</ul>
+  </div>
+  <div class="techy rv"><span class="techy-b">${B(64)}</span><h3>You don't need to be techy<span class="dot">.</span></h3><p>Jobaro is designed for business owners, not developers. Tell us your services and prices, and we'll set it up and add it to your website with you.</p>
+    <ul><li>${CHECK}No code to write</li><li>${CHECK}Works with your current website</li><li>${CHECK}Help from a real person</li></ul></div>
+</div></section>
 
-${PriceStrip()}
+${EarlyAccess()}
 ${CTA()}
 `;
 
@@ -1076,34 +1356,34 @@ ${CTA()}
 Pages["how-it-works"] = () => `
 <section class="ph"><div class="wrap">
   <span class="eyebrow">How it works</span>
-  <h1 class="h1">Three steps from "how much?" to a booked job<span class="dot">.</span></h1>
-  <p class="lead">Jobaro answers customers the moment they ask, so they don't go looking for someone faster.</p>
+  <h1 class="h1">From website visitor to qualified enquiry<span class="dot">.</span></h1>
+  <p class="lead">Three steps. Your customer gets a guided way to request an estimate, and you get everything you need to quote.</p>
 </div></section>
 
 <section><div class="wrap">
   <div class="hw rv">
-    <div class="hw-t"><div class="hw-n">0<span>1</span></div><h2 class="h3">We set it up for you</h2><p class="body">You tell us your services and prices, and we add a "Get a quote" button to your website. No rebuild, and no tech skills needed.</p></div>
-    <div class="hw-v bare rv-s rv">${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "400px", label: "Example: a fictional cleaning company website with a Get a quote button added", body: Site("clean", { press: true, anno: true }) }), { anno: "" })}</div>
+    <div class="hw-t"><div class="hw-n">0<span>1</span></div><h2 class="h3">We set it up for you</h2><p class="body">You tell us your services and pricing rules, and we add a "Get an instant estimate" button to your website. No rebuild, and no tech skills needed.</p></div>
+    <div class="hw-v bare rv-s rv">${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "400px", label: "Example: a fictional cleaning company website with a Get an instant estimate button added", body: Site("clean", { press: true, anno: true }) }), { anno: "" })}</div>
   </div>
   <div class="hw flip rv">
-    <div class="hw-t"><div class="hw-n">0<span>2</span></div><h2 class="h3">Customers get a price instantly</h2><p class="body">They answer a few quick questions and see a price range from your own prices. If a job needs a visit, they request one instead.</p></div>
-    <div class="hw-v rv-s rv">${Widget({ step: 4, total: 4, title: "Here's your price", body: Est(), next: "Send my details" })}</div>
+    <div class="hw-t"><div class="hw-n">0<span>2</span></div><h2 class="h3">Customers answer a few guided questions</h2><p class="body">For straightforward jobs, they see an estimate from your pricing rules straight away. If a job needs a proper quote or a visit, Jobaro collects the details and photos instead.</p></div>
+    <div class="hw-v rv-s rv">${Widget({ step: 5, total: 5, title: "Here's your estimate", body: Est() + `<div class="wg-ready">Ready to book?</div>`, next: "Request booking" })}</div>
   </div>
   <div class="hw rv">
-    <div class="hw-t"><div class="hw-n">0<span>3</span></div><h2 class="h3">You get the job details and book it</h2><p class="body">An email arrives with their name, contact details, job details, photos, price range and preferred date, so you can call back and book.</p></div>
-    <div class="hw-v rv-s rv">${MailCard()}</div>
+    <div class="hw-t"><div class="hw-n">0<span>3</span></div><h2 class="h3">You receive a qualified enquiry</h2><p class="body">Name, contact details, job details, photos, estimate and preferred date, all together. No chasing for information. Call back and book.</p></div>
+    <div class="hw-v rv-s rv">${EnquiryCard()}</div>
   </div>
-  ${Nudge("The sooner a customer sees a price, the less time they spend asking someone else.")}
+  ${Nudge("Less back-and-forth. More useful enquiries.")}
 </div></section>
 
 <section class="sec sec-sand" style="margin-top:80px"><div class="wrap">
   <div class="cred">
     <div class="rv"><span class="eyebrow">Honest by design</span><h2 class="h2" style="margin-top:18px">Not every job needs an instant quote<span class="dot">.</span></h2></div>
-    <div class="body rv"><p>Some jobs can be priced from a few details. Others need a visit first.</p><p><b style="color:var(--ink)">Jobaro handles both.</b> Customers see a price when your prices allow it, and request a visit when they don't. Either way, you get the details by email.</p></div>
+    <div class="body rv"><p>Straightforward jobs can be estimated from your pricing rules. More complicated jobs can be qualified and passed to you with the information you need to quote.</p><p><b style="color:var(--ink)">Jobaro handles both.</b> Either way, you receive a complete enquiry instead of a one-line message.</p></div>
   </div>
   <div class="paths">
-    <div class="path rv"><div class="path-h"><span class="pill b">Instant price</span><h3>End of tenancy clean</h3></div><div class="mini-flow"><span>Rooms</span>→<span>Condition</span>→<span>Extras</span>→<span class="o">Price range shown</span></div><p>The customer sees £165–£195 straight away. You get their details and book the clean.</p></div>
-    <div class="path rv"><div class="path-h"><span class="pill q">Needs a visit</span><h3>New sandstone patio</h3></div><div class="mini-flow"><span>Area</span>→<span>Material</span>→<span>Access</span>→<span>Photos</span>→<span class="o">Visit requested</span></div><p>The customer requests a site visit and picks a preferred date. You get the details and photos before you go.</p></div>
+    <div class="path rv"><div class="path-h"><span class="pill b">Instant estimate</span><h3>End of tenancy clean</h3></div><div class="mini-flow"><span>Rooms</span>→<span>Condition</span>→<span>Extras</span>→<span class="o">Estimate shown</span></div><p>The customer sees £185–£215 straight away. You receive a qualified enquiry and confirm the final price.</p></div>
+    <div class="path rv"><div class="path-h"><span class="pill q">Needs a visit</span><h3>New sandstone patio</h3></div><div class="mini-flow"><span>Area</span>→<span>Material</span>→<span>Access</span>→<span>Photos</span>→<span class="o">Visit requested</span></div><p>No instant price. The customer requests a site visit with a preferred date, and you receive the measurements, access details and photos before you go.</p></div>
   </div>
 </div></section>
 
@@ -1115,7 +1395,7 @@ Pages["for-businesses"] = () => `
 <section class="ph"><div class="wrap">
   <span class="eyebrow">For businesses</span>
   <h1 class="h1">Every slow reply is a job someone else can win<span class="dot">.</span></h1>
-  <p class="lead">You can't answer the phone from a roof, or reply to emails at 10pm on a Sunday. But customers don't wait until Monday. They ask someone else. Jobaro answers them straight away, with a price from your own prices.</p>
+  <p class="lead">You can't answer the phone from a roof, or reply to emails at 10pm on a Sunday. Jobaro gives customers a guided way to request an estimate while you're busy, and you receive a complete, qualified enquiry.</p>
 </div></section>
 
 <section class="sec" style="padding-top:56px"><div class="wrap">
@@ -1129,8 +1409,8 @@ Pages["for-businesses"] = () => `
 
 <section><div class="wrap">
   <div class="fb flip rv" style="padding-top:0">
-    <div class="fb-t"><span class="label">Evenings and weekends</span><h2 class="h3">Customers get a price at 10pm on a Sunday.</h2><p class="body">Jobaro answers while you're off the clock. The full job details are in your inbox when you're ready, and the customer already knows roughly what it'll cost.</p></div>
-    <div class="rv-s rv">${Example(`<div class="night-art"><span class="time-chip"><i>${B(12)}</i>Sunday, 21:47</span>${PhoneArt(Phone(`<div class="phone-site"><span class="s-mark" style="background:#2B3038;width:16px;height:16px;border-radius:4px"></span>Stonebeck Driveways</div>` + Widget({ kind: "drive", step: 2, total: 4, cls: "flat", title: "Get a quote", q: "What surface would you like?", body: `<div class="tiles"><div class="tile sel"><span class="sw" style="background:repeating-linear-gradient(90deg,#9C8269 0 1px,#B69C82 1px 16px),#B69C82"></span>Block paving</div><div class="tile"><span class="sw" style="background:radial-gradient(#C9B89A 1px,#B8A583 1.5px) 0 0/5px 5px"></span>Resin bound</div><div class="tile"><span class="sw" style="background:#3F434A"></span>Tarmac</div><div class="tile"><span class="sw" style="background:radial-gradient(#D8D2C6 2px,#BDB5A6 2.5px) 0 0/8px 8px"></span>Gravel</div></div>` }), "540px"))}${Toast("New enquiry by email", "Sun 21:52 · Block paving · 45 m² · photos", "9h")}</div>`, { cap: "Example · Jobaro on a customer's phone", anno: "", cls: "ex-night" })}</div>
+    <div class="fb-t"><span class="label">Evenings and weekends</span><h2 class="h3">Customers get a price at 10pm on a Sunday.</h2><p class="body">Jobaro answers while you're off the clock. The full job details are waiting when you're ready, and the customer already has an estimate.</p></div>
+    <div class="rv-s rv">${Example(`<div class="night-art"><span class="time-chip"><i>${B(12)}</i>Sunday, 21:47</span>${PhoneArt(Phone(`<div class="phone-site"><span class="s-mark" style="background:#2B3038;width:16px;height:16px;border-radius:4px"></span>Stonebeck Driveways</div>` + Widget({ kind: "drive", step: 2, total: 4, cls: "flat", title: "Tell us about your driveway", q: "What surface would you like?", body: `<div class="tiles"><div class="tile sel"><span class="sw" style="background:repeating-linear-gradient(90deg,#9C8269 0 1px,#B69C82 1px 16px),#B69C82"></span>Block paving</div><div class="tile"><span class="sw" style="background:radial-gradient(#C9B89A 1px,#B8A583 1.5px) 0 0/5px 5px"></span>Resin bound</div><div class="tile"><span class="sw" style="background:#3F434A"></span>Tarmac</div><div class="tile"><span class="sw" style="background:radial-gradient(#D8D2C6 2px,#BDB5A6 2.5px) 0 0/8px 8px"></span>Gravel</div></div>` }), "540px"))}${Toast("New qualified enquiry", "Sun 21:52 · Block paving · 45 m² · photos", "9h")}</div>`, { cap: "Example · Jobaro on a customer's phone", anno: "", cls: "ex-night" })}</div>
   </div>
 </div></section>
 
@@ -1148,10 +1428,10 @@ Pages["for-businesses"] = () => `
       <p class="ba-note">Two days of back-and-forth. Job lost.</p>
     </div>
     <div class="ba-r"><span class="ba-tag">With Jobaro</span>
-      <p style="font-size:14px;color:var(--mute)">Monday 19:02. The customer answers a few questions and sees a price straight away.</p>
-      <div class="answers"><div class="chk"><span>Service</span><b>Deep cleaning</b></div><div class="chk"><span>Property</span><b>House · 2 bed · 1 bath</b></div><div class="chk"><span>Extras</span><b>Oven</b></div><div class="chk"><span>Price shown</span><b>£150–£175</b></div></div>
+      <p style="font-size:14px;color:var(--mute)">Monday 19:02. The customer answers a few guided questions and sees an estimate straight away.</p>
+      <div class="answers"><div class="chk"><span>Service</span><b>Deep cleaning</b></div><div class="chk"><span>Property</span><b>House · 2 bed · 1 bath</b></div><div class="chk"><span>Extras</span><b>Oven</b></div><div class="chk"><span>Estimate shown</span><b>£150–£175</b></div></div>
       <span class="ba-arrow">↓</span>
-      ${Toast("New enquiry by email", "Deep cleaning · Sarah W. · £150–£175", "19:04")}
+      ${Toast("New qualified enquiry", "Deep cleaning · Sarah W. · £150–£175", "19:04")}
       <p class="ba-note">Tuesday morning, you call back and book the job.</p>
     </div>
   </div>
@@ -1167,13 +1447,13 @@ Pages["for-businesses"] = () => `
   </div>
 
   <div class="fb flip rv">
-    <div class="fb-t"><span class="label">Straight to your inbox</span><h2 class="h3">Every enquiry arrives by email, ready to book.</h2><p class="body">Name, phone number, email, job details, photos, price range and preferred date. No new system to learn.</p></div>
-    <div class="fb-v rv-s rv">${MailCard()}</div>
+    <div class="fb-t"><span class="label">Qualified enquiries</span><h2 class="h3">Every enquiry arrives complete, ready to book.</h2><p class="body">Name, phone number, email, job details, photos, estimate and preferred date. Stop chasing customers for the information you need to quote.</p></div>
+    <div class="fb-v rv-s rv">${EnquiryCard()}</div>
   </div>
 
   <div class="fb rv">
-    <div class="fb-t"><span class="label">Keep your website</span><h2 class="h3">Add Jobaro without rebuilding your site.</h2><p class="body">We add a "Get a quote" button to the website you already have. Same pages, same design. When a customer clicks it, the quote form opens on top.</p></div>
-    <div class="rv-s rv">${Example(BrowserFrame({ url: "stonebeckdriveways.co.uk", h: "520px", label: "Example: a fictional driveway company website with the Jobaro quote form open", body: Site("drive") + `<div class="over">${Widget({ kind: "drive", step: 3, total: 4, title: "Access and photos", q: "Can a mini digger reach the driveway?", body: Chips(["Yes, easily", "Narrow access", "Not sure"], [0]) + `<div class="fld">Add photos (optional)</div>` + Photos("drive") })}</div>` }))}</div>
+    <div class="fb-t"><span class="label">Keep your website</span><h2 class="h3">Add Jobaro without rebuilding your site.</h2><p class="body">We add a "Get an instant estimate" button to the website you already have. Same pages, same design. When a customer clicks it, Jobaro opens on top.</p></div>
+    <div class="rv-s rv">${Example(BrowserFrame({ url: "stonebeckdriveways.co.uk", h: "520px", label: "Example: a fictional driveway company website with Jobaro open", body: Site("drive") + `<div class="over">${Widget({ kind: "drive", step: 3, total: 4, title: "Access and photos", q: "Can a mini digger reach the driveway?", body: Chips(["Yes, easily", "Narrow access", "Not sure"], [0]) + `<div class="fld">Add photos (optional)</div>` + Photos("drive") })}</div>` }))}</div>
   </div>
 </div></section>
 
@@ -1185,25 +1465,24 @@ Pages.product = () => `
 <section class="pp-hero"><div class="wrap">
   <span class="eyebrow">Product</span>
   <h1 class="h1" style="margin-top:22px">Meet jobaro<span class="dot">.</span></h1>
-  <p class="lead">An instant quote form for the website you already have.</p>
-  <div class="btns"><a class="btn btn-or" href="#get-early-access">Get early access ${ARROW}</a><a class="btn btn-ghost" href="#how-it-works">See how it works</a></div>
+  <p class="lead">A guided estimate and enquiry tool for the website you already have.</p>
+  <div class="btns"><a class="btn btn-or" href="#book-a-demo">Book a 15-minute demo ${ARROW}</a><a class="btn btn-ghost" href="#how-it-works">See how it works</a></div>
   <div class="pp-stage">
     <div class="l">${Widget({ kind: "land", step: 3, title: "Preferred material?", body: Opts(["Indian sandstone", "Porcelain", "Concrete slabs", "Not sure yet"], 1) })}</div>
-    <div class="c">${Widget({ step: 4, total: 4, title: "Here's your price", body: Est(), next: "Send my details" })}</div>
-    <div class="r">${Widget({ kind: "drive", step: 1, title: "Get a quote", q: "Approximate driveway size?", body: `<div class="slider"><span></span><i></i></div><div class="slider-v"><span>10 m²</span><b style="color:var(--ink)">45 m²</b><span>100 m²+</span></div><div class="fld">Not sure? Most single drives are 30–50 m².</div>` })}</div>
+    <div class="c">${Widget({ step: 5, total: 5, title: "Here's your estimate", body: Est(), next: "Request booking" })}</div>
+    <div class="r">${Widget({ kind: "drive", step: 1, title: "Tell us about your driveway", q: "Approximate driveway size?", body: `<div class="slider"><span></span><i></i></div><div class="slider-v"><span>10 m²</span><b style="color:var(--ink)">45 m²</b><span>100 m²+</span></div><div class="fld">Not sure? Most single drives are 30–50 m².</div>` })}</div>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="big-center rv"><span class="eyebrow">01 · The quote form</span><h2 class="h2">A quote form customers actually finish<span class="dot">.</span></h2><p class="body">Clear questions, big buttons, a progress bar and a price at the end. It works on a phone as well as on a laptop, at any time of day.</p></div>
-  <div class="rv-s rv">${Example(BrowserFrame({ url: "paneworthwindows.co.uk", h: "580px", label: "Example: a fictional windows and doors website with the Jobaro quote form open", body: Site("win") + `<div class="over">${Widget({ kind: "win", step: 2, total: 4, title: "Get a quote", q: "What would you like replaced?", body: Opts([["Windows", "most popular"], "Front door", "Back or patio door", "Windows and doors"], 0) + `<div class="fld">How many windows?</div>` + Ctr("Windows", 6) })}</div>` }))}</div>
-  ${Nudge("Every hour you don't reply, a customer is comparing you with someone else.")}
-</div></section>
+  <div class="big-center rv"><span class="eyebrow">01 · The customer experience</span><h2 class="h2">An experience customers actually finish<span class="dot">.</span></h2><p class="body">Clear questions, big buttons, a progress bar and an estimate at the end when your pricing allows it. It works on a phone as well as on a laptop.</p></div>
+  <div class="rv-s rv">${Example(BrowserFrame({ url: "paneworthwindows.co.uk", h: "580px", label: "Example: a fictional windows and doors website with Jobaro open", body: Site("win") + `<div class="over">${Widget({ kind: "win", step: 2, total: 4, title: "Start your estimate", q: "What would you like replaced?", body: Opts([["Windows", "most popular"], "Front door", "Back or patio door", "Windows and doors"], 0) + `<div class="fld">How many windows?</div>` + Ctr("Windows", 6) })}</div>` }))}</div>
+  </div></section>
 
 <section class="sec sec-sand"><div class="wrap">
   <div class="big-center rv"><span class="eyebrow">02 · Questions</span><h2 class="h2">Questions that fit the service<span class="dot">.</span></h2><p class="body">Each service gets its own questions, built around what you need to know before you quote. We set them up for you.</p></div>
   <div class="vers">
-    <div class="ver rv"><div class="ver-h"><h3>Cleaning</h3><span class="pill b">Instant price</span></div>
+    <div class="ver rv"><div class="ver-h"><h3>Cleaning</h3><span class="pill b">Instant estimate</span></div>
       ${Widget({ step: 2, total: 4, title: "About the property", body: Ctr("Bedrooms", 2) + Ctr("Bathrooms", 1) + `<div class="fld">Condition</div>` + Chips(["Light", "Average", "Heavy"], [1]) })}
       <ol class="flow"><li class="d"><i>${CHECK}</i>Bedrooms</li><li class="d"><i>${CHECK}</i>Bathrooms</li><li class="a"><i></i>Condition</li><li><i></i>Extras</li></ol></div>
     <div class="ver rv"><div class="ver-h"><h3>Landscaping</h3><span class="pill q">Quote or visit</span></div>
@@ -1216,38 +1495,40 @@ Pages.product = () => `
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="big-center rv"><span class="eyebrow">03 · Prices</span><h2 class="h2">Price ranges from your own prices<span class="dot">.</span></h2><p class="body">You tell us what you charge. We set it up so customers see a price range based on your prices, and you choose which services show a price. The final price is always yours to confirm.</p></div>
+  <div class="big-center rv"><span class="eyebrow">03 · Estimates</span><h2 class="h2">Instant estimates when they make sense<span class="dot">.</span></h2><p class="body">You tell us what you charge and we turn it into pricing rules. You choose which services show an estimate and how wide the range is. The final price is always yours to confirm.</p></div>
   <div class="est-stage">
-    <div class="rv-s rv">${Widget({ step: 4, total: 4, title: "Here's your price", body: Est(), next: "Send my details" })}</div>
+    <div class="rv-s rv">${Widget({ step: 5, total: 5, title: "Here's your estimate", body: Est(), next: "Request booking" })}</div>
     <div class="rules rv" role="img" aria-label="Example price list for end of tenancy cleaning">
-      <div class="rules-h"><div><b>Your price list</b><br><small>End of tenancy cleaning · example</small></div></div>
+      <div class="rules-h"><div><b>Your pricing rules</b><br><small>End of tenancy cleaning · example</small></div></div>
       <table>
         <tr class="grp"><td colspan="2">Base price by property</td></tr>
-        <tr><td>1 bedroom</td><td>£105</td></tr>
-        <tr><td>2 bedrooms</td><td>£130</td></tr>
-        <tr><td>3 bedrooms</td><td>£165</td></tr>
+        <tr><td>1 bedroom</td><td>£100</td></tr>
+        <tr><td>2 bedrooms</td><td>£125</td></tr>
+        <tr><td>3 bedrooms</td><td>£150</td></tr>
         <tr class="grp"><td colspan="2">Extras</td></tr>
-        <tr><td>Each extra bathroom</td><td>+£20</td></tr>
+        <tr><td>Each extra bathroom</td><td>+£15</td></tr>
         <tr><td>Heavy condition</td><td>×1.25</td></tr>
-        <tr><td>Oven clean</td><td>+£25</td></tr>
-        <tr><td>Inside windows</td><td>+£25</td></tr>
+        <tr><td>Oven cleaning</td><td>+£20</td></tr>
+        <tr><td>Inside windows</td><td>+£15</td></tr>
+        <tr class="grp"><td colspan="2">Display</td></tr>
+        <tr><td>Show as a range</td><td>±8%</td></tr>
       </table>
-      <div class="rules-f"><span>2 bed · 1 bath · oven · inside windows = £180</span><b>Shown as £165–£195</b></div>
+      <div class="rules-f"><span>3 bed · 2 bath · oven · inside windows = £200</span><b>Shown as £185–£215</b></div>
     </div>
   </div>
 </div></section>
 
 <section class="sec sec-sand"><div class="wrap">
-  <div class="big-center rv"><span class="eyebrow">04 · Your inbox</span><h2 class="h2">Every enquiry arrives by email<span class="dot">.</span></h2><p class="body">The customer's name, contact details, answers, photos, price range and preferred date, all in one email. Call back and book.</p></div>
-  <div class="rv-s rv" style="display:grid;justify-items:center">${MailCard()}</div>
+  <div class="big-center rv"><span class="eyebrow">04 · Qualified enquiries</span><h2 class="h2">Every enquiry arrives complete<span class="dot">.</span></h2><p class="body">The customer's name, contact details, answers, photos, estimate and preferred date, all in one place. Call back and book.</p></div>
+  <div class="rv-s rv">${Dashboard()}</div>
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="big-center rv"><span class="eyebrow">05 · Fits in</span><h2 class="h2">Designed to fit your website<span class="dot">.</span></h2><p class="body">The quote form opens on top of the site you already have, whatever it looks like.</p></div>
+  <div class="big-center rv"><span class="eyebrow">05 · Fits in</span><h2 class="h2">Designed to fit your website<span class="dot">.</span></h2><p class="body">Jobaro opens on top of the site you already have, whatever it looks like.</p></div>
   <div class="gallery">
-    <div class="rv">${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "460px", label: "Example: fictional cleaning website with the Jobaro quote form", body: Site("clean") + `<div class="over">${Widget({ step: 3, total: 4, title: "Any extras?", body: Chips(["Oven", "Fridge", "Inside windows", "Carpets", "Balcony"], [0, 2]) })}</div>` }))}<div class="cap"><b>Cleaning</b><span>Instant price</span></div></div>
-    <div class="rv">${Example(BrowserFrame({ url: "fernmoorgardens.co.uk", h: "460px", label: "Example: fictional landscaping website with the Jobaro quote form", body: Site("land") + `<div class="over">${Widget({ kind: "land", step: 4, title: "Access", q: "How do we get to the garden?", body: Opts(["Side gate", "Through the house", "Rear lane"], 0) })}</div>` }))}<div class="cap"><b>Landscaping</b><span>Site visit request</span></div></div>
-    <div class="rv">${Example(BrowserFrame({ url: "stonebeckdriveways.co.uk", h: "460px", label: "Example: fictional driveway website with the Jobaro quote form", body: Site("drive") + `<div class="over">${Widget({ kind: "drive", step: 3, title: "Existing surface", body: Opts(["Gravel", "Concrete", "Old tarmac", "Lawn or soil"], 1) })}</div>` }))}<div class="cap"><b>Driveways</b><span>Guide price</span></div></div>
+    <div class="rv">${Example(BrowserFrame({ url: "tidewellcleaning.co.uk", h: "460px", label: "Example: fictional cleaning website with Jobaro", body: Site("clean") + `<div class="over">${Widget({ step: 3, total: 4, title: "Any extras?", body: Chips(["Oven", "Fridge", "Inside windows", "Carpets", "Balcony"], [0, 2]) })}</div>` }))}<div class="cap"><b>Cleaning</b><span>Instant estimate</span></div></div>
+    <div class="rv">${Example(BrowserFrame({ url: "fernmoorgardens.co.uk", h: "460px", label: "Example: fictional landscaping website with Jobaro", body: Site("land") + `<div class="over">${Widget({ kind: "land", step: 4, title: "Access", q: "How do we get to the garden?", body: Opts(["Side gate", "Through the house", "Rear lane"], 0) })}</div>` }))}<div class="cap"><b>Landscaping</b><span>Qualified for a site visit</span></div></div>
+    <div class="rv">${Example(BrowserFrame({ url: "stonebeckdriveways.co.uk", h: "460px", label: "Example: fictional driveway website with Jobaro", body: Site("drive") + `<div class="over">${Widget({ kind: "drive", step: 3, title: "Existing surface", body: Opts(["Gravel", "Concrete", "Old tarmac", "Lawn or soil"], 1) })}</div>` }))}<div class="cap"><b>Driveways</b><span>Qualified for a quote</span></div></div>
   </div>
 </div></section>
 
@@ -1259,35 +1540,35 @@ Pages.pricing = () => `
 <section class="ph"><div class="wrap">
   <span class="eyebrow">Pricing</span>
   <h1 class="h1">One plan. One price, locked in<span class="dot">.</span></h1>
-  <p class="lead">Jobaro is in early access. Join now for £50 a month and keep that price for as long as you stay subscribed.</p>
+  <p class="lead">Jobaro is currently onboarding its first businesses. Join now for £50 a month and keep that price for as long as you stay subscribed.</p>
 </div></section>
 <section class="sec" style="padding-top:48px"><div class="wrap">
   ${PlanCard()}
-  ${Nudge("Customers who wait for a price often ask someone else. Jobaro gives them one straight away.")}
+  <p class="plan-note">Not sure yet? <a href="#book-a-demo" style="color:var(--or);font-weight:600">Book a free 15-minute demo</a> and see it on your website first.</p>
 </div></section>
 <section class="sec sec-sand"><div class="wrap">
   <div class="sec-head rv"><h2 class="h2">Common questions<span class="dot">.</span></h2></div>
   <div class="faq">
     <div class="rv"><h3>What does the price lock mean?</h3><p>Join during early access and you pay £50 a month for as long as you stay subscribed, even when prices rise for new customers.</p></div>
-    <div class="rv"><h3>Do I need a new website?</h3><p>No. We add a "Get a quote" button to the website you already have.</p></div>
-    <div class="rv"><h3>Do I have to set anything up?</h3><p>No. You tell us your services and prices, and we set up the questions and the quote form for you. No tech skills needed.</p></div>
-    <div class="rv"><h3>Who sets the prices?</h3><p>You do. Customers see a price range worked out from your own prices, and the final price is always yours to confirm.</p></div>
-    <div class="rv"><h3>How do enquiries reach me?</h3><p>By email. Each one includes the customer's name, contact details, job details, photos, price range and preferred date.</p></div>
-    <div class="rv"><h3>What if a job can't be priced online?</h3><p>The customer answers the questions and requests a visit instead, and you get the details by email.</p></div>
+    <div class="rv"><h3>Do I need a new website?</h3><p>No. We add a "Get an instant estimate" button to the website you already have.</p></div>
+    <div class="rv"><h3>Do I have to set anything up?</h3><p>No. You tell us your services and prices, and we set up the questions and pricing rules for you. No tech skills needed.</p></div>
+    <div class="rv"><h3>Who sets the prices?</h3><p>You do. Estimates come from pricing rules based on what you charge. You choose which services show one, and the final price is always yours to confirm.</p></div>
+    <div class="rv"><h3>What do I receive?</h3><p>A complete, qualified enquiry: the customer's name, contact details, answers, photos, estimate and preferred date, all together.</p></div>
+    <div class="rv"><h3>What if a job can't be priced online?</h3><p>Jobaro still collects the details, photos and requirements, so you can prepare a quote or arrange a site visit.</p></div>
     <div class="rv"><h3>What does early access mean?</h3><p>Jobaro is new. We're setting it up with our first businesses now, so things may change as we learn what works best.</p></div>
   </div>
 </div></section>
 ${CTA()}
 `;
 
-/* ---------------- GET EARLY ACCESS ---------------- */
-Pages["get-early-access"] = () => `
+/* ---------------- BOOK A DEMO / EARLY ACCESS ---------------- */
+Pages["book-a-demo"] = () => `
 <section><div class="wrap demo">
   <div class="demo-l">
-    <span class="eyebrow">Get early access</span>
-    <h1 class="h1">Get instant quotes on your website<span class="dot">.</span></h1>
-    <p class="lead">Tell us about your business and we'll set Jobaro up for your services and prices. Early access is £50 a month, and your price is locked in for as long as you stay subscribed.</p>
-    <ol class="next"><li><b>01</b>You tell us your services and prices.</li><li><b>02</b>We set up the questions and add a "Get a quote" button to your website.</li><li><b>03</b>Customers get a price straight away, and you get every enquiry by email.</li></ol>
+    <span class="eyebrow">Book a demo · Early access</span>
+    <h1 class="h1">See Jobaro on your website<span class="dot">.</span></h1>
+    <p class="lead">Book a free 15-minute demo. We'll show you the customer experience and how enquiries arrive on your side. Jobaro is onboarding its first businesses, so this is also how you apply for early access.</p>
+    <ol class="next"><li><b>01</b>Tell us about your business and the services you quote for.</li><li><b>02</b>We show you Jobaro set up for one of your services.</li><li><b>03</b>You decide if it's right for you. No hard sell.</li></ol>
     <div class="mail"><span>Or email us directly</span><a href="mailto:${CONFIG.email}" id="mail-link">${CONFIG.email}</a><button class="copy" type="button" id="copy-mail">Copy</button></div>
   </div>
   <form class="form" id="demo-form" novalidate>
@@ -1297,7 +1578,7 @@ Pages["get-early-access"] = () => `
     <div class="f"><label for="f-web">Website <small>(optional)</small></label><input id="f-web" name="website" placeholder="yourbusiness.co.uk" autocomplete="url"><span class="err"></span></div>
     <div class="f full"><label for="f-type">Business type</label><select id="f-type" name="type"><option>Cleaning</option><option>Landscaping</option><option>Driveways</option><option>Windows &amp; doors</option><option>Gutter cleaning</option><option>Other home service</option></select></div>
     <div class="f full"><label for="f-msg">Message <small>(optional)</small></label><textarea id="f-msg" name="message" placeholder="What services do you offer? How do enquiries come in today?"></textarea></div>
-    <div class="full" style="display:grid;gap:12px"><button class="btn btn-or" type="submit" id="f-submit">Get early access ${ARROW}</button><p class="form-fine">We'll only use your details to set up your early access.</p></div>
+    <div class="full" style="display:grid;gap:12px"><button class="btn btn-or" type="submit" id="f-submit">Book my 15-minute demo ${ARROW}</button><p class="form-fine">Free, and takes 15 minutes. We'll only use your details to arrange your demo.</p></div>
   </form>
 </div></section>
 `;
@@ -1307,14 +1588,22 @@ Pages["get-early-access"] = () => `
    ========================================================= */
 const app = document.getElementById("app");
 const nav = document.getElementById("nav");
-const TITLES = { home: "jobaro · Stop losing customers to slow replies", product: "Product · jobaro", "how-it-works": "How it works · jobaro", "for-businesses": "For businesses · jobaro", pricing: "Pricing · jobaro", "get-early-access": "Get early access · jobaro" };
+const TITLES = { home: "jobaro · Turn website enquiries into booked jobs", product: "Product · jobaro", "how-it-works": "How it works · jobaro", "for-businesses": "For businesses · jobaro", pricing: "Pricing · jobaro", "book-a-demo": "Book a demo · jobaro" };
 /* old links keep working */
-const ALIASES = { "book-a-demo": "get-early-access" };
+const ALIASES = { "get-early-access": "book-a-demo" };
+/* in-page anchors on the home page */
+const ANCHORS = { "demo-section": "home" };
 
 function route() {
   let r = (location.hash || "#home").slice(1);
   if (ALIASES[r]) { r = ALIASES[r]; history.replaceState(null, "", "#" + r); }
-  if (!Pages[r]) r = "home";
+  if (ANCHORS[r]) {
+    const el = document.getElementById(r);
+    if (el) { el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); return; }
+  }
+  const target = ANCHORS[r] ? r : null;
+  if (!Pages[r]) r = ANCHORS[r] || "home";
+  demoStop();
   app.innerHTML = `<div class="page">${Pages[r]()}</div>`;
   document.title = TITLES[r];
   document.querySelectorAll("[data-r]").forEach(a => a.classList.toggle("on", a.dataset.r === r));
@@ -1323,7 +1612,71 @@ function route() {
   window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
   initReveal();
   initCount();
-  if (r === "get-early-access") initForm();
+  initDemo();
+  if (r === "book-a-demo") initForm();
+  if (target) document.getElementById(target).scrollIntoView();
+}
+
+/* animated product demo */
+const demo = { t: [], io: null, on: false };
+function demoClear() { demo.t.forEach(clearTimeout); demo.t = []; }
+function demoStop() { demoClear(); if (demo.io) demo.io.disconnect(); demo.io = null; demo.on = false; }
+function demoAt(ms, fn) { demo.t.push(setTimeout(fn, ms)); }
+function demoShow(i, instant) {
+  const st = DEMO[i], body = document.getElementById("dw-body");
+  if (!body) return;
+  body.className = "wg-body" + (instant ? "" : " pending");
+  void body.offsetWidth;
+  if (!instant) body.classList.add("swap");
+  body.innerHTML = (st.sent ? "" : `<div class="wg-step">${i < 5 ? `Step ${i + 1} of 5` : "Your estimate"}</div>`) + (st.title ? `<div class="wg-title">${st.title}</div>` : "") + (st.q ? `<div class="wg-q">${st.q}</div>` : "") + st.body();
+  document.getElementById("dw-prog").style.width = Math.round(Math.min(i + 1, 6) / 6 * 100) + "%";
+  document.getElementById("dw-foot").style.display = st.sent ? "none" : "";
+  document.getElementById("dw-back").style.visibility = i === 0 ? "hidden" : "visible";
+  document.getElementById("dw-next").innerHTML = `${st.next || "Continue"} ${ARROW}`;
+  document.querySelectorAll("#demo .dr").forEach((d, j) => {
+    d.classList.toggle("on", j === i); d.classList.toggle("done", j < i);
+    d.querySelector("span").textContent = j < i || (j === i && st.sent) ? DEMO[j].a : "";
+  });
+  document.getElementById("dw-toast").classList.toggle("show", !!st.sent);
+  const price = body.querySelector("[data-range]");
+  if (price && !instant) countUp(price);
+}
+function demoStep(i, dwell) {
+  demoClear();
+  document.getElementById("dw-over").classList.remove("closed");
+  demoShow(i);
+  const body = document.getElementById("dw-body"), next = document.getElementById("dw-next");
+  if (DEMO[i].sent) { demoAt(dwell || 4200, () => demoRun()); return; }
+  demoAt(700, () => body.classList.remove("pending"));
+  const d = dwell || (i === 5 ? 3600 : 2200);
+  demoAt(d - 380, () => next.classList.add("tap"));
+  demoAt(d, () => { next.classList.remove("tap"); demoStep(i + 1); });
+}
+function demoRun() {
+  demoClear();
+  const over = document.getElementById("dw-over"), launch = document.querySelector("#demo .jb-launch");
+  if (!over) return;
+  over.classList.add("closed");
+  document.getElementById("dw-toast").classList.remove("show");
+  document.querySelectorAll("#demo .dr").forEach(d => { d.classList.remove("on", "done"); d.querySelector("span").textContent = ""; });
+  launch.classList.remove("press"); void launch.offsetWidth; launch.classList.add("press");
+  demoAt(1700, () => demoStep(0));
+}
+function initDemo() {
+  const stage = document.getElementById("demo");
+  if (!stage) return;
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window);
+  stage.querySelectorAll(".dr").forEach(d => d.addEventListener("click", () => {
+    const i = +d.dataset.i;
+    if (still) { document.getElementById("dw-over").classList.remove("closed"); demoShow(i, true); return; }
+    demoStep(i, 6500);
+  }));
+  if (still) { document.getElementById("dw-over").classList.remove("closed"); demoShow(5, true); return; }
+  demo.io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting && !demo.on) { demo.on = true; demoRun(); }
+    else if (!e.isIntersecting && demo.on) { demo.on = false; demoClear(); }
+  }), { threshold: 0.35 });
+  demo.io.observe(stage);
 }
 
 /* reveal on scroll: only elements below the fold start hidden */
@@ -1339,6 +1692,17 @@ function initReveal() {
 }
 
 /* subtle count-up on price ranges */
+function countUp(el) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const [lo, hi] = el.dataset.range.split(",").map(Number);
+  const t0 = performance.now(), dur = 900;
+  const step = t => {
+    const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3);
+    el.textContent = `£${Math.round(lo * (0.7 + 0.3 * k))}–£${Math.round(hi * (0.7 + 0.3 * k))}`;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
 let cio;
 function initCount() {
   if (cio) cio.disconnect();
@@ -1346,14 +1710,7 @@ function initCount() {
   cio = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     cio.unobserve(e.target);
-    const [lo, hi] = e.target.dataset.range.split(",").map(Number);
-    const t0 = performance.now(), dur = 900;
-    const step = t => {
-      const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3);
-      e.target.textContent = `£${Math.round(lo * (0.7 + 0.3 * k))}–£${Math.round(hi * (0.7 + 0.3 * k))}`;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+    countUp(e.target);
   }), { threshold: 0.6 });
   document.querySelectorAll("[data-range]").forEach(el => cio.observe(el));
 }
@@ -1377,17 +1734,17 @@ function initForm() {
     const data = Object.fromEntries(new FormData(form).entries());
     const btn = document.getElementById("f-submit");
     btn.innerHTML = `${B(20, "")} Sending`; btn.disabled = true; btn.querySelector("svg").style.animation = "hop .6s ease infinite";
-    const text = `Early access request\n\nName: ${data.name}\nBusiness: ${data.business}\nEmail: ${data.email}\nWebsite: ${data.website || "-"}\nBusiness type: ${data.type}\n\n${data.message || ""}`;
+    const text = `Demo request\n\nName: ${data.name}\nBusiness: ${data.business}\nEmail: ${data.email}\nWebsite: ${data.website || "-"}\nBusiness type: ${data.type}\n\n${data.message || ""}`;
     if (CONFIG.formEndpoint) {
       try {
         const res = await fetch(CONFIG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         if (!res.ok) throw new Error();
-        form.innerHTML = `<div class="done">${B(48)}<h3>Thanks, ${esc(data.name.split(" ")[0])}.</h3><p>Your request is in. We'll reply to ${esc(data.email)} to get you set up.</p></div>`;
+        form.innerHTML = `<div class="done">${B(48)}<h3>Thanks, ${esc(data.name.split(" ")[0])}.</h3><p>Your request is in. We'll reply to ${esc(data.email)} to arrange your 15-minute demo.</p></div>`;
         return;
       } catch (e) { /* fall through to email */ }
     }
-    const mailto = `mailto:${CONFIG.email}?subject=${encodeURIComponent("Early access request: " + data.business)}&body=${encodeURIComponent(text)}`;
-    form.innerHTML = `<div class="done">${B(48)}<h3>One last step, ${esc(data.name.split(" ")[0])}.</h3><p>Send these details to <b>${CONFIG.email}</b> and we'll reply to get you set up.</p><pre id="req-text">${esc(text)}</pre><div class="btns"><a class="btn btn-or" href="${mailto}">Open in email ${ARROW}</a><button class="btn btn-ghost" type="button" id="copy-req">Copy details</button></div></div>`;
+    const mailto = `mailto:${CONFIG.email}?subject=${encodeURIComponent("Demo request: " + data.business)}&body=${encodeURIComponent(text)}`;
+    form.innerHTML = `<div class="done">${B(48)}<h3>One last step, ${esc(data.name.split(" ")[0])}.</h3><p>Send these details to <b>${CONFIG.email}</b> and we'll reply to arrange your demo.</p><pre id="req-text">${esc(text)}</pre><div class="btns"><a class="btn btn-or" href="${mailto}">Open in email ${ARROW}</a><button class="btn btn-ghost" type="button" id="copy-req">Copy details</button></div></div>`;
     document.getElementById("copy-req").addEventListener("click", e => copyText(text, e.currentTarget));
   });
 }
