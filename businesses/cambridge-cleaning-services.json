@@ -1,0 +1,404 @@
+{
+  "id": "cambridge-cleaning-services",
+  "businessName": "Cambridge Cleaning Services",
+  "initials": "CC",
+  "brandColour": "#1F4E79",
+  "email": "hello.jobaro@gmail.com",
+  "formEndpoint": "https://formspree.io/f/mzezgkrr",
+  "banner": "Demo prepared for Cambridge Cleaning Services – example prices, not a live booking form",
+  "privacyNote": "Your details are only shared with Cambridge Cleaning Services so they can prepare your quote. They won't be used for marketing. Photos are only shared with Cambridge Cleaning Services to prepare your quote.",
+  "priceLabel": "Estimated price",
+  "priceNote": "Fixed, itemised quote confirmed by Cambridge Cleaning Services before we start",
+  "confirmation": "Thanks, {name}. We'll confirm your fixed quote shortly.",
+  "contactFields": ["name", "phone", "email", "preferredDate"],
+
+  "PRICES TO CONFIRM WITH OWNER": {
+    "_note": "Placeholder prices – Cambridge Cleaning Services don't publish their prices. Change the numbers here and every question that uses them updates. Multipliers: 1.1 means +10%, 0.9 means 10% off.",
+    "rangePercent": 8,
+    "bedrooms": { "1": 150, "2": 180, "3": 230, "4": 290, "5+": 370 },
+    "houseUplift": 20,
+    "extraBathroom": 25,
+    "furnishedUplift": 1.1,
+    "condition": { "wellKept": 1.0, "livedIn": 1.1, "seriousWork": 1.3 },
+    "regularDiscount": 0.9,
+    "carpet": { "bedroom": 28, "livingDiningRoom": 36, "hallway": 16, "stairs": 24, "landing": 10 },
+    "rugEach": 20,
+    "rugWoolOrDelicate": 1.5,
+    "upholstery": { "twoSeatSofa": 38, "threeSeatSofa": 52, "armchair": 20 },
+    "carpetCondition": { "light": 1.0, "highTraffic": 1.15, "heavilySoiled": 1.3 },
+    "stainPreTreatment": 15,
+    "carpetMinimumCharge": 60
+  },
+
+  "commonQuestions": [
+    {
+      "id": "postcode",
+      "type": "postcode",
+      "label": "What's the postcode of the property?",
+      "help": "We use this to check we cover your area.",
+      "areas": ["CB", "PE"],
+      "outsideMessage": "We mainly cover CB and PE postcodes, so this may be outside our usual area. You can still send your details and we'll let you know if we can help."
+    }
+  ],
+
+  "services": [
+    {
+      "name": "End of tenancy clean",
+      "mode": "price",
+      "included": "Oven, fridge-freezer, cupboards and internal windows are included as standard.",
+      "pricing": { "base": 0, "rangePercent": "@rangePercent" },
+      "questions": [
+        {
+          "id": "property",
+          "type": "single",
+          "label": "Is it a flat or a house?",
+          "options": [
+            { "label": "Flat", "price": 0 },
+            { "label": "House", "price": "@houseUplift" }
+          ]
+        },
+        {
+          "id": "bedrooms",
+          "type": "counter",
+          "label": "How many bedrooms?",
+          "unit": "bedrooms",
+          "min": 1,
+          "max": 5,
+          "maxLabel": "5+",
+          "default": 2,
+          "priceByValue": { "1": "@bedrooms.1", "2": "@bedrooms.2", "3": "@bedrooms.3", "4": "@bedrooms.4", "5": "@bedrooms.5+" }
+        },
+        {
+          "id": "bathrooms",
+          "type": "counter",
+          "label": "How many bathrooms and cloakrooms?",
+          "unit": "bathrooms & cloakrooms",
+          "min": 1,
+          "max": 6,
+          "default": 1,
+          "includedUnits": 1,
+          "pricePerUnit": "@extraBathroom"
+        },
+        {
+          "id": "furnished",
+          "type": "single",
+          "label": "Is it furnished or unfurnished?",
+          "options": [
+            { "label": "Unfurnished" },
+            { "label": "Furnished", "multiply": "@furnishedUplift" }
+          ]
+        },
+        {
+          "id": "condition",
+          "type": "single",
+          "label": "What condition is it in?",
+          "options": [
+            { "label": "Well kept – just needs a refresh", "multiply": "@condition.wellKept" },
+            { "label": "Lived in – normal dust and grease", "multiply": "@condition.livedIn" },
+            { "label": "Needs serious work – heavy grease, limescale or mould", "multiply": "@condition.seriousWork" }
+          ]
+        },
+        {
+          "id": "addons",
+          "type": "multiple",
+          "label": "Would you like any add-ons?",
+          "help": "Oven, fridge-freezer, cupboards and internal windows are already included. Choose any extras, or just press Continue.",
+          "summaryLabel": "Add-ons",
+          "options": [
+            { "label": "Carpet steam cleaning" },
+            { "label": "Wall painting", "hint": "price confirmed by us" },
+            { "label": "Garden tidying", "hint": "price confirmed by us" }
+          ]
+        },
+        {
+          "id": "carpets",
+          "type": "counters",
+          "label": "Which carpets need steam cleaning?",
+          "help": "Add each room with carpet.",
+          "summaryLabel": "Carpet cleaning",
+          "showIf": { "question": "addons", "includes": "Carpet steam cleaning" },
+          "afterMultipliers": true,
+          "items": [
+            { "id": "bedroom", "label": "Bedrooms", "price": "@carpet.bedroom" },
+            { "id": "living", "label": "Living or dining rooms", "price": "@carpet.livingDiningRoom" },
+            { "id": "hallway", "label": "Hallway", "price": "@carpet.hallway" },
+            { "id": "stairs", "label": "Stairs", "price": "@carpet.stairs" },
+            { "id": "landing", "label": "Landing", "price": "@carpet.landing" }
+          ]
+        },
+        {
+          "id": "painting",
+          "type": "counter",
+          "label": "How many rooms need painting?",
+          "help": "We'll confirm the price for painting separately.",
+          "unit": "rooms",
+          "summaryLabel": "Wall painting",
+          "min": 1,
+          "max": 10,
+          "default": 1,
+          "priceConfirmedByUs": true,
+          "showIf": { "question": "addons", "includes": "Wall painting" }
+        },
+        {
+          "id": "garden",
+          "type": "single",
+          "label": "How big is the garden?",
+          "help": "We'll confirm the price for garden tidying separately.",
+          "summaryLabel": "Garden tidying",
+          "priceConfirmedByUs": true,
+          "showIf": { "question": "addons", "includes": "Garden tidying" },
+          "options": ["Small", "Medium", "Large"]
+        },
+        {
+          "id": "photos",
+          "type": "photos",
+          "label": "Photos of the kitchen, oven or anything that needs extra work",
+          "help": "Optional, but it helps us give you an accurate quote.",
+          "max": 5
+        }
+      ]
+    },
+    {
+      "name": "Deep clean",
+      "mode": "price",
+      "pricing": { "base": 0, "rangePercent": "@rangePercent" },
+      "questions": [
+        {
+          "id": "place",
+          "type": "single",
+          "label": "Is it a home or an office?",
+          "options": [
+            { "label": "Home" },
+            { "label": "Office", "hint": "we'll send a quote", "noPrice": true }
+          ]
+        },
+        {
+          "id": "frequency",
+          "type": "single",
+          "label": "One-off or regular?",
+          "options": [
+            { "label": "One-off" },
+            { "label": "Regular", "hint": "discount for regular cleans", "multiply": "@regularDiscount" }
+          ]
+        },
+        {
+          "id": "howOften",
+          "type": "single",
+          "label": "How often?",
+          "summaryLabel": "How often",
+          "showIf": { "question": "frequency", "equals": "Regular" },
+          "options": ["Weekly", "Fortnightly", "Monthly"]
+        },
+        {
+          "id": "property",
+          "type": "single",
+          "label": "Is it a flat or a house?",
+          "showIf": { "question": "place", "equals": "Home" },
+          "options": [
+            { "label": "Flat", "price": 0 },
+            { "label": "House", "price": "@houseUplift" }
+          ]
+        },
+        {
+          "id": "bedrooms",
+          "type": "counter",
+          "label": "How many bedrooms?",
+          "unit": "bedrooms",
+          "min": 1,
+          "max": 5,
+          "maxLabel": "5+",
+          "default": 2,
+          "showIf": { "question": "place", "equals": "Home" },
+          "priceByValue": { "1": "@bedrooms.1", "2": "@bedrooms.2", "3": "@bedrooms.3", "4": "@bedrooms.4", "5": "@bedrooms.5+" }
+        },
+        {
+          "id": "bathrooms",
+          "type": "counter",
+          "label": "How many bathrooms and cloakrooms?",
+          "unit": "bathrooms & cloakrooms",
+          "min": 1,
+          "max": 6,
+          "default": 1,
+          "includedUnits": 1,
+          "pricePerUnit": "@extraBathroom",
+          "showIf": { "question": "place", "equals": "Home" }
+        },
+        {
+          "id": "officeSize",
+          "type": "size",
+          "label": "Roughly how big is the office?",
+          "help": "A best guess is fine. A small office is around 50–100 m².",
+          "min": 10,
+          "max": 2000,
+          "default": 80,
+          "showIf": { "question": "place", "equals": "Office" }
+        },
+        {
+          "id": "condition",
+          "type": "single",
+          "label": "What condition is it in?",
+          "options": [
+            { "label": "Well kept – just needs a refresh", "multiply": "@condition.wellKept" },
+            { "label": "Lived in – normal dust and grease", "multiply": "@condition.livedIn" },
+            { "label": "Needs serious work – heavy grease, limescale or mould", "multiply": "@condition.seriousWork" }
+          ]
+        },
+        {
+          "id": "carpets",
+          "type": "counters",
+          "label": "Any carpets to clean as well?",
+          "help": "Optional. Leave everything at 0 if you don't need carpet cleaning.",
+          "summaryLabel": "Carpet cleaning",
+          "afterMultipliers": true,
+          "items": [
+            { "id": "bedroom", "label": "Bedrooms", "price": "@carpet.bedroom" },
+            { "id": "living", "label": "Living or dining rooms", "price": "@carpet.livingDiningRoom" },
+            { "id": "hallway", "label": "Hallway", "price": "@carpet.hallway" },
+            { "id": "stairs", "label": "Stairs", "price": "@carpet.stairs" },
+            { "id": "landing", "label": "Landing", "price": "@carpet.landing" }
+          ]
+        },
+        {
+          "id": "photos",
+          "type": "photos",
+          "label": "Photos of the areas that need the most work",
+          "help": "Optional, but it helps us give you an accurate quote.",
+          "max": 5
+        }
+      ]
+    },
+    {
+      "name": "Carpet & upholstery cleaning",
+      "mode": "price",
+      "pricing": { "base": 0, "rangePercent": "@rangePercent", "minimum": "@carpetMinimumCharge" },
+      "questions": [
+        {
+          "id": "rooms",
+          "type": "counters",
+          "label": "Which carpets need cleaning?",
+          "help": "Add each room with carpet. Leave at 0 if you only need rugs or upholstery.",
+          "summaryLabel": "Carpets",
+          "items": [
+            { "id": "bedroom", "label": "Bedrooms", "price": "@carpet.bedroom" },
+            { "id": "living", "label": "Living or dining rooms", "price": "@carpet.livingDiningRoom" },
+            { "id": "hallway", "label": "Hallway", "price": "@carpet.hallway" },
+            { "id": "stairs", "label": "Stairs", "price": "@carpet.stairs" },
+            { "id": "landing", "label": "Landing", "price": "@carpet.landing" }
+          ]
+        },
+        {
+          "id": "rugs",
+          "type": "counter",
+          "label": "Any rugs?",
+          "help": "Leave at 0 if there are none.",
+          "unit": "rugs",
+          "min": 0,
+          "max": 10,
+          "default": 0,
+          "includedUnits": 0,
+          "pricePerUnit": "@rugEach"
+        },
+        {
+          "id": "rugType",
+          "type": "single",
+          "label": "Are any of the rugs wool or delicate?",
+          "summaryLabel": "Wool or delicate rugs",
+          "showIf": { "question": "rugs", "atLeast": 1 },
+          "options": [
+            { "label": "No" },
+            { "label": "Yes", "multiply": "@rugWoolOrDelicate", "multiplyOnly": ["rugs"] }
+          ]
+        },
+        {
+          "id": "upholstery",
+          "type": "counters",
+          "label": "Any upholstery?",
+          "help": "Leave at 0 if you don't need upholstery cleaning.",
+          "summaryLabel": "Upholstery",
+          "items": [
+            { "id": "sofa2", "label": "2-seat sofa", "price": "@upholstery.twoSeatSofa" },
+            { "id": "sofa3", "label": "3-seat sofa", "price": "@upholstery.threeSeatSofa" },
+            { "id": "armchair", "label": "Armchair", "price": "@upholstery.armchair" }
+          ]
+        },
+        {
+          "id": "condition",
+          "type": "single",
+          "label": "What condition are they in?",
+          "options": [
+            { "label": "Light", "hint": "general freshen up", "multiply": "@carpetCondition.light" },
+            { "label": "High-traffic areas", "multiply": "@carpetCondition.highTraffic" },
+            { "label": "Heavily soiled", "multiply": "@carpetCondition.heavilySoiled" }
+          ]
+        },
+        {
+          "id": "stains",
+          "type": "single",
+          "label": "Any stains or pet odours?",
+          "afterMultipliers": true,
+          "options": [
+            { "label": "No" },
+            { "label": "Yes", "hint": "pre-treatment", "price": "@stainPreTreatment" }
+          ]
+        },
+        {
+          "id": "stainDetails",
+          "type": "text",
+          "label": "What is it and where?",
+          "placeholder": "For example: red wine on the living room carpet, dog smell in the hallway",
+          "required": true,
+          "showIf": { "question": "stains", "equals": "Yes" }
+        },
+        {
+          "id": "photos",
+          "type": "photos",
+          "label": "Photos of the stains or carpets",
+          "help": "Optional, but it helps us give you an accurate quote.",
+          "max": 5
+        }
+      ]
+    },
+    {
+      "name": "Commercial cleaning",
+      "mode": "quote",
+      "questions": [
+        {
+          "id": "premises",
+          "type": "single",
+          "label": "What type of premises?",
+          "options": ["Office", "Retail", "School", "Healthcare", "Communal areas", "Other"]
+        },
+        {
+          "id": "size",
+          "type": "size",
+          "label": "Roughly how big is it?",
+          "help": "A best guess is fine. A small office is around 50–100 m².",
+          "min": 10,
+          "max": 5000,
+          "default": 150
+        },
+        {
+          "id": "howOften",
+          "type": "single",
+          "label": "How often do you need cleaning?",
+          "summaryLabel": "How often",
+          "options": ["Daily", "Several times a week", "Weekly", "Fortnightly", "Monthly", "One-off"]
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Anything else we should know?",
+          "placeholder": "For example: opening hours, access, specific areas",
+          "required": false
+        },
+        {
+          "id": "photos",
+          "type": "photos",
+          "label": "Any photos of the premises?",
+          "help": "Optional, but it helps us prepare your quote.",
+          "max": 5
+        }
+      ]
+    }
+  ]
+}

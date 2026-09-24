@@ -41,6 +41,8 @@ At the top of the file:
 
 **Delete the line `"demo": true,`** in a real business's file. It adds a "Demo" label to the form.
 
+The privacy note always ends with "Photos are only shared with [business name] to prepare your quote." It's added for you if it's missing.
+
 To find a colour code, use a free colour picker browser extension on the business's website. Or search "colour picker" in Google.
 
 ## 4. Set up the services
@@ -57,7 +59,8 @@ To find a colour code, use a free colour picker browser extension on the busines
 ```
 
 - **name** – what customers pick on the first screen. If there's only one service, that screen is skipped.
-- **mode** – `"price"` shows an instant price range. `"visit"` shows no price and asks for up to three preferred visit dates instead. Use `"visit"` for jobs you can't price without seeing them.
+- **mode** – `"price"` shows an instant price range. `"visit"` shows no price and asks for up to three preferred visit dates instead. Use `"visit"` for jobs you can't price without seeing them. `"quote"` shows no price and goes straight to the contact details, with a **Request my quote** button.
+- **included** – optional. A sentence shown on the price screen, e.g. `"Oven and fridge are included as standard."`
 - **questions** – asked one at a time, in the order you list them.
 - **pricing** – only needed for `"price"` services (see step 6).
 
@@ -78,6 +81,9 @@ Every question needs a `type` and a `label` (the question text). You can also ad
 | `"size"` | An approximate size in m², with a slider | `min`, `max`, `default` |
 | `"date"` | A date picker with an "I'm flexible" tick box | `"allowFlexible": false` removes the tick box |
 | `"text"` | A free text box. Optional unless you add `"required": true`. | `placeholder` |
+| `"photos"` | Customers add photos from their phone or computer. Always optional unless you add `"required": true`. | `max` (default 5) |
+| `"counters"` | Several − / + counters on one screen, e.g. rooms with carpet | `items` (see step 6) |
+| `"postcode"` | A postcode box that checks the postcode is complete | `areas`, `outsideMessage` (see step 6b) |
 
 Options can be plain words:
 
@@ -112,6 +118,70 @@ base £105 + 1 extra bedroom £25 + oven £25 + inside windows £25 = £180, × 
 Shown as ±8%: **£165–£195**.
 
 The customer is always told the final price is confirmed by the business.
+
+More pricing tools:
+
+- **Price from a table.** For counters where each number has its own price (e.g. 1 bed £150, 2 bed £180), use `"priceByValue": { "1": 150, "2": 180, "3": 230 }` instead of `pricePerUnit`. Add `"maxLabel": "5+"` to show "5+" at the top of the range.
+- **Several counters on one screen.** Use `"type": "counters"` with `"items": [ { "id": "hallway", "label": "Hallway", "price": 16 }, … ]`. Each item adds its price once per unit.
+- **Keep an extra out of a multiplier.** Add `"afterMultipliers": true` to a question if its price shouldn't go up with things like condition (e.g. carpet add-ons).
+- **A multiplier for one question only.** On an option, add `"multiplyOnly": ["rugs"]` next to `"multiply"`. For example, "wool rugs +50%" only affects the rugs price.
+- **"Price confirmed by us" extras.** Add `"priceConfirmedByUs": true` to a question. Its answer is shown and emailed, marked "price confirmed by [business]", but it doesn't change the estimate.
+- **No price for some answers.** Add `"noPrice": true` to an option (e.g. "Office"). If the customer picks it, the price screen is skipped and it becomes a quote request.
+- **Minimum charge.** Add `"minimum": 60` to `pricing`. The range never starts below it.
+
+## 6b. Questions that only appear sometimes
+
+Add `showIf` to a question to show it only after certain answers to an **earlier** question. The earlier question needs an `id`.
+
+```json
+"showIf": { "question": "frequency", "equals": "Regular" }
+"showIf": { "question": "addons", "includes": "Carpet steam cleaning" }
+"showIf": { "question": "rugs", "atLeast": 1 }
+```
+
+- `equals` is for single choice (it can be a list: `["Home", "Flat"]`).
+- `includes` is for multiple choice.
+- `atLeast` is for counters.
+
+**Questions for every service.** Put questions in `"commonQuestions"` (next to `"services"`) to ask them in every service, straight after "What do you need?". This is handy for a postcode check:
+
+```json
+"commonQuestions": [
+  { "id": "postcode", "type": "postcode", "label": "What's the postcode of the property?",
+    "areas": ["CB", "PE"],
+    "outsideMessage": "This may be outside our usual area, but you can still send your details." }
+]
+```
+
+If the postcode isn't in `areas`, the customer sees your message but can still carry on. The email notes that it's outside the usual area. If you ask for the postcode this way, the contact step doesn't ask for it again.
+
+## 6c. Keeping prices in one place
+
+Instead of typing numbers into every question, you can give prices a name in a `"PRICES TO CONFIRM WITH OWNER"` section (or `"prices"`). Then use `"@name"` wherever a number goes:
+
+```json
+"PRICES TO CONFIRM WITH OWNER": {
+  "houseUplift": 20,
+  "bedrooms": { "1": 150, "2": 180 }
+},
+…
+{ "label": "House", "price": "@houseUplift" },
+"priceByValue": { "1": "@bedrooms.1", "2": "@bedrooms.2" }
+```
+
+Change a number in that section and every question using it updates. `businesses/cambridge-cleaning-services.json` shows every feature in use.
+
+## 6d. Other optional settings
+
+At the top of the file, next to `businessName`:
+
+| Setting | What it does |
+|---|---|
+| `contactFields` | Which contact details to ask for, from `"name"`, `"phone"`, `"email"`, `"postcode"`, `"preferredDate"`. Default: name, phone, email, postcode. |
+| `banner` | A yellow line across the top of the form, e.g. for a demo |
+| `priceLabel` | The words above the price (default "Your price range") |
+| `priceNote` | The small print under the price |
+| `confirmation` | The thank-you message. `{name}` becomes the customer's first name, e.g. `"Thanks, {name}. We'll confirm your fixed quote shortly."` |
 
 ## 7. Check the file
 
@@ -150,6 +220,14 @@ Optional extras:
 - **Hide the floating button** (if they only want their own buttons): add `data-button="false"`.
 
 You can also send customers the direct link from step 8, for example in emails or on social media.
+
+## Photos
+
+Customers' photos are resized on their phone (longest side 1,600 pixels) and uploaded to Cloudinary. Each business gets its own folder, `jobaro/<business-id>/`. The email then includes a link for each photo ("Photo 1", "Photo 2" …) and a count such as "3 photos attached".
+
+- Photos are always optional unless you add `"required": true`. If an upload fails, the customer can press Retry or carry on; the enquiry is always sent.
+- The Cloudinary account name and upload preset are at the top of `quote/quote.js`, under **PHOTO UPLOAD SETTINGS**. The preset must be set to **Unsigned** in Cloudinary.
+- Files over 10MB are refused with a message. iPhones usually convert photos to JPG when uploading. If a browser can't open an iPhone HEIC photo, the customer is asked for a JPG or PNG instead.
 
 ## Try the demos
 

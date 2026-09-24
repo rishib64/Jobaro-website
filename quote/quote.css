@@ -143,6 +143,45 @@ textarea.inp{min-height:120px;resize:vertical}
 .q-loading p{margin:0}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
+
+/* demo banner (set "banner" in the settings file) */
+.q-banner{background:#FFF4D6;color:#5C4400;border-bottom:1px solid #F1DFA6;font-size:12.5px;font-weight:600;line-height:1.4;padding:9px 18px;text-align:center}
+.embed .q-banner{padding-right:64px;text-align:left}
+
+/* several counters on one screen */
+.ctrs{display:grid;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ctr-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 16px;border-top:1px solid var(--line2);font-size:15px;font-weight:500}
+.ctr-row:first-child{border-top:0}
+.ctr-mini{display:flex;align-items:center;gap:10px;flex:none}
+.ctr-mini .ctr-b{width:42px;height:42px;font-size:20px}
+.ctr-mini output{min-width:1.6ch;text-align:center;font:700 18px/1 var(--fd);font-variant-numeric:tabular-nums}
+
+/* postcode, notes, included */
+.pc{text-transform:uppercase;font:700 20px/1.2 var(--fd);letter-spacing:.02em;max-width:220px}
+.pc::placeholder{text-transform:none;font:400 16px/1.4 var(--fb);letter-spacing:0}
+.q-note{font-size:13.5px;color:var(--ink2);margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--or50);border:1px solid var(--or100)}
+.q-note:empty{display:none}
+.chip small{font-weight:400;color:var(--mute);font-size:12px}
+.q-included{display:flex;gap:9px;align-items:flex-start;margin:14px 0 0;font-size:13.5px;color:var(--ink2);background:var(--ok50);border-radius:10px;padding:10px 12px}
+.q-included svg{flex:none;color:var(--ok);margin-top:2px}
+
+/* photos */
+.ph-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ph,.ph-add{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden}
+.ph{background:var(--sand);border:1px solid var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph.bad img{opacity:.45}
+.ph-wait{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;color:var(--mute)}
+.ph-bar{position:absolute;left:8px;right:8px;bottom:8px;height:5px;border-radius:5px;background:rgba(255,255,255,.75);overflow:hidden}
+.ph-bar span{display:block;height:100%;background:var(--or);transition:width .2s}
+.ph-ok{position:absolute;left:6px;bottom:6px;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center}
+.ph-fail{position:absolute;left:0;right:0;bottom:0;display:grid;gap:4px;justify-items:center;padding:6px 4px;background:rgba(253,241,240,.95);color:var(--bad);font-size:11.5px;font-weight:600;text-align:center}
+.ph-fail button{border:1px solid #F3C9C5;background:#fff;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;color:var(--bad);min-height:32px}
+.ph-x{position:absolute;top:5px;right:5px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(22,24,29,.72);color:#fff;font-size:18px;line-height:1;display:grid;place-items:center}
+.ph-add{border:1.5px dashed #D6D2CB;background:#fff;display:grid;place-items:center;align-content:center;gap:6px;color:var(--ink2);font-size:13px;font-weight:600;cursor:pointer;text-align:center;padding:6px}
+.ph-add:hover{border-color:var(--or);color:var(--ord)}
+.ph-add:focus-within{outline:2.5px solid var(--or);outline-offset:2px}
+
 /* phones: full screen, buttons always in reach */
 @media (max-width:520px){
   .q-page{padding:0;min-height:100vh;min-height:100dvh}

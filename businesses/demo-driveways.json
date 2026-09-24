@@ -47,6 +47,13 @@
           "options": ["Drainage", "Edging or kerbs", "Dropped kerb", "Lighting", "Gates"]
         },
         {
+          "id": "photos",
+          "type": "photos",
+          "label": "Any photos of the driveway as it is now?",
+          "help": "Optional. Photos help Stonebeck plan the visit.",
+          "max": 5
+        },
+        {
           "id": "notes",
           "type": "text",
           "label": "Anything else we should know?",
@@ -79,6 +86,13 @@
           "type": "single",
           "label": "How do we get to the garden?",
           "options": ["Side gate", "Through the house", "Rear lane"]
+        },
+        {
+          "id": "photos",
+          "type": "photos",
+          "label": "Any photos of the garden where the patio would go?",
+          "help": "Optional. Photos help Stonebeck plan the visit.",
+          "max": 5
         },
         {
           "id": "notes",

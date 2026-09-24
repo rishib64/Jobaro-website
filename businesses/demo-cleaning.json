@@ -68,6 +68,13 @@
           ]
         },
         {
+          "id": "photos",
+          "type": "photos",
+          "label": "Any photos of the oven or areas that need extra work?",
+          "help": "Optional, but it helps Tidewell give you an accurate price.",
+          "max": 5
+        },
+        {
           "id": "date",
           "type": "date",
           "label": "When do you need it?",
@@ -204,6 +211,13 @@
             { "label": "Inside fridge", "price": 15 },
             { "label": "Carpet cleaning", "price": 40 }
           ]
+        },
+        {
+          "id": "photos",
+          "type": "photos",
+          "label": "Any photos of the areas that need the most work?",
+          "help": "Optional, but it helps Tidewell give you an accurate price.",
+          "max": 5
         },
         {
           "id": "date",
