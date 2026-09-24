@@ -1,0 +1,8 @@
+# Netlify headers. Lets widget.js on a business's own website read that business's
+# settings file (for the button colour). Nothing here affects the marketing site.
+/businesses/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=60, must-revalidate
+
+/widget.js
+  Cache-Control: public, max-age=300, must-revalidate

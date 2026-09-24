@@ -1,0 +1,224 @@
+{
+  "id": "demo-cleaning",
+  "businessName": "Tidewell Cleaning Co.",
+  "initials": "TC",
+  "brandColour": "#0F5257",
+  "email": "hello.jobaro@gmail.com",
+  "formEndpoint": "https://formspree.io/f/mzezgkrr",
+  "privacyNote": "Your details are only shared with Tidewell Cleaning Co. so they can reply to your quote request. They won't be used for marketing.",
+  "demo": true,
+  "services": [
+    {
+      "name": "End of tenancy clean",
+      "mode": "price",
+      "questions": [
+        {
+          "id": "property",
+          "type": "single",
+          "label": "What type of property is it?",
+          "options": [
+            { "label": "House", "price": 0 },
+            { "label": "Flat or apartment", "price": -10 },
+            { "label": "Maisonette", "price": 0 }
+          ]
+        },
+        {
+          "id": "bedrooms",
+          "type": "counter",
+          "label": "How many bedrooms?",
+          "unit": "bedrooms",
+          "min": 1,
+          "max": 8,
+          "default": 2,
+          "includedUnits": 1,
+          "pricePerUnit": 25
+        },
+        {
+          "id": "bathrooms",
+          "type": "counter",
+          "label": "How many bathrooms?",
+          "unit": "bathrooms",
+          "min": 1,
+          "max": 5,
+          "default": 1,
+          "includedUnits": 1,
+          "pricePerUnit": 20
+        },
+        {
+          "id": "condition",
+          "type": "single",
+          "label": "What condition is it in?",
+          "options": [
+            { "label": "Light", "hint": "recently cleaned", "multiply": 0.9 },
+            { "label": "Average", "hint": "normal wear", "multiply": 1 },
+            { "label": "Heavy", "hint": "needs extra time", "multiply": 1.25 }
+          ]
+        },
+        {
+          "id": "extras",
+          "type": "multiple",
+          "label": "Any extras?",
+          "help": "Choose any that you need. You can skip this step.",
+          "options": [
+            { "label": "Oven cleaning", "price": 25 },
+            { "label": "Inside windows", "price": 25 },
+            { "label": "Inside fridge", "price": 15 },
+            { "label": "Carpet cleaning", "price": 40 },
+            { "label": "Balcony or patio", "price": 15 }
+          ]
+        },
+        {
+          "id": "date",
+          "type": "date",
+          "label": "When do you need it?",
+          "help": "Pick your preferred date. Tidewell will confirm availability."
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Anything else we should know?",
+          "placeholder": "For example: parking, pets, key collection from the letting agent",
+          "required": false
+        }
+      ],
+      "pricing": { "base": 105, "rangePercent": 8 }
+    },
+    {
+      "name": "Regular clean",
+      "mode": "price",
+      "questions": [
+        {
+          "id": "frequency",
+          "type": "single",
+          "label": "How often would you like a clean?",
+          "options": [
+            { "label": "Weekly", "multiply": 1 },
+            { "label": "Fortnightly", "multiply": 1.1 },
+            { "label": "Monthly", "multiply": 1.2 },
+            { "label": "Just once", "multiply": 1.35 }
+          ]
+        },
+        {
+          "id": "bedrooms",
+          "type": "counter",
+          "label": "How many bedrooms?",
+          "unit": "bedrooms",
+          "min": 1,
+          "max": 8,
+          "default": 2,
+          "includedUnits": 1,
+          "pricePerUnit": 10
+        },
+        {
+          "id": "bathrooms",
+          "type": "counter",
+          "label": "How many bathrooms?",
+          "unit": "bathrooms",
+          "min": 1,
+          "max": 5,
+          "default": 1,
+          "includedUnits": 1,
+          "pricePerUnit": 8
+        },
+        {
+          "id": "extras",
+          "type": "multiple",
+          "label": "Any extras?",
+          "help": "Choose any that you need. You can skip this step.",
+          "options": [
+            { "label": "Ironing (1 hour)", "price": 15 },
+            { "label": "Change bed linen", "price": 10 },
+            { "label": "Inside fridge", "price": 15 },
+            { "label": "Oven cleaning", "price": 25 }
+          ]
+        },
+        {
+          "id": "date",
+          "type": "date",
+          "label": "When would you like to start?"
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Anything else we should know?",
+          "placeholder": "For example: pets, how we get in, rooms to skip",
+          "required": false
+        }
+      ],
+      "pricing": { "base": 45, "rangePercent": 10 }
+    },
+    {
+      "name": "Deep clean",
+      "mode": "price",
+      "questions": [
+        {
+          "id": "property",
+          "type": "single",
+          "label": "What type of property is it?",
+          "options": [
+            { "label": "House", "price": 0 },
+            { "label": "Flat or apartment", "price": -10 },
+            { "label": "Maisonette", "price": 0 }
+          ]
+        },
+        {
+          "id": "bedrooms",
+          "type": "counter",
+          "label": "How many bedrooms?",
+          "unit": "bedrooms",
+          "min": 1,
+          "max": 8,
+          "default": 2,
+          "includedUnits": 1,
+          "pricePerUnit": 35
+        },
+        {
+          "id": "bathrooms",
+          "type": "counter",
+          "label": "How many bathrooms?",
+          "unit": "bathrooms",
+          "min": 1,
+          "max": 5,
+          "default": 1,
+          "includedUnits": 1,
+          "pricePerUnit": 25
+        },
+        {
+          "id": "condition",
+          "type": "single",
+          "label": "What condition is it in?",
+          "options": [
+            { "label": "Light", "hint": "recently cleaned", "multiply": 0.9 },
+            { "label": "Average", "hint": "normal wear", "multiply": 1 },
+            { "label": "Heavy", "hint": "needs extra time", "multiply": 1.3 }
+          ]
+        },
+        {
+          "id": "extras",
+          "type": "multiple",
+          "label": "Any extras?",
+          "help": "Choose any that you need. You can skip this step.",
+          "options": [
+            { "label": "Oven cleaning", "price": 25 },
+            { "label": "Inside windows", "price": 25 },
+            { "label": "Inside fridge", "price": 15 },
+            { "label": "Carpet cleaning", "price": 40 }
+          ]
+        },
+        {
+          "id": "date",
+          "type": "date",
+          "label": "When do you need it?"
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Anything else we should know?",
+          "placeholder": "For example: problem areas, parking, pets",
+          "required": false
+        }
+      ],
+      "pricing": { "base": 150, "rangePercent": 10 }
+    }
+  ]
+}

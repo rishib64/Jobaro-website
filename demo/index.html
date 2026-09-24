@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tidewell Cleaning Co. · Demo website</title>
+<meta name="robots" content="noindex">
+<style>
+  /* An ordinary small-business website. The broad rules below (*, button, iframe, div)
+     are deliberate: they check that the Jobaro widget isn't affected by the host's CSS. */
+  * { box-sizing: border-box; font-family: Georgia, "Times New Roman", serif; }
+  body { margin: 0; background: #F2F7F6; color: #0E3B3E; line-height: 1.6; }
+  a { color: #0F5257; }
+  button { background: #0F5257; color: #fff; border: 0; border-radius: 4px; padding: 14px 22px; font-size: 16px; cursor: pointer; }
+  iframe { border: 6px solid hotpink; }
+  div { letter-spacing: .02em; }
+  .note { background: #16181D; color: #fff; font: 14px/1.5 system-ui, sans-serif; padding: 10px 16px; text-align: center; }
+  .note * { font-family: system-ui, sans-serif; }
+  .note code { overflow-wrap: anywhere; background: #2A2E36; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, monospace; font-size: 12.5px; }
+  .note a { color: #FFB080; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; max-width: 1080px; margin: 0 auto; flex-wrap: wrap; }
+  .logo { font-weight: 700; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+  .logo i { width: 26px; height: 26px; border-radius: 7px; background: #0F5257; display: inline-block; }
+  nav a { margin-left: 18px; text-decoration: none; }
+  .hero { max-width: 1080px; margin: 0 auto; padding: 60px 24px 40px; }
+  .hero small { text-transform: uppercase; letter-spacing: .1em; font-size: 12px; opacity: .7; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 10px 0 16px; font-weight: 700; }
+  .hero p { font-size: 19px; max-width: 34em; opacity: .85; }
+  .services { max-width: 1080px; margin: 0 auto; padding: 20px 24px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: #fff; border-radius: 10px; padding: 22px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card h2 { margin: 0 0 8px; font-size: 21px; }
+  .card button { margin-top: 10px; padding: 10px 16px; font-size: 15px; }
+  footer { text-align: center; padding: 30px 20px 90px; font-size: 14px; opacity: .7; }
+</style>
+</head>
+<body>
+
+<div class="note">This is a pretend business website for testing the Jobaro widget. Quotes sent from here go to the Jobaro demo inbox. The only Jobaro code on this page is one line: <code>&lt;script src="https://jobaro.netlify.app/widget.js" data-business="demo-cleaning"&gt;&lt;/script&gt;</code> · <a href="/demo/driveways.html">Try the driveways (site visit) demo</a></div>
+
+<header>
+  <div class="logo"><i></i>Tidewell Cleaning Co.</div>
+  <nav><a href="#services">Services</a><a href="#about">About</a><a href="#" data-jobaro-open>Get a quote</a></nav>
+</header>
+
+<section class="hero">
+  <small>Domestic &amp; end of tenancy cleaning · Cambridge</small>
+  <h1>Professional cleaning services in Cambridge.</h1>
+  <p>Local, insured cleaners for regular, deep and end of tenancy cleans in Cambridge and nearby villages.</p>
+  <button type="button" data-jobaro-open>Get an instant quote</button>
+</section>
+
+<section class="services" id="services">
+  <div class="card"><h2>End of tenancy</h2><p>Get your deposit back with a thorough top-to-bottom clean.</p><button type="button" data-jobaro-open="end-of-tenancy-clean">Price my clean</button></div>
+  <div class="card"><h2>Regular cleaning</h2><p>Weekly, fortnightly or monthly, with the same friendly cleaner.</p><button type="button" data-jobaro-open="regular-clean">Price my clean</button></div>
+  <div class="card"><h2>Deep cleaning</h2><p>Kitchens, bathrooms and all the places that get missed.</p><button type="button" data-jobaro-open="deep-clean">Price my clean</button></div>
+</section>
+
+<section class="hero" id="about" style="padding-top:0">
+  <h2>About us</h2>
+  <p>We're a small, family-run team. Fully insured, eco products as standard.</p>
+</section>
+
+<footer>© Tidewell Cleaning Co. (a fictional business used to demonstrate Jobaro)</footer>
+
+<script src="/widget.js" data-business="demo-cleaning"></script>
+</body>
+</html>

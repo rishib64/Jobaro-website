@@ -1,0 +1,93 @@
+{
+  "id": "demo-driveways",
+  "businessName": "Stonebeck Driveways",
+  "initials": "SD",
+  "brandColour": "#2B3038",
+  "email": "hello.jobaro@gmail.com",
+  "formEndpoint": "https://formspree.io/f/mzezgkrr",
+  "privacyNote": "Your details are only shared with Stonebeck Driveways so they can arrange your visit. They won't be used for marketing.",
+  "demo": true,
+  "services": [
+    {
+      "name": "New driveway",
+      "mode": "visit",
+      "questions": [
+        {
+          "id": "size",
+          "type": "size",
+          "label": "Roughly how big is the area?",
+          "help": "A best guess is fine. Most single driveways are 30–50 m².",
+          "min": 5,
+          "max": 400,
+          "default": 45
+        },
+        {
+          "id": "surface",
+          "type": "single",
+          "label": "What's there at the moment?",
+          "options": ["Gravel", "Concrete", "Old tarmac", "Block paving", "Lawn or soil"]
+        },
+        {
+          "id": "material",
+          "type": "single",
+          "label": "What would you like?",
+          "options": ["Block paving", "Resin bound", "Tarmac", "Gravel", "Not sure yet"]
+        },
+        {
+          "id": "access",
+          "type": "single",
+          "label": "Can a mini digger reach the area?",
+          "options": ["Yes, easily", "Narrow access", "Not sure"]
+        },
+        {
+          "id": "extras",
+          "type": "multiple",
+          "label": "Anything else you'd like?",
+          "help": "Choose any that apply. You can skip this step.",
+          "options": ["Drainage", "Edging or kerbs", "Dropped kerb", "Lighting", "Gates"]
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Anything else we should know?",
+          "placeholder": "For example: slopes, trees, parking restrictions",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "Patio",
+      "mode": "visit",
+      "questions": [
+        {
+          "id": "size",
+          "type": "size",
+          "label": "Roughly how big would the patio be?",
+          "help": "A best guess is fine. A small patio is around 10–15 m².",
+          "min": 2,
+          "max": 200,
+          "default": 15
+        },
+        {
+          "id": "material",
+          "type": "single",
+          "label": "What material would you like?",
+          "options": ["Indian sandstone", "Porcelain", "Concrete slabs", "Not sure yet"]
+        },
+        {
+          "id": "access",
+          "type": "single",
+          "label": "How do we get to the garden?",
+          "options": ["Side gate", "Through the house", "Rear lane"]
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Anything else we should know?",
+          "placeholder": "For example: existing patio to remove, steps, drainage",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Get a quote · jobaro</title>
+<meta name="description" content="Answer a few quick questions and get a price straight away.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M11 45 L3 52 L15 50 Z' fill='%2316181D'/%3E%3Cpath d='M33 9 C48 9 56 21 56 35 C56 49 46 58 32 58 C18 58 9 49 9 36 C9 21 18 9 33 9Z' fill='%23F2651C'/%3E%3Cellipse cx='37' cy='45' rx='13' ry='9.5' fill='%23FFD9C0'/%3E%3Cpath d='M15 33 C17 45 25 49 34 47 C26 44 22 38 21 30 Z' fill='%23C9480A'/%3E%3Cpath d='M27 11 C27 5 31 2 36 3 C33 5 32 7 32.5 9.5 Z' fill='%2316181D'/%3E%3Ccircle cx='39' cy='26' r='7.5' fill='%23fff'/%3E%3Ccircle cx='41' cy='26.5' r='3.8' fill='%2316181D'/%3E%3Cpath d='M30.5 23.6 Q39 19.2 46.5 22.8 L46.5 16 L30.5 16 Z' fill='%23F2651C'/%3E%3Cpath d='M31 23.6 Q39 19.6 46.5 22.8' stroke='%2316181D' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M54.5 27 L62 31 L54.5 35 Z' fill='%2316181D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="/quote/quote.css">
+</head>
+<body>
+
+<!-- The Jobaro bird (same as the marketing site) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="jb-bird" viewBox="0 0 64 64">
+    <path d="M11 45 L3 52 L15 50 Z" fill="#16181D"/>
+    <path d="M33 9 C48 9 56 21 56 35 C56 49 46 58 32 58 C18 58 9 49 9 36 C9 21 18 9 33 9Z" fill="#F2651C"/>
+    <ellipse cx="37" cy="45" rx="13" ry="9.5" fill="#FFD9C0"/>
+    <path d="M15 33 C17 45 25 49 34 47 C26 44 22 38 21 30 Z" fill="#C9480A"/>
+    <path d="M27 11 C27 5 31 2 36 3 C33 5 32 7 32.5 9.5 Z" fill="#16181D"/>
+    <circle cx="39" cy="26" r="7.5" fill="#fff"/>
+    <circle cx="41" cy="26.5" r="3.8" fill="#16181D"/>
+    <circle cx="42.3" cy="25.2" r="1.1" fill="#fff"/>
+    <path d="M30.5 23.6 Q39 19.2 46.5 22.8 L46.5 16 L30.5 16 Z" fill="#F2651C"/>
+    <path d="M31 23.6 Q39 19.6 46.5 22.8" stroke="#16181D" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M54.5 27 L62 31 L54.5 35 Z" fill="#16181D"/>
+  </symbol>
+</svg>
+
+<main class="q-page">
+  <div class="q" id="q" aria-live="polite">
+    <div class="q-loading"><svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><use href="#jb-bird"/></svg><p>Loading your quote form…</p></div>
+  </div>
+</main>
+
+<noscript><p style="text-align:center;padding:20px;font-family:sans-serif">Please turn on JavaScript to use this quote form.</p></noscript>
+<script src="/quote/quote.js"></script>
+</body>
+</html>
